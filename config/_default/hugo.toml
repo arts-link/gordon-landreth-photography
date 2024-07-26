@@ -1,0 +1,55 @@
+copyright = "© 2024 Gordon Landreth Photography"
+defaultContentLanguage = "en"
+disableKinds = ["taxonomy", "term"]
+enableRobotsTXT = true
+languageCode = "en"
+timeZone = "America/Los_Angeles"
+timeout = "120s"
+title = "Gordon Landreth Photography"
+
+[params]
+  defaultTheme = "dark"
+  description = "Gordon Landreth photo albums"
+  title = "Gordon Landreth Photography"
+  [params.author]
+    email = "ben@benstrawbridge.com"
+    name = "Ben Strawbridge"
+  [params.socialIcons]
+    #facebook = "https://www.facebook.com/"
+    #instagram = "https://www.instagram.com/"
+    github = "https://github.com/arts-link/gordon-landreth-photography/"
+    #youtube = "https://www.youtube.com/"
+    email = "mailto:ben@benstrawbridge.com"
+    website = "https://www.benstrawbridge.com"
+    #mastodon = "https://example.com"
+    #pixelfed = "https://example.com"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  page = ["HTML"]
+  section = ["HTML"]
+
+[imaging]
+  quality = 75
+  resampleFilter = "CatmullRom"
+  [imaging.exif]
+    disableDate = false
+    disableLatLong = true
+    includeFields = "ImageDescription|Orientation"
+
+[module]
+  [module.hugoVersion]
+    min = "0.121.2"
+  [[module.imports]]
+    path = "github.com/nicokaiser/hugo-theme-gallery/v4"
+
+[menu]
+  [[menu.footer]]
+    name = "Website by arts-link.com"
+    url = "https://www.arts-link.com/"
+    weight = 3
+
+
+[services]
+  [services.rss]
+    limit = 100
