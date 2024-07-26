@@ -1,5 +1,5 @@
 ---
-description: The photo albums from Gordon Landreth's life
+description: The photo albums of Gordon Landreth's life
 title: Gordon Landreth Photography
 #lastmod: 2023-07-05
 #featured_image: martin-martz-wRuhOOaG-Z4-unsplash.jpg # default: first image in this directory
