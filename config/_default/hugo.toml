@@ -17,10 +17,10 @@ title = "Gordon Landreth Photography"
   [params.socialIcons]
     #facebook = "https://www.facebook.com/"
     #instagram = "https://www.instagram.com/"
-    github = "https://github.com/arts-link/gordon-landreth-photography/"
+    #github = "https://github.com/arts-link/gordon-landreth-photography/"
     #youtube = "https://www.youtube.com/"
-    email = "mailto:ben@benstrawbridge.com"
-    website = "https://www.benstrawbridge.com"
+    #email = "mailto:ben@benstrawbridge.com"
+    #website = "https://www.benstrawbridge.com"
     #mastodon = "https://example.com"
     #pixelfed = "https://example.com"
 
