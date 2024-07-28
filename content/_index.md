@@ -7,6 +7,6 @@ title: Gordon Landreth Photography
 menus:
   main:
     name: Gordon Landreth Photography 
-    weight: -1
+    weight: -2
 # sub-galleries on list pages are sorted by date and weight (descending)
 ---

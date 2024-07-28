@@ -53,3 +53,10 @@ title = "Gordon Landreth Photography"
 [services]
   [services.rss]
     limit = 100
+
+[deployment]
+
+  [[deployment.targets]]
+    # An arbitrary name for this target.
+    name = "production"
+    URL = "s3://gordon-landreth-photography.arts-link.com?region=us-east-2"

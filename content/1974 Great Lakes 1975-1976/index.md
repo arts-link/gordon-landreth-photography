@@ -1,5 +1,5 @@
 ---
 menus: main
-title: "1973 Great Lates 1975 - 1976"
+title: "1973 - 1976 Great Lakes +"
 weight: 38 
 ---
