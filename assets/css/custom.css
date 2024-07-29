@@ -1,5 +1,4 @@
-/* Apply the 'Cormorant Garamond' font to headers */
-h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: bold
+/* Apply custom css classes here */
+h2 {
+  font-weight: bold !important;
 }

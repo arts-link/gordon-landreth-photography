@@ -19,3 +19,7 @@ Graduated first in his class franklin & marshall college, 1931.
 ## This website
 
 This website is an [arts-link.com project](https://www.arts-link.com) created using open source software and tools. The website is built with [hugo](https://gohugo.io/) using [hugo-theme-gallery](https://github.com/nicokaiser/hugo-theme-gallery) and hosted on cloudfront in an S3 bucket. 
+
+## Important Notice
+
+Please respect the ownership of these photos. All images on this website are the property of Gordon Landreth's family and are not in the public domain. Just because these photos are accessible online does not mean they are free to use, copy, or distribute. We kindly ask that you do not steal or misuse them. Thank you for your understanding and cooperation.

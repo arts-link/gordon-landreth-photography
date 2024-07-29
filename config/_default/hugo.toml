@@ -6,6 +6,7 @@ languageCode = "en"
 timeZone = "America/Los_Angeles"
 timeout = "120s"
 title = "Gordon Landreth Photography"
+private = true
 
 [params]
   defaultTheme = "dark"
@@ -17,7 +18,7 @@ title = "Gordon Landreth Photography"
   [params.socialIcons]
     #facebook = "https://www.facebook.com/"
     #instagram = "https://www.instagram.com/"
-    #github = "https://github.com/arts-link/gordon-landreth-photography/"
+    github = "https://github.com/arts-link/gordon-landreth-photography/"
     #youtube = "https://www.youtube.com/"
     #email = "mailto:ben@benstrawbridge.com"
     #website = "https://www.benstrawbridge.com"
@@ -55,7 +56,6 @@ title = "Gordon Landreth Photography"
     limit = 100
 
 [deployment]
-
   [[deployment.targets]]
     # An arbitrary name for this target.
     name = "production"
