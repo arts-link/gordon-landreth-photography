@@ -11,10 +11,9 @@ menu:
 ---
 Gordon Landreth was my grandfather. He was a talented amateur photographer who kept albums all through his life. This site is a collection of those albums. 
 
-William Gordon Landreth was born on August 28,1909.  Six months after his birth the family moved back to Reamstown Pennsylvania.  Gordon married Karthryn K. Kreider on August 14, 1937.
-Died: 1993  
+William Gordon Landreth was born on August 28,1909.  Six months after his birth the family moved back to Reamstown Pennsylvania.  Gordon married Karthryn K. Kreider on August 14, 1937.  Gordon died in 1993.   
 
-Graduated first in his class franklin & marshall college, 1931.
+Gordon graduated first in his class at franklin & marshall college, 1931.
 
 ## This website
 

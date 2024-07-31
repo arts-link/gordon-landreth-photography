@@ -1,6 +1,6 @@
 copyright = "© 2024 Gordon Landreth Photography"
 defaultContentLanguage = "en"
-disableKinds = ["taxonomy", "term"]
+# disableKinds = ["taxonomy", "term"]
 enableRobotsTXT = true
 languageCode = "en"
 timeZone = "America/Los_Angeles"
