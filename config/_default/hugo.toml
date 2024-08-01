@@ -1,3 +1,4 @@
+baseURL = "https://gordon-landreth-photography.arts-link.com"
 copyright = "© 2024 Gordon Landreth Photography"
 defaultContentLanguage = "en"
 # disableKinds = ["taxonomy", "term"]
