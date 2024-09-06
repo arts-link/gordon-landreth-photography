@@ -48,7 +48,7 @@ private = true
 [menu]
   [[menu.footer]]
     name = "Website by arts-link.com"
-    url = "https://www.arts-link.com/"
+    url = "https://www.arts-link.com/?utm_source=gordon-landreth-photography&utm_medium=footer&utm_campaign=website"
     weight = 3
 
 
@@ -56,8 +56,4 @@ private = true
   [services.rss]
     limit = 100
 
-[deployment]
-  [[deployment.targets]]
-    # An arbitrary name for this target.
-    name = "production"
-    URL = "s3://gordon-landreth-photography.arts-link.com?region=us-east-2"
+

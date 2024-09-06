@@ -1,4 +1,5 @@
 /* Apply custom css classes here */
-h2 {
+.prose h2 {
+  font-size: 3em !important;
   font-weight: bold !important;
 }

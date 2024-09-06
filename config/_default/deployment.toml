@@ -1,0 +1,14 @@
+[[targets]]
+  # An arbitrary name for this target.
+  name = "production"
+  URL = "s3://gordon-landreth-photography.arts-link.com?region=us-east-2"
+  cloudFrontDistributionID = "EPSVMGZTAOYO2"
+
+[[matchers]]
+  pattern = "^.+\\.(js|css|svg|ttf|woff|woff2|eot|png|gif|pdf)$"
+  cacheControl = "max-age=630720000, no-transform, public"
+  gzip = true
+
+[[matchers]]
+  pattern = "^.+\\.(html|xml|json)$"
+  gzip = true
