@@ -6,12 +6,12 @@ enableRobotsTXT = true
 languageCode = "en"
 timeZone = "America/Los_Angeles"
 timeout = "120s"
-title = "Gordon Landreth Photography"
+title = ""
 private = true
 
 [params]
   defaultTheme = "dark"
-  description = "Gordon Landreth photo albums"
+  description = "The photo albums of Gordon Landreth's life."
   title = "Gordon Landreth Photography"
   [params.author]
     email = "ben@benstrawbridge.com"
@@ -25,7 +25,10 @@ private = true
     #website = "https://www.benstrawbridge.com"
     #mastodon = "https://example.com"
     #pixelfed = "https://example.com"
-
+  [params.gallerydeluxe.watermark]
+    image = "images/benstraw.png" # relative to /assets
+    posx  = "right"                    # one of "left", "center", "right"
+    posy  = "bottom"                  # one of "top", "center", "bottom"
 [outputs]
   home = ["HTML", "RSS"]
   page = ["HTML"]
