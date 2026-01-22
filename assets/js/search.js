@@ -242,9 +242,9 @@ function renderResult(result, query, matchType) {
 
   // Build thumbnail URL for pages
   let thumbnailUrl = '';
-  if (item.type === 'page' && item.page_path) {
-    // Use the page_path to construct the image URL
-    thumbnailUrl = `/${item.page_path}`;
+  if (item.type === 'page' && item.album_url_slug && item.page_filename) {
+    // Construct URL using slug (not path) to avoid space encoding issues
+    thumbnailUrl = `/${item.album_url_slug}/${item.page_filename}`;
   }
 
   return `
