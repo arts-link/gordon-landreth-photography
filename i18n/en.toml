@@ -1,0 +1,19 @@
+[albums]
+other = "Albums"
+
+[pageNotFound]
+other = "Page not found"
+
+[toHomepage]
+other = "Go to homepage"
+
+[photoCount]
+one = "1 page"
+other = "{{ . }} pages"
+
+[albumCount]
+one = "{{ .photoCount }} in {{ .count }} album"
+other = "{{ .photoCount }} in {{ .count }} albums"
+
+[home]
+other = "Home"

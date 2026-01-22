@@ -1,0 +1,59 @@
+{{ define "main" }}
+<article class="search-page">
+  <header class="search-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="search-intro">{{ . }}</div>
+    {{ end }}
+  </header>
+
+  <div class="search-container">
+    <div class="search-input-wrapper">
+      <input
+        type="search"
+        id="search-input"
+        class="search-input"
+        placeholder="Search album captions..."
+        autocomplete="off"
+        aria-label="Search photo album captions"
+      >
+      <button id="search-clear" class="search-clear" aria-label="Clear search" style="display: none;">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="search-loading" class="search-loading" style="display: none;">
+      <div class="loading-spinner"></div>
+      <p>Loading search index...</p>
+    </div>
+
+    <div id="search-meta" class="search-meta" style="display: none;">
+      <p id="search-count"></p>
+    </div>
+
+    <div id="search-results" class="search-results"></div>
+
+    <div id="search-empty" class="search-empty" style="display: none;">
+      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2"/>
+        <path d="M15 15L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <p>No results found</p>
+      <p class="search-empty-hint">Try different keywords or check your spelling</p>
+    </div>
+
+    <div id="search-initial" class="search-initial">
+      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2"/>
+        <path d="M15 15L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <p>Start typing to search across {{ .Site.Data.stats.totalAlbums | default "46" }} albums</p>
+    </div>
+  </div>
+</article>
+
+{{ $searchJS := resources.Get "js/search.js" | resources.Minify | resources.Fingerprint }}
+<script src="{{ $searchJS.RelPermalink }}" defer></script>
+{{ end }}
