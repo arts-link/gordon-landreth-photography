@@ -18,3 +18,9 @@ frontmatter.json
 # Windows
 Thumbs.db
 Desktop.ini
+
+# Python
+venv/
+*.pyc
+__pycache__/
+*.py[cod]
