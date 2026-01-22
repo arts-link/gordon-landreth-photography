@@ -49,7 +49,7 @@ async function initializeSearch() {
     // Initialize Fuse.js with OCR-optimized configuration
     fuse = new Fuse(searchIndex, {
       keys: [
-        { name: 'album_title', weight: 3 },
+        { name: 'album_title', weight: 2 },
         { name: 'searchable_text', weight: 1 }
       ],
       threshold: 0.4, // Permissive for OCR errors
@@ -147,6 +147,129 @@ function highlightSearchTerms(text, query) {
   }).join('');
 }
 
+// Extract page number from filename (e.g., "_Page 01" or "_Page-01" → 1)
+function extractPageNumber(filename) {
+  if (!filename) return null;
+  const match = filename.match(/_Page[-\s]?(\d+)/i);
+  if (match) {
+    return parseInt(match[1], 10);
+  }
+  return null;
+}
+
+// Format page title as "Album Title: Page #"
+function formatPageTitle(albumTitle, filename) {
+  const pageNum = extractPageNumber(filename);
+  if (pageNum) {
+    return `${albumTitle}: Page ${pageNum}`;
+  }
+  return filename; // Fallback if pattern doesn't match
+}
+
+// Categorize results by match type (album title vs caption)
+function categorizeResults(results) {
+  const albumMatches = [];
+  const captionMatches = [];
+  const albumTitlesMatched = new Set();
+
+  results.forEach(result => {
+    const item = result.item;
+    const matches = result.matches || [];
+
+    // Determine which field matched
+    const albumTitleMatched = matches.some(m => m.key === 'album_title');
+    const captionMatched = matches.some(m => m.key === 'searchable_text');
+
+    if (albumTitleMatched) {
+      // Track which album titles have matched
+      if (item.type === 'album') {
+        albumTitlesMatched.add(item.album_title);
+        albumMatches.push(result);
+      } else if (item.type === 'page') {
+        // Only include page if we haven't seen the album title match
+        if (!albumTitlesMatched.has(item.album_title)) {
+          albumMatches.push(result);
+        }
+      }
+    } else if (captionMatched) {
+      captionMatches.push(result);
+    }
+  });
+
+  // Second pass: remove page-level entries if album-level entry exists
+  const finalAlbumMatches = albumMatches.filter(result => {
+    if (result.item.type === 'page') {
+      // Check if an album entry exists for this album_title
+      const hasAlbumEntry = albumMatches.some(r =>
+        r.item.type === 'album' && r.item.album_title === result.item.album_title
+      );
+      return !hasAlbumEntry;
+    }
+    return true;
+  });
+
+  return {
+    albumMatches: finalAlbumMatches,
+    captionMatches
+  };
+}
+
+// Render a single result card
+function renderResult(result, query, matchType) {
+  const item = result.item;
+
+  // Get excerpt with first few captions
+  const excerpt = getExcerptCaptions(item.captions, 3);
+
+  // Highlight search terms in excerpt and title
+  const highlightedExcerpt = excerpt ? highlightSearchTerms(excerpt, query) : '';
+  const highlightedTitle = highlightSearchTerms(item.album_title, query);
+
+  // Build link URL: album URL + optional hash for specific image
+  const linkUrl = item.album_url_slug
+    ? `/${item.album_url_slug}/${item.image_index !== undefined ? '#' + item.image_index : ''}`
+    : `/${item.page_path || item.album_path}`;
+
+  // Determine display title
+  let displayTitle;
+  if (item.type === 'page') {
+    // For pages: use formatted "Album: Page #" title
+    displayTitle = formatPageTitle(item.album_title, item.page_filename);
+  } else {
+    // For albums: use album title
+    displayTitle = item.album_title;
+  }
+
+  // Build thumbnail URL for pages
+  let thumbnailUrl = '';
+  if (item.type === 'page' && item.page_path) {
+    // Use the page_path to construct the image URL
+    thumbnailUrl = `/${item.page_path}`;
+  }
+
+  return `
+    <div class="search-result ${thumbnailUrl ? 'search-result--with-thumbnail' : ''}">
+      ${thumbnailUrl ? `
+        <a href="${linkUrl}" class="result-thumbnail">
+          <img src="${thumbnailUrl}" alt="${escapeHtml(displayTitle)}" loading="lazy">
+        </a>
+      ` : ''}
+      <div class="result-content">
+        ${item.type === 'album' ? `<div class="result-album-title">${highlightedTitle}</div>` : ''}
+        <div class="result-page-title">
+          <a href="${linkUrl}">${item.type === 'page' ? escapeHtml(displayTitle) : highlightedTitle}</a>
+        </div>
+        ${highlightedExcerpt ? `
+          <div class="result-excerpt">${highlightedExcerpt}</div>
+        ` : ''}
+        <div class="result-footer">
+          <a href="${linkUrl}" class="result-link">View ${item.type === 'album' ? 'Album' : 'Page'} →</a>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 // Display search results
 function displayResults(results, query) {
   if (results.length === 0) {
@@ -160,49 +283,41 @@ function displayResults(results, query) {
   searchEmpty.style.display = 'none';
   searchInitial.style.display = 'none';
   searchMeta.style.display = 'block';
-  searchCount.textContent = `Found ${results.length} result${results.length === 1 ? '' : 's'}`;
 
-  // Limit to first 50 results for performance
-  const displayResults = results.slice(0, 50);
+  // Limit to first 100 results for performance
+  const limitedResults = results.slice(0, 100);
 
-  const html = displayResults.map(result => {
-    const item = result.item;
+  // Categorize results
+  const { albumMatches, captionMatches } = categorizeResults(limitedResults);
 
-    // Get excerpt with first few captions
-    const excerpt = getExcerptCaptions(item.captions, 3);
+  // Update count display with breakdown
+  searchCount.textContent = `Found ${results.length} result${results.length === 1 ? '' : 's'} (${albumMatches.length} album, ${captionMatches.length} caption)`;
 
-    // Highlight search terms in excerpt and title
-    const highlightedExcerpt = excerpt ? highlightSearchTerms(excerpt, query) : '';
-    const highlightedTitle = highlightSearchTerms(item.album_title, query);
+  let html = '';
 
-    // Build link URL: album URL + optional hash for specific image
-    const linkUrl = item.album_url_slug
-      ? `/${item.album_url_slug}/${item.image_index !== undefined ? '#' + item.image_index : ''}`
-      : `/${item.page_path || item.album_path}`;
+  // Section 1: Album Title Matches
+  if (albumMatches.length > 0) {
+    html += '<div class="results-section">';
+    html += '<h2 class="results-section-title">Album Title Matches</h2>';
+    html += albumMatches.map(result => renderResult(result, query, 'album')).join('');
+    html += '</div>';
+  }
 
-    return `
-      <div class="search-result">
-        <div class="result-album-title">${highlightedTitle}</div>
-        <div class="result-page-title">
-          <a href="${linkUrl}">${escapeHtml(item.page_filename || item.album)}</a>
-        </div>
-        ${highlightedExcerpt ? `
-          <div class="result-excerpt">${highlightedExcerpt}</div>
-        ` : ''}
-        <div class="result-footer">
-          <a href="${linkUrl}" class="result-link">View Page →</a>
-        </div>
-      </div>
-    `;
-  }).join('');
+  // Section 2: Caption Matches
+  if (captionMatches.length > 0) {
+    html += '<div class="results-section">';
+    html += '<h2 class="results-section-title">Caption Matches</h2>';
+    html += captionMatches.map(result => renderResult(result, query, 'caption')).join('');
+    html += '</div>';
+  }
 
   searchResults.innerHTML = html;
 
   // Add "showing X of Y" message if results were limited
-  if (results.length > 50) {
+  if (results.length > 100) {
     searchResults.innerHTML += `
       <div class="search-limit-notice">
-        Showing first 50 of ${results.length} results. Try refining your search.
+        Showing first 100 of ${results.length} results. Try refining your search.
       </div>
     `;
   }

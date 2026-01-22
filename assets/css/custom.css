@@ -135,6 +135,39 @@
   transform: translateY(-2px);
 }
 
+/* Result card with thumbnail layout */
+.search-result--with-thumbnail {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.result-thumbnail {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #e5e5e5;
+  display: block;
+}
+
+.result-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.result-thumbnail:hover img {
+  transform: scale(1.05);
+}
+
+.result-content {
+  flex: 1;
+  min-width: 0; /* Allow text to wrap/truncate properly */
+}
+
 .result-album-title {
   font-size: 0.85rem;
   text-transform: uppercase;
@@ -203,6 +236,37 @@
   padding: 0.1em 0.2em;
   border-radius: 2px;
   font-weight: 500;
+}
+
+/* Results section grouping */
+.results-section {
+  margin-bottom: 2.5rem;
+}
+
+.results-section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #333;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #007bff;
+}
+
+/* Dark theme support */
+body.dark .results-section-title {
+  color: #e5e5e5;
+  border-bottom-color: #4a9eff;
+}
+
+/* Adjust spacing for result cards within sections */
+.results-section .search-result {
+  margin-bottom: 1rem;
+}
+
+.results-section .search-result:last-child {
+  margin-bottom: 0;
 }
 
 /* Empty State */
@@ -294,6 +358,11 @@
     padding: 1rem;
   }
 
+  .result-thumbnail {
+    width: 100px;
+    height: 100px;
+  }
+
   .result-page-title a {
     font-size: 1.1rem;
   }
@@ -314,5 +383,10 @@
 
   .search-result {
     padding: 0.875rem;
+  }
+
+  .result-thumbnail {
+    width: 80px;
+    height: 80px;
   }
 }
