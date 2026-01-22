@@ -255,6 +255,39 @@ Optional upgrades:
 
 ---
 
+## Fast Search Index Rebuild
+
+When you need to regenerate the search index without re-running OCR (fixing slug bugs, testing, updating metadata):
+
+```bash
+python3 ocr_scripts/rebuild_search_index.py
+```
+
+**Performance:**
+- Full OCR run: 8+ hours (processes images with OpenCV + Tesseract)
+- Index rebuild: 3-5 seconds (reads existing JSON files)
+
+**When to use:**
+- Fixing URL slug generation bugs
+- Testing search functionality
+- Updating album titles in `index.md` frontmatter
+- Changing search index schema
+- Development iteration
+
+**When NOT to use:**
+- Adding new albums (need full OCR run first)
+- Changing OCR processing logic
+- Updating caption extraction
+
+**How it works:**
+- Reads existing `ocr_captions.json` files from each album directory
+- Extracts album metadata from `index.md` frontmatter
+- Regenerates URL slugs with fixed Unicode apostrophe handling
+- Combines all data into a new `static/search/search-index.json`
+- No image processing, no OCR dependencies required
+
+---
+
 ## Image Linking Strategy
 
 Each search result links directly to the image using:

@@ -24,3 +24,6 @@ venv/
 *.pyc
 __pycache__/
 *.py[cod]
+
+# Hugo modules
+_vendor/

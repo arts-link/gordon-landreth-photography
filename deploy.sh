@@ -9,8 +9,8 @@ PROFILE=arts-link  # Change this to 'benstraw' if needed
 # Function to save the original default profile credentials
 save_default_credentials() {
     # Extract the original aws_access_key_id and aws_secret_access_key from the default profile
-    ORIGINAL_AWS_ACCESS_KEY_ID=$(awk '/^\[default\]/ {flag=1; next} /^\[/ {flag=0} flag && /aws_access_key_id/ {print $3}' "$AWS_CREDENTIALS_FILE")
-    ORIGINAL_AWS_SECRET_ACCESS_KEY=$(awk '/^\[default\]/ {flag=1; next} /^\[/ {flag=0} flag && /aws_secret_access_key/ {print $3}' "$AWS_CREDENTIALS_FILE")
+    ORIGINAL_AWS_ACCESS_KEY_ID=$(awk -F '=' '/^\[default\]/ {flag=1; next} /^\[/ {flag=0} flag && /aws_access_key_id/ {print $2}' "$AWS_CREDENTIALS_FILE" | xargs)
+    ORIGINAL_AWS_SECRET_ACCESS_KEY=$(awk -F '=' '/^\[default\]/ {flag=1; next} /^\[/ {flag=0} flag && /aws_secret_access_key/ {print $2}' "$AWS_CREDENTIALS_FILE" | xargs)
     
     if [ -z "$ORIGINAL_AWS_ACCESS_KEY_ID" ] || [ -z "$ORIGINAL_AWS_SECRET_ACCESS_KEY" ]; then
         echo "Could not extract original AWS credentials from the default profile."
@@ -21,8 +21,8 @@ save_default_credentials() {
 # Function to restore the original default profile credentials
 restore_default_credentials() {
     if [ -n "$ORIGINAL_AWS_ACCESS_KEY_ID" ] && [ -n "$ORIGINAL_AWS_SECRET_ACCESS_KEY" ]; then
-        sed -i.bak -e "/^\[default\]/,/^\[/ s/aws_access_key_id = .*/aws_access_key_id = $ORIGINAL_AWS_ACCESS_KEY_ID/" \
-                   -e "/^\[default\]/,/^\[/ s/aws_secret_access_key = .*/aws_secret_access_key = $ORIGINAL_AWS_SECRET_ACCESS_KEY/" \
+        sed -i.bak -e "/^\[default\]/,/^\[/ s/aws_access_key_id=.*/aws_access_key_id=$ORIGINAL_AWS_ACCESS_KEY_ID/" \
+                   -e "/^\[default\]/,/^\[/ s/aws_secret_access_key=.*/aws_secret_access_key=$ORIGINAL_AWS_SECRET_ACCESS_KEY/" \
                    "$AWS_CREDENTIALS_FILE"
         echo "AWS credentials for 'default' profile restored to original settings."
     fi
@@ -37,8 +37,8 @@ copy_aws_credentials() {
     fi
     
     # Extract the aws_access_key_id and aws_secret_access_key from the selected profile
-    AWS_ACCESS_KEY_ID=$(awk "/^\[$PROFILE\]/ {flag=1; next} /^\[/ {flag=0} flag && /aws_access_key_id/ {print \$3}" "$AWS_CREDENTIALS_FILE")
-    AWS_SECRET_ACCESS_KEY=$(awk "/^\[$PROFILE\]/ {flag=1; next} /^\[/ {flag=0} flag && /aws_secret_access_key/ {print \$3}" "$AWS_CREDENTIALS_FILE")
+    AWS_ACCESS_KEY_ID=$(awk -F '=' "/^\[$PROFILE\]/ {flag=1; next} /^\[/ {flag=0} flag && /aws_access_key_id/ {print \$2}" "$AWS_CREDENTIALS_FILE" | xargs)
+    AWS_SECRET_ACCESS_KEY=$(awk -F '=' "/^\[$PROFILE\]/ {flag=1; next} /^\[/ {flag=0} flag && /aws_secret_access_key/ {print \$2}" "$AWS_CREDENTIALS_FILE" | xargs)
     
     # If variables are empty, exit with an error message
     if [ -z "$AWS_ACCESS_KEY_ID" ] || [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
@@ -49,12 +49,12 @@ copy_aws_credentials() {
     # Update default profile safely with correct credentials
     if grep -q "^\[default\]" "$AWS_CREDENTIALS_FILE"; then
         # Modify the existing default profile in place
-        sed -i.bak -e "/^\[default\]/,/^\[/ s/aws_access_key_id = .*/aws_access_key_id = $AWS_ACCESS_KEY_ID/" \
-                   -e "/^\[default\]/,/^\[/ s/aws_secret_access_key = .*/aws_secret_access_key = $AWS_SECRET_ACCESS_KEY/" \
+        sed -i.bak -e "/^\[default\]/,/^\[/ s/aws_access_key_id=.*/aws_access_key_id=$AWS_ACCESS_KEY_ID/" \
+                   -e "/^\[default\]/,/^\[/ s/aws_secret_access_key=.*/aws_secret_access_key=$AWS_SECRET_ACCESS_KEY/" \
                    "$AWS_CREDENTIALS_FILE"
     else
         # If default profile doesn't exist, add it to the end of the file
-        echo -e "\n[default]\naws_access_key_id = $AWS_ACCESS_KEY_ID\naws_secret_access_key = $AWS_SECRET_ACCESS_KEY" >> "$AWS_CREDENTIALS_FILE"
+        echo -e "\n[default]\naws_access_key_id=$AWS_ACCESS_KEY_ID\naws_secret_access_key=$AWS_SECRET_ACCESS_KEY" >> "$AWS_CREDENTIALS_FILE"
     fi
 
     echo "AWS credentials for '$PROFILE' copied to 'default' profile."

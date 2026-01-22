@@ -8,3 +8,8 @@
 
 <!-- yeah, i don't want to edit the module or override it's head so i'm just going to add this here -->
 <meta name="robots" content="noindex, nofollow" />
+
+{{ if eq .Layout "search" }}
+<!-- Preload search index for better performance -->
+<link rel="preload" href="/search/search-index.json" as="fetch" crossorigin="anonymous">
+{{ end }}
