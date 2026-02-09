@@ -163,6 +163,20 @@
   transform: scale(1.05);
 }
 
+/* Clickable thumbnail styles (for PhotoSwipe) */
+.result-thumbnail[data-result-index] {
+  cursor: pointer;
+}
+
+.result-thumbnail[data-result-index]:hover {
+  opacity: 0.9;
+}
+
+.result-thumbnail[data-result-index]:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
 .result-content {
   flex: 1;
   min-width: 0; /* Allow text to wrap/truncate properly */
@@ -181,7 +195,8 @@
   margin-bottom: 0.75rem;
 }
 
-.result-page-title a {
+.result-page-title a,
+.result-page-title-text {
   font-size: 1.25rem;
   font-weight: 600;
   color: #007bff;
@@ -192,6 +207,11 @@
 .result-page-title a:hover {
   color: #0056b3;
   text-decoration: underline;
+}
+
+.result-page-title-text {
+  display: inline-block;
+  cursor: default;
 }
 
 .result-excerpt {

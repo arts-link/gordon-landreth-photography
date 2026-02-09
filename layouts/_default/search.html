@@ -54,6 +54,11 @@
   </div>
 </article>
 
-{{ $searchJS := resources.Get "js/search.js" | resources.Minify | resources.Fingerprint }}
-<script src="{{ $searchJS.RelPermalink }}" defer></script>
+{{ $pswpCSS := resources.Get "css/photoswipe/photoswipe.css" }}
+<link rel="stylesheet" href="{{ $pswpCSS.RelPermalink }}">
+{{ $pswpCaptionCSS := resources.Get "css/photoswipe/photoswipe-dynamic-caption-plugin.css" }}
+<link rel="stylesheet" href="{{ $pswpCaptionCSS.RelPermalink }}">
+
+{{ $searchJS := resources.Get "js/search.js" | js.Build | resources.Minify | resources.Fingerprint }}
+<script src="{{ $searchJS.RelPermalink }}" type="module" defer></script>
 {{ end }}

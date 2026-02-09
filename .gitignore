@@ -27,3 +27,4 @@ __pycache__/
 
 # Hugo modules
 _vendor/
+.claude/

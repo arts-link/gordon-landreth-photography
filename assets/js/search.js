@@ -3,8 +3,13 @@
  * Uses Fuse.js for fuzzy search with OCR error tolerance
  */
 
+import PhotoSwipeLightbox from "./photoswipe/photoswipe-lightbox.esm.js";
+import PhotoSwipe from "./photoswipe/photoswipe.esm.js";
+import PhotoSwipeDynamicCaption from "./photoswipe/photoswipe-dynamic-caption-plugin.esm.min.js";
+
 let searchIndex = null;
 let fuse = null;
+let currentPageResults = []; // Page results only (not albums) for slideshow
 
 // DOM elements
 const searchInput = document.getElementById('search-input');
@@ -50,7 +55,8 @@ async function initializeSearch() {
     fuse = new Fuse(searchIndex, {
       keys: [
         { name: 'album_title', weight: 2 },
-        { name: 'searchable_text', weight: 1 }
+        { name: 'caption_text', weight: 1.5 },  // Caption content only
+        { name: 'searchable_text', weight: 0.5 } // Fallback for filenames
       ],
       threshold: 0.4, // Permissive for OCR errors
       ignoreLocation: true, // Search entire text
@@ -62,7 +68,12 @@ async function initializeSearch() {
     searchLoading.style.display = 'none';
     searchInitial.style.display = 'block';
     searchInput.disabled = false;
-    searchInput.focus();
+
+    // Only focus if no URL query parameter (to avoid jumping past results)
+    const url = new URL(window.location);
+    if (!url.searchParams.has('q')) {
+      searchInput.focus();
+    }
 
   } catch (error) {
     console.error('Search initialization failed:', error);
@@ -100,6 +111,58 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
+/**
+ * Load image dimensions dynamically
+ * @param {string} imageUrl - Full image path
+ * @returns {Promise<{width: number, height: number}>}
+ */
+async function getImageDimensions(imageUrl) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      resolve({ width: img.naturalWidth, height: img.naturalHeight });
+    };
+    img.onerror = () => {
+      console.warn(`Failed to load dimensions for ${imageUrl}`);
+      resolve({ width: 1600, height: 1200 }); // Fallback for landscape pages
+    };
+    img.src = imageUrl;
+  });
+}
+
+/**
+ * Convert search result to PhotoSwipe slide data
+ * @param {Object} result - Fuse.js result object
+ * @returns {Promise<Object>} PhotoSwipe slide data
+ */
+async function resultToPhotoSwipeSlide(result) {
+  const item = result.item;
+  const imageSrc = `/${item.album_url_slug}/${item.page_filename}`;
+
+  // Extract page number from filename
+  const pageMatch = item.page_filename.match(/[_\s](?:Page|page|PAGE)[\s-]*(\d+)/);
+  const pageNum = pageMatch ? parseInt(pageMatch[1]) : null;
+
+  // Build caption
+  let caption = `<div class="pswp-caption-content">`;
+  caption += `<h3>${escapeHtml(item.album_title)}${pageNum ? ': Page ' + pageNum : ''}</h3>`;
+  if (item.caption_text) {
+    caption += `<p>${escapeHtml(item.caption_text).replace(/\n/g, '<br>')}</p>`;
+  }
+  caption += `</div>`;
+
+  // Load dimensions
+  const dimensions = await getImageDimensions(imageSrc);
+
+  return {
+    src: imageSrc,
+    width: dimensions.width,
+    height: dimensions.height,
+    alt: `${item.album_title}${pageNum ? ' - Page ' + pageNum : ''}`,
+    caption: caption
+  };
+}
+
 // Get first N captions from captions array
 function getExcerptCaptions(captions, maxCaptions = 3) {
   if (!captions || !Array.isArray(captions) || captions.length === 0) return '';
@@ -109,9 +172,15 @@ function getExcerptCaptions(captions, maxCaptions = 3) {
 }
 
 // Perform search
-function performSearch(query) {
+function performSearch(query, updateUrl = true) {
   if (!query || query.trim().length < 2) {
     showInitialState();
+    // Clear URL query parameter
+    if (updateUrl && window.history.replaceState) {
+      const url = new URL(window.location);
+      url.searchParams.delete('q');
+      window.history.replaceState({}, '', url);
+    }
     return;
   }
 
@@ -122,6 +191,13 @@ function performSearch(query) {
 
   const results = fuse.search(query.trim());
   displayResults(results, query);
+
+  // Update URL with search query
+  if (updateUrl && window.history.replaceState) {
+    const url = new URL(window.location);
+    url.searchParams.set('q', query.trim());
+    window.history.replaceState({}, '', url);
+  }
 }
 
 // Highlight search terms in text (simple regex-based highlighting)
@@ -178,44 +254,28 @@ function categorizeResults(results) {
 
     // Determine which field matched
     const albumTitleMatched = matches.some(m => m.key === 'album_title');
-    const captionMatched = matches.some(m => m.key === 'searchable_text');
+    const captionTextMatched = matches.some(m => m.key === 'caption_text');
 
-    if (albumTitleMatched) {
-      // Track which album titles have matched
-      if (item.type === 'album') {
-        albumTitlesMatched.add(item.album_title);
-        albumMatches.push(result);
-      } else if (item.type === 'page') {
-        // Only include page if we haven't seen the album title match
-        if (!albumTitlesMatched.has(item.album_title)) {
-          albumMatches.push(result);
-        }
-      }
-    } else if (captionMatched) {
+    // Categorize based on entry type and which field matched
+    if (item.type === 'album') {
+      // All album-level entries are album matches
+      albumMatches.push(result);
+      albumTitlesMatched.add(item.album_title);
+    } else if (item.type === 'page' && captionTextMatched) {
+      // Only show pages under "Caption Matches" if caption_text field matched
+      // (not just album title or filename)
       captionMatches.push(result);
     }
   });
 
-  // Second pass: remove page-level entries if album-level entry exists
-  const finalAlbumMatches = albumMatches.filter(result => {
-    if (result.item.type === 'page') {
-      // Check if an album entry exists for this album_title
-      const hasAlbumEntry = albumMatches.some(r =>
-        r.item.type === 'album' && r.item.album_title === result.item.album_title
-      );
-      return !hasAlbumEntry;
-    }
-    return true;
-  });
-
   return {
-    albumMatches: finalAlbumMatches,
+    albumMatches,
     captionMatches
   };
 }
 
 // Render a single result card
-function renderResult(result, query, matchType) {
+function renderResult(result, query, matchType, resultIndex = -1) {
   const item = result.item;
 
   // Get excerpt with first few captions
@@ -249,7 +309,11 @@ function renderResult(result, query, matchType) {
 
   return `
     <div class="search-result ${thumbnailUrl ? 'search-result--with-thumbnail' : ''}">
-      ${thumbnailUrl ? `
+      ${thumbnailUrl && item.type === 'page' && resultIndex >= 0 ? `
+        <div class="result-thumbnail" data-href="${linkUrl}" data-result-index="${resultIndex}" role="button" tabindex="0">
+          <img src="${thumbnailUrl}" alt="${escapeHtml(displayTitle)}" loading="lazy">
+        </div>
+      ` : thumbnailUrl ? `
         <a href="${linkUrl}" class="result-thumbnail">
           <img src="${thumbnailUrl}" alt="${escapeHtml(displayTitle)}" loading="lazy">
         </a>
@@ -257,7 +321,10 @@ function renderResult(result, query, matchType) {
       <div class="result-content">
         ${item.type === 'album' ? `<div class="result-album-title">${highlightedTitle}</div>` : ''}
         <div class="result-page-title">
-          <a href="${linkUrl}">${item.type === 'page' ? escapeHtml(displayTitle) : highlightedTitle}</a>
+          ${item.type === 'page' && resultIndex >= 0 ?
+            `<span class="result-page-title-text">${escapeHtml(displayTitle)}</span>` :
+            `<a href="${linkUrl}">${item.type === 'page' ? escapeHtml(displayTitle) : highlightedTitle}</a>`
+          }
         </div>
         ${highlightedExcerpt ? `
           <div class="result-excerpt">${highlightedExcerpt}</div>
@@ -277,6 +344,7 @@ function displayResults(results, query) {
     searchMeta.style.display = 'none';
     searchEmpty.style.display = 'flex';
     searchInitial.style.display = 'none';
+    currentPageResults = []; // Clear page results
     return;
   }
 
@@ -290,6 +358,9 @@ function displayResults(results, query) {
   // Categorize results
   const { albumMatches, captionMatches } = categorizeResults(limitedResults);
 
+  // Store page results for slideshow (caption matches only)
+  currentPageResults = captionMatches;
+
   // Update count display with breakdown
   searchCount.textContent = `Found ${results.length} result${results.length === 1 ? '' : 's'} (${albumMatches.length} album, ${captionMatches.length} caption)`;
 
@@ -299,7 +370,7 @@ function displayResults(results, query) {
   if (albumMatches.length > 0) {
     html += '<div class="results-section">';
     html += '<h2 class="results-section-title">Album Title Matches</h2>';
-    html += albumMatches.map(result => renderResult(result, query, 'album')).join('');
+    html += albumMatches.map(result => renderResult(result, query, 'album', -1)).join('');
     html += '</div>';
   }
 
@@ -307,7 +378,7 @@ function displayResults(results, query) {
   if (captionMatches.length > 0) {
     html += '<div class="results-section">';
     html += '<h2 class="results-section-title">Caption Matches</h2>';
-    html += captionMatches.map(result => renderResult(result, query, 'caption')).join('');
+    html += captionMatches.map((result, index) => renderResult(result, query, 'caption', index)).join('');
     html += '</div>';
   }
 
@@ -339,6 +410,87 @@ function clearSearch() {
   searchInput.focus();
 }
 
+/**
+ * Initialize PhotoSwipe for search results
+ */
+function initSearchLightbox() {
+  const resultsContainer = document.getElementById('search-results');
+
+  // Click handler - use capture phase to intercept before bubble phase
+  resultsContainer.addEventListener('click', async (e) => {
+    // Check if click is on thumbnail or its children
+    const thumbnail = e.target.closest('.result-thumbnail[data-result-index]');
+    if (!thumbnail) return;
+
+    console.log('[Search] Thumbnail clicked, preventing default navigation');
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+
+    const resultIndex = parseInt(thumbnail.dataset.resultIndex);
+    if (isNaN(resultIndex)) {
+      console.error('[Search] Invalid result index');
+      return;
+    }
+
+    console.log('[Search] Opening PhotoSwipe for result index:', resultIndex, 'Total results:', currentPageResults.length);
+
+    // Show loading cursor
+    document.body.style.cursor = 'wait';
+
+    try {
+      // Build PhotoSwipe data source from current results
+      const dataSource = await Promise.all(
+        currentPageResults.map(result => resultToPhotoSwipeSlide(result))
+      );
+
+      console.log('[Search] PhotoSwipe data source built:', dataSource.length, 'slides');
+
+      // Create PhotoSwipe instance with caption support
+      const pswp = new PhotoSwipe({
+        dataSource: dataSource,
+        index: resultIndex,
+        bgOpacity: 1,
+        showHideAnimationType: 'zoom',
+        imageClickAction: 'close',
+        history: false, // Don't update URL hash
+        // Add caption support directly in config
+        captionPlugin: false, // Disable dynamic caption plugin for now
+        paddingFn: (viewportSize) => {
+          return viewportSize.x < 700
+            ? { top: 0, bottom: 0, left: 0, right: 0 }
+            : { top: 30, bottom: 30, left: 0, right: 0 };
+        }
+      });
+
+      // Initialize PhotoSwipe
+      pswp.init();
+      console.log('[Search] PhotoSwipe opened successfully');
+
+    } catch (error) {
+      console.error('[Search] Failed to open PhotoSwipe:', error);
+      console.error('[Search] Error message:', error?.message);
+      console.error('[Search] Error stack:', error?.stack);
+      // REMOVED FALLBACK NAVIGATION - let's see what the actual error is
+      alert('PhotoSwipe failed to open. Check console for error details.');
+    } finally {
+      document.body.style.cursor = '';
+    }
+  }, true); // USE CAPTURE PHASE - critical for preventing navigation
+
+  // Keyboard navigation handler for accessibility (Enter/Space keys)
+  resultsContainer.addEventListener('keydown', async (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+
+    const thumbnail = e.target.closest('.result-thumbnail[data-result-index]');
+    if (!thumbnail) return;
+
+    e.preventDefault();
+    // Trigger the same handler as click
+    thumbnail.click();
+  }, true);
+}
+
 // Event listeners
 searchInput.addEventListener('input', debounce((e) => {
   const query = e.target.value;
@@ -359,8 +511,25 @@ searchInput.addEventListener('keydown', (e) => {
   }
 });
 
+// Restore search from URL query parameter
+function restoreSearchFromUrl() {
+  const url = new URL(window.location);
+  const query = url.searchParams.get('q');
+
+  if (query) {
+    searchInput.value = query;
+    searchClear.style.display = 'flex';
+    performSearch(query, false); // Don't update URL again
+  }
+}
+
 // Initialize search on page load
 document.addEventListener('DOMContentLoaded', () => {
   searchInput.disabled = true;
-  initializeSearch();
+  initializeSearch().then(() => {
+    // After search is initialized, restore query from URL
+    restoreSearchFromUrl();
+    // Initialize PhotoSwipe lightbox for search results
+    initSearchLightbox();
+  });
 });
