@@ -1,0 +1,2293 @@
+{
+  "album": "1956 Calif. Trip (Bk. 1)",
+  "album_title": "1956 California trip (Book 1)",
+  "album_weight": 20,
+  "pages": [
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-01.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-01.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            582,
+            1255,
+            966,
+            1344
+          ],
+          "text": "In two books - Book I"
+        }
+      ],
+      "full_text": "In two books - Book I",
+      "captions": [
+        "In two books - Book I"
+      ],
+      "caption_text": "In two books - Book I"
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-02.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-02.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            772,
+            196,
+            908,
+            309
+          ],
+          "text": "Great Falls"
+        },
+        {
+          "bbox": [
+            1104,
+            422,
+            1285,
+            549
+          ],
+          "text": "SOUTH R."
+        },
+        {
+          "bbox": [
+            410,
+            1010,
+            573,
+            1131
+          ],
+          "text": "San Bernardino Redlands Joshua Tree Nat'l Mon. Riverside Santa Ana Indio Desert Center Morongo Blythe"
+        },
+        {
+          "bbox": [
+            164,
+            1360,
+            953,
+            1855
+          ],
+          "text": "Visiting 22 States...\nPennsylvania Oklahoma Idaho\nWest Virginia Texas Montana\nOhio New Mexico North Dakota\nKentucky Arizona Minnesota\nIndiana Nevada Wisconsin\nIllinois California Michigan\nMissouri Oregon\nArkansas Washington\n...with an across the border visit to Juarez, Mexico."
+        }
+      ],
+      "full_text": "Great Falls\n\nSOUTH R.\n\nSan Bernardino Redlands Joshua Tree Nat'l Mon. Riverside Santa Ana Indio Desert Center Morongo Blythe\n\nVisiting 22 States...\nPennsylvania Oklahoma Idaho\nWest Virginia Texas Montana\nOhio New Mexico North Dakota\nKentucky Arizona Minnesota\nIndiana Nevada Wisconsin\nIllinois California Michigan\nMissouri Oregon\nArkansas Washington\n...with an across the border visit to Juarez, Mexico.",
+      "captions": [
+        "Great Falls",
+        "SOUTH R.",
+        "San Bernardino Redlands Joshua Tree Nat'l Mon. Riverside Santa Ana Indio Desert Center Morongo Blythe",
+        "Visiting 22 States...\nPennsylvania Oklahoma Idaho\nWest Virginia Texas Montana\nOhio New Mexico North Dakota\nKentucky Arizona Minnesota\nIndiana Nevada Wisconsin\nIllinois California Michigan\nMissouri Oregon\nArkansas Washington\n...with an across the border visit to Juarez, Mexico."
+      ],
+      "caption_text": "Great Falls\n\nSOUTH R.\n\nSan Bernardino Redlands Joshua Tree Nat'l Mon. Riverside Santa Ana Indio Desert Center Morongo Blythe\n\nVisiting 22 States...\nPennsylvania Oklahoma Idaho\nWest Virginia Texas Montana\nOhio New Mexico North Dakota\nKentucky Arizona Minnesota\nIndiana Nevada Wisconsin\nIllinois California Michigan\nMissouri Oregon\nArkansas Washington\n...with an across the border visit to Juarez, Mexico."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-03.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-03.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            345,
+            1147,
+            554,
+            1259
+          ],
+          "text": "MISSISSIPPI"
+        },
+        {
+          "bbox": [
+            241,
+            1495,
+            715,
+            1735
+          ],
+          "text": "Cameras used on the trip are a Contax IIa, with Zeiss Opton Sonnar f1.5 lens and a Rollei-flex, with Zeiss Tessar f3.5 lens. Film generally is Kodak Plus-X and Tri-X, with a few rolls of Adox in the Rollei-flex....all black and white."
+        }
+      ],
+      "full_text": "MISSISSIPPI\n\nCameras used on the trip are a Contax IIa, with Zeiss Opton Sonnar f1.5 lens and a Rollei-flex, with Zeiss Tessar f3.5 lens. Film generally is Kodak Plus-X and Tri-X, with a few rolls of Adox in the Rollei-flex....all black and white.",
+      "captions": [
+        "MISSISSIPPI",
+        "Cameras used on the trip are a Contax IIa, with Zeiss Opton Sonnar f1.5 lens and a Rollei-flex, with Zeiss Tessar f3.5 lens. Film generally is Kodak Plus-X and Tri-X, with a few rolls of Adox in the Rollei-flex....all black and white."
+      ],
+      "caption_text": "MISSISSIPPI\n\nCameras used on the trip are a Contax IIa, with Zeiss Opton Sonnar f1.5 lens and a Rollei-flex, with Zeiss Tessar f3.5 lens. Film generally is Kodak Plus-X and Tri-X, with a few rolls of Adox in the Rollei-flex....all black and white."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-04.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-04.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            535,
+            156,
+            675,
+            249
+          ],
+          "text": "Bowling Green"
+        },
+        {
+          "bbox": [
+            747,
+            775,
+            885,
+            864
+          ],
+          "text": "Chillicothe"
+        },
+        {
+          "bbox": [
+            117,
+            989,
+            274,
+            1118
+          ],
+          "text": "Louisville"
+        },
+        {
+          "bbox": [
+            1028,
+            1062,
+            1174,
+            1149
+          ],
+          "text": "CHARLESTON"
+        }
+      ],
+      "full_text": "Bowling Green\n\nChillicothe\n\nLouisville\n\nCHARLESTON",
+      "captions": [
+        "Bowling Green",
+        "Chillicothe",
+        "Louisville",
+        "CHARLESTON"
+      ],
+      "caption_text": "Bowling Green\n\nChillicothe\n\nLouisville\n\nCHARLESTON"
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-05.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-05.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            314,
+            22,
+            496,
+            115
+          ],
+          "text": "Bradford"
+        },
+        {
+          "bbox": [
+            150,
+            1730,
+            625,
+            1898
+          ],
+          "text": "One of the best lunches of the entire trip at Walnut Ridge in northeastern Arkansas; the restaurant has been advertised as far as 150 miles away."
+        },
+        {
+          "bbox": [
+            794,
+            1738,
+            1261,
+            1885
+          ],
+          "text": "The Capitol of Arkansas located in Little Rock is an attractive building on high ground over-looking the city. The Cappitolol of Anrakkanssas located in LittLlitttle Rook riis an atractive building on highe grounnd oveer-looking dldling on high ground lookinngg the cityy.."
+        }
+      ],
+      "full_text": "Bradford\n\nOne of the best lunches of the entire trip at Walnut Ridge in northeastern Arkansas; the restaurant has been advertised as far as 150 miles away.\n\nThe Capitol of Arkansas located in Little Rock is an attractive building on high ground over-looking the city. The Cappitolol of Anrakkanssas located in LittLlitttle Rook riis an atractive building on highe grounnd oveer-looking dldling on high ground lookinngg the cityy..",
+      "captions": [
+        "Bradford",
+        "One of the best lunches of the entire trip at Walnut Ridge in northeastern Arkansas; the restaurant has been advertised as far as 150 miles away.",
+        "The Capitol of Arkansas located in Little Rock is an attractive building on high ground over-looking the city. The Cappitolol of Anrakkanssas located in LittLlitttle Rook riis an atractive building on highe grounnd oveer-looking dldling on high ground lookinngg the cityy.."
+      ],
+      "caption_text": "Bradford\n\nOne of the best lunches of the entire trip at Walnut Ridge in northeastern Arkansas; the restaurant has been advertised as far as 150 miles away.\n\nThe Capitol of Arkansas located in Little Rock is an attractive building on high ground over-looking the city. The Cappitolol of Anrakkanssas located in LittLlitttle Rook riis an atractive building on highe grounnd oveer-looking dldling on high ground lookinngg the cityy.."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-06.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-06.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            12,
+            123,
+            458,
+            454
+          ],
+          "text": "Hot Springs National Park in the heavily wooded section of the Ouachita (pronounced Wash-i-taw) Mountains in southwestern Arkansas was established by Congress to safeguard the forty-seven natural hot springs which yield a daily flow of one million gallons. Therapeutic value of hot springs is questionable."
+        },
+        {
+          "bbox": [
+            516,
+            519,
+            1436,
+            629
+          ],
+          "text": "Atop Hot Springs Mountain is an observation tower 165 feet high, reached by an elevator, which gives fine view of countrysidrside."
+        },
+        {
+          "bbox": [
+            196,
+            1146,
+            1350,
+            1294
+          ],
+          "text": "The town of Hot Springs contains many elaborate hotels and motels (many more than we had expected to find), with a Bathhouse Row where those so inclined can immerse in the ultra hot, soothing waters. At the health spigot in the center of town, we found many oldsters sitting around sipping the constantly flowing spring water."
+        },
+        {
+          "bbox": [
+            315,
+            1770,
+            1253,
+            1871
+          ],
+          "text": "The girls finally get their turn and are amused at Cindy's efforts to drink these hot water."
+        }
+      ],
+      "full_text": "Hot Springs National Park in the heavily wooded section of the Ouachita (pronounced Wash-i-taw) Mountains in southwestern Arkansas was established by Congress to safeguard the forty-seven natural hot springs which yield a daily flow of one million gallons. Therapeutic value of hot springs is questionable.\n\nAtop Hot Springs Mountain is an observation tower 165 feet high, reached by an elevator, which gives fine view of countrysidrside.\n\nThe town of Hot Springs contains many elaborate hotels and motels (many more than we had expected to find), with a Bathhouse Row where those so inclined can immerse in the ultra hot, soothing waters. At the health spigot in the center of town, we found many oldsters sitting around sipping the constantly flowing spring water.\n\nThe girls finally get their turn and are amused at Cindy's efforts to drink these hot water.",
+      "captions": [
+        "Hot Springs National Park in the heavily wooded section of the Ouachita (pronounced Wash-i-taw) Mountains in southwestern Arkansas was established by Congress to safeguard the forty-seven natural hot springs which yield a daily flow of one million gallons. Therapeutic value of hot springs is questionable.",
+        "Atop Hot Springs Mountain is an observation tower 165 feet high, reached by an elevator, which gives fine view of countrysidrside.",
+        "The town of Hot Springs contains many elaborate hotels and motels (many more than we had expected to find), with a Bathhouse Row where those so inclined can immerse in the ultra hot, soothing waters. At the health spigot in the center of town, we found many oldsters sitting around sipping the constantly flowing spring water.",
+        "The girls finally get their turn and are amused at Cindy's efforts to drink these hot water."
+      ],
+      "caption_text": "Hot Springs National Park in the heavily wooded section of the Ouachita (pronounced Wash-i-taw) Mountains in southwestern Arkansas was established by Congress to safeguard the forty-seven natural hot springs which yield a daily flow of one million gallons. Therapeutic value of hot springs is questionable.\n\nAtop Hot Springs Mountain is an observation tower 165 feet high, reached by an elevator, which gives fine view of countrysidrside.\n\nThe town of Hot Springs contains many elaborate hotels and motels (many more than we had expected to find), with a Bathhouse Row where those so inclined can immerse in the ultra hot, soothing waters. At the health spigot in the center of town, we found many oldsters sitting around sipping the constantly flowing spring water.\n\nThe girls finally get their turn and are amused at Cindy's efforts to drink these hot water."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-07.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-07.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            454,
+            135,
+            578,
+            231
+          ],
+          "text": "Fulton Hermann"
+        },
+        {
+          "bbox": [
+            1186,
+            490,
+            1372,
+            633
+          ],
+          "text": "Nashville."
+        },
+        {
+          "bbox": [
+            60,
+            763,
+            312,
+            962
+          ],
+          "text": "Fort Smith"
+        },
+        {
+          "bbox": [
+            319,
+            898,
+            494,
+            1015
+          ],
+          "text": "Little Rock"
+        },
+        {
+          "bbox": [
+            360,
+            1331,
+            524,
+            1469
+          ],
+          "text": "Ruston Monroe Arcadia Farmerville Bernice Jonesboro Chatham Gold Island."
+        },
+        {
+          "bbox": [
+            260,
+            1377,
+            412,
+            1475
+          ],
+          "text": "Shreveport"
+        },
+        {
+          "bbox": [
+            828,
+            1766,
+            981,
+            1865
+          ],
+          "text": "Lake Ponchartrain"
+        }
+      ],
+      "full_text": "Fulton Hermann\n\nNashville.\n\nFort Smith\n\nLittle Rock\n\nRuston Monroe Arcadia Farmerville Bernice Jonesboro Chatham Gold Island.\n\nShreveport\n\nLake Ponchartrain",
+      "captions": [
+        "Fulton Hermann",
+        "Nashville.",
+        "Fort Smith",
+        "Little Rock",
+        "Ruston Monroe Arcadia Farmerville Bernice Jonesboro Chatham Gold Island.",
+        "Shreveport",
+        "Lake Ponchartrain"
+      ],
+      "caption_text": "Fulton Hermann\n\nNashville.\n\nFort Smith\n\nLittle Rock\n\nRuston Monroe Arcadia Farmerville Bernice Jonesboro Chatham Gold Island.\n\nShreveport\n\nLake Ponchartrain"
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-08.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-08.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            216,
+            511,
+            1288,
+            616
+          ],
+          "text": "Southwestern Arkansas is real hill-billy country. We get as far as De Queen, almost at the Oklahoma line."
+        },
+        {
+          "bbox": [
+            174,
+            590,
+            1324,
+            738
+          ],
+          "text": "FOURTH DAY - Monday, June 18, 1956. From Arkansas into Oklahoma to Lake Texoma,\nto Waurika, to Wichita Falls, Texas (visit the Buckwalters), west across Texas\nto Lubbock for the ABC National Convention. 8:00 A. M. to 8:35 P. M. 505 miles"
+        },
+        {
+          "bbox": [
+            845,
+            1805,
+            1320,
+            1908
+          ],
+          "text": "Across the Oklahoma plains just north of Texas."
+        }
+      ],
+      "full_text": "Southwestern Arkansas is real hill-billy country. We get as far as De Queen, almost at the Oklahoma line.\n\nFOURTH DAY - Monday, June 18, 1956. From Arkansas into Oklahoma to Lake Texoma,\nto Waurika, to Wichita Falls, Texas (visit the Buckwalters), west across Texas\nto Lubbock for the ABC National Convention. 8:00 A. M. to 8:35 P. M. 505 miles\n\nAcross the Oklahoma plains just north of Texas.",
+      "captions": [
+        "Southwestern Arkansas is real hill-billy country. We get as far as De Queen, almost at the Oklahoma line.",
+        "FOURTH DAY - Monday, June 18, 1956. From Arkansas into Oklahoma to Lake Texoma,\nto Waurika, to Wichita Falls, Texas (visit the Buckwalters), west across Texas\nto Lubbock for the ABC National Convention. 8:00 A. M. to 8:35 P. M. 505 miles",
+        "Across the Oklahoma plains just north of Texas."
+      ],
+      "caption_text": "Southwestern Arkansas is real hill-billy country. We get as far as De Queen, almost at the Oklahoma line.\n\nFOURTH DAY - Monday, June 18, 1956. From Arkansas into Oklahoma to Lake Texoma,\nto Waurika, to Wichita Falls, Texas (visit the Buckwalters), west across Texas\nto Lubbock for the ABC National Convention. 8:00 A. M. to 8:35 P. M. 505 miles\n\nAcross the Oklahoma plains just north of Texas."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-09.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-09.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            124,
+            511,
+            631,
+            640
+          ],
+          "text": "It has become very hot...we stop for iced drinks and ice cubes for our gallon-size jug."
+        },
+        {
+          "bbox": [
+            871,
+            531,
+            1340,
+            637
+          ],
+          "text": "A sharp turn south and we enter Texas headed for Wichita Falls."
+        },
+        {
+          "bbox": [
+            131,
+            765,
+            641,
+            916
+          ],
+          "text": "( Right ) We make a surprise visit on the Buckwalters, formerly from Lancaster, here shown in front of their new home in Wichita Falls."
+        },
+        {
+          "bbox": [
+            4,
+            1430,
+            379,
+            1551
+          ],
+          "text": "A view of flat, northern Texas as we head for Lubbock."
+        },
+        {
+          "bbox": [
+            394,
+            1773,
+            828,
+            1874
+          ],
+          "text": "Louise sees her first cactus plant."
+        },
+        {
+          "bbox": [
+            969,
+            1778,
+            1372,
+            1899
+          ],
+          "text": "A late supper in this small town cafe, the best we can find."
+        }
+      ],
+      "full_text": "It has become very hot...we stop for iced drinks and ice cubes for our gallon-size jug.\n\nA sharp turn south and we enter Texas headed for Wichita Falls.\n\n( Right ) We make a surprise visit on the Buckwalters, formerly from Lancaster, here shown in front of their new home in Wichita Falls.\n\nA view of flat, northern Texas as we head for Lubbock.\n\nLouise sees her first cactus plant.\n\nA late supper in this small town cafe, the best we can find.",
+      "captions": [
+        "It has become very hot...we stop for iced drinks and ice cubes for our gallon-size jug.",
+        "A sharp turn south and we enter Texas headed for Wichita Falls.",
+        "( Right ) We make a surprise visit on the Buckwalters, formerly from Lancaster, here shown in front of their new home in Wichita Falls.",
+        "A view of flat, northern Texas as we head for Lubbock.",
+        "Louise sees her first cactus plant.",
+        "A late supper in this small town cafe, the best we can find."
+      ],
+      "caption_text": "It has become very hot...we stop for iced drinks and ice cubes for our gallon-size jug.\n\nA sharp turn south and we enter Texas headed for Wichita Falls.\n\n( Right ) We make a surprise visit on the Buckwalters, formerly from Lancaster, here shown in front of their new home in Wichita Falls.\n\nA view of flat, northern Texas as we head for Lubbock.\n\nLouise sees her first cactus plant.\n\nA late supper in this small town cafe, the best we can find."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-11.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-11.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            140,
+            6,
+            1290,
+            144
+          ],
+          "text": "The American Business Club of Lubbock maintains one of the finest Boys' Clubs in the country with proceeds from an annual rodeo, this year held with the Convention."
+        },
+        {
+          "bbox": [
+            919,
+            612,
+            1245,
+            697
+          ],
+          "text": "His honor, the mayor."
+        },
+        {
+          "bbox": [
+            180,
+            1186,
+            541,
+            1265
+          ],
+          "text": "The lone star of Texas."
+        },
+        {
+          "bbox": [
+            772,
+            1190,
+            1349,
+            1296
+          ],
+          "text": "All the members of one large riding club carry Confederate flags."
+        },
+        {
+          "bbox": [
+            57,
+            1823,
+            648,
+            1920
+          ],
+          "text": "At the western chuck wagon Bar-B-Q, Kitty with Betty and Claude Smith (Lancaster) and \"Buck\" Scatchard (Lititz president)."
+        }
+      ],
+      "full_text": "The American Business Club of Lubbock maintains one of the finest Boys' Clubs in the country with proceeds from an annual rodeo, this year held with the Convention.\n\nHis honor, the mayor.\n\nThe lone star of Texas.\n\nAll the members of one large riding club carry Confederate flags.\n\nAt the western chuck wagon Bar-B-Q, Kitty with Betty and Claude Smith (Lancaster) and \"Buck\" Scatchard (Lititz president).",
+      "captions": [
+        "The American Business Club of Lubbock maintains one of the finest Boys' Clubs in the country with proceeds from an annual rodeo, this year held with the Convention.",
+        "His honor, the mayor.",
+        "The lone star of Texas.",
+        "All the members of one large riding club carry Confederate flags.",
+        "At the western chuck wagon Bar-B-Q, Kitty with Betty and Claude Smith (Lancaster) and \"Buck\" Scatchard (Lititz president)."
+      ],
+      "caption_text": "The American Business Club of Lubbock maintains one of the finest Boys' Clubs in the country with proceeds from an annual rodeo, this year held with the Convention.\n\nHis honor, the mayor.\n\nThe lone star of Texas.\n\nAll the members of one large riding club carry Confederate flags.\n\nAt the western chuck wagon Bar-B-Q, Kitty with Betty and Claude Smith (Lancaster) and \"Buck\" Scatchard (Lititz president)."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-12.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-12.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            772,
+            84,
+            1052,
+            214
+          ],
+          "text": "Oklahoma City"
+        },
+        {
+          "bbox": [
+            865,
+            628,
+            1000,
+            715
+          ],
+          "text": "Ft. Worth"
+        },
+        {
+          "bbox": [
+            142,
+            1054,
+            1298,
+            1190
+          ],
+          "text": "FIFTH, SIXTH AND SEVENTH DAYS - Tuesday, June 19, Wednesday, June 20, Thursday, June 21, 1956. Attending the National Convention of American Business Clubs in Lubbock, Texas. Our hotel, the Caprock."
+        },
+        {
+          "bbox": [
+            216,
+            1163,
+            1238,
+            1285
+          ],
+          "text": "At the ABC National Convention in Lubbock we meet old friends from many sections of the country."
+        },
+        {
+          "bbox": [
+            871,
+            1291,
+            1093,
+            1406
+          ],
+          "text": "COFFEE SHOP"
+        },
+        {
+          "bbox": [
+            136,
+            1761,
+            654,
+            1867
+          ],
+          "text": "\"Doc\" Bachman, former national ABC president, from Champaign, Ill.\n\"DDocce\" \"DBBB\"Bachmannnmmmaaaaannnnn,\nformernewt naattnnnonnnonnnalllll"
+        },
+        {
+          "bbox": [
+            822,
+            1771,
+            1320,
+            1897
+          ],
+          "text": "Kittttttyy wiithh Klay Dale from Lubbockk,\nwhom we have not seen since the Big Spring convention in 1949.\nWhomwe hhave nnot seen sseen sinince the\nBigg Sprrrrriinnn connconvention inn 11.194949"
+        }
+      ],
+      "full_text": "Oklahoma City\n\nFt. Worth\n\nFIFTH, SIXTH AND SEVENTH DAYS - Tuesday, June 19, Wednesday, June 20, Thursday, June 21, 1956. Attending the National Convention of American Business Clubs in Lubbock, Texas. Our hotel, the Caprock.\n\nAt the ABC National Convention in Lubbock we meet old friends from many sections of the country.\n\nCOFFEE SHOP\n\n\"Doc\" Bachman, former national ABC president, from Champaign, Ill.\n\"DDocce\" \"DBBB\"Bachmannnmmmaaaaannnnn,\nformernewt naattnnnonnnonnnalllll\n\nKittttttyy wiithh Klay Dale from Lubbockk,\nwhom we have not seen since the Big Spring convention in 1949.\nWhomwe hhave nnot seen sseen sinince the\nBigg Sprrrrriinnn connconvention inn 11.194949",
+      "captions": [
+        "Oklahoma City",
+        "Ft. Worth",
+        "FIFTH, SIXTH AND SEVENTH DAYS - Tuesday, June 19, Wednesday, June 20, Thursday, June 21, 1956. Attending the National Convention of American Business Clubs in Lubbock, Texas. Our hotel, the Caprock.",
+        "At the ABC National Convention in Lubbock we meet old friends from many sections of the country.",
+        "COFFEE SHOP",
+        "\"Doc\" Bachman, former national ABC president, from Champaign, Ill.\n\"DDocce\" \"DBBB\"Bachmannnmmmaaaaannnnn,\nformernewt naattnnnonnnonnnalllll",
+        "Kittttttyy wiithh Klay Dale from Lubbockk,\nwhom we have not seen since the Big Spring convention in 1949.\nWhomwe hhave nnot seen sseen sinince the\nBigg Sprrrrriinnn connconvention inn 11.194949"
+      ],
+      "caption_text": "Oklahoma City\n\nFt. Worth\n\nFIFTH, SIXTH AND SEVENTH DAYS - Tuesday, June 19, Wednesday, June 20, Thursday, June 21, 1956. Attending the National Convention of American Business Clubs in Lubbock, Texas. Our hotel, the Caprock.\n\nAt the ABC National Convention in Lubbock we meet old friends from many sections of the country.\n\nCOFFEE SHOP\n\n\"Doc\" Bachman, former national ABC president, from Champaign, Ill.\n\"DDocce\" \"DBBB\"Bachmannnmmmaaaaannnnn,\nformernewt naattnnnonnnonnnalllll\n\nKittttttyy wiithh Klay Dale from Lubbockk,\nwhom we have not seen since the Big Spring convention in 1949.\nWhomwe hhave nnot seen sseen sinince the\nBigg Sprrrrriinnn connconvention inn 11.194949"
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-13.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-13.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            121,
+            16,
+            1265,
+            144
+          ],
+          "text": "The American Business Club of Lubbock maintains one of the finest Boys' Clubs in the country with proceeds from an annual rodeo, this year held with the Convention."
+        },
+        {
+          "bbox": [
+            901,
+            616,
+            1222,
+            697
+          ],
+          "text": "His honor; the mayor."
+        },
+        {
+          "bbox": [
+            760,
+            1188,
+            1328,
+            1288
+          ],
+          "text": "All the members of one large riding club carry Confederate flags."
+        },
+        {
+          "bbox": [
+            174,
+            1191,
+            529,
+            1265
+          ],
+          "text": "The lone star of Texas."
+        }
+      ],
+      "full_text": "The American Business Club of Lubbock maintains one of the finest Boys' Clubs in the country with proceeds from an annual rodeo, this year held with the Convention.\n\nHis honor; the mayor.\n\nAll the members of one large riding club carry Confederate flags.\n\nThe lone star of Texas.",
+      "captions": [
+        "The American Business Club of Lubbock maintains one of the finest Boys' Clubs in the country with proceeds from an annual rodeo, this year held with the Convention.",
+        "His honor; the mayor.",
+        "All the members of one large riding club carry Confederate flags.",
+        "The lone star of Texas."
+      ],
+      "caption_text": "The American Business Club of Lubbock maintains one of the finest Boys' Clubs in the country with proceeds from an annual rodeo, this year held with the Convention.\n\nHis honor; the mayor.\n\nAll the members of one large riding club carry Confederate flags.\n\nThe lone star of Texas."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-14.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-14.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            152,
+            536,
+            1248,
+            612
+          ],
+          "text": "The rodeo is held under the lights in the enormous new municipal auditorium."
+        },
+        {
+          "bbox": [
+            761,
+            712,
+            1397,
+            1081
+          ],
+          "text": "New National ABC officers elected for the year 1956-1957:\nNational president: Joseph F. Prola, Springfield, Ill;\nNational first vice-president: Vernon E. Brooks, Norristown, Pa;\nNational second vice-president: Duffy McKeelel, Odessa, Texas.\nThe National Convention next year will be held in Augusta, Ga."
+        },
+        {
+          "bbox": [
+            95,
+            1141,
+            682,
+            1294
+          ],
+          "text": "At a business session: Wayne Strasbaugh (Launcestoncasterr), Hall Edinburgh, Executive Secretary, and Bill Eyrke, retiring National President."
+        },
+        {
+          "bbox": [
+            835,
+            1784,
+            1330,
+            1889
+          ],
+          "text": "Joe Prola delivers his acceptance speech to the delegates."
+        },
+        {
+          "bbox": [
+            76,
+            1785,
+            716,
+            1900
+          ],
+          "text": "The newly elected national officers: Vernon Brooks, Joe Prola and Duffy McKeele..."
+        }
+      ],
+      "full_text": "The rodeo is held under the lights in the enormous new municipal auditorium.\n\nNew National ABC officers elected for the year 1956-1957:\nNational president: Joseph F. Prola, Springfield, Ill;\nNational first vice-president: Vernon E. Brooks, Norristown, Pa;\nNational second vice-president: Duffy McKeelel, Odessa, Texas.\nThe National Convention next year will be held in Augusta, Ga.\n\nAt a business session: Wayne Strasbaugh (Launcestoncasterr), Hall Edinburgh, Executive Secretary, and Bill Eyrke, retiring National President.\n\nJoe Prola delivers his acceptance speech to the delegates.\n\nThe newly elected national officers: Vernon Brooks, Joe Prola and Duffy McKeele...",
+      "captions": [
+        "The rodeo is held under the lights in the enormous new municipal auditorium.",
+        "New National ABC officers elected for the year 1956-1957:\nNational president: Joseph F. Prola, Springfield, Ill;\nNational first vice-president: Vernon E. Brooks, Norristown, Pa;\nNational second vice-president: Duffy McKeelel, Odessa, Texas.\nThe National Convention next year will be held in Augusta, Ga.",
+        "At a business session: Wayne Strasbaugh (Launcestoncasterr), Hall Edinburgh, Executive Secretary, and Bill Eyrke, retiring National President.",
+        "Joe Prola delivers his acceptance speech to the delegates.",
+        "The newly elected national officers: Vernon Brooks, Joe Prola and Duffy McKeele..."
+      ],
+      "caption_text": "The rodeo is held under the lights in the enormous new municipal auditorium.\n\nNew National ABC officers elected for the year 1956-1957:\nNational president: Joseph F. Prola, Springfield, Ill;\nNational first vice-president: Vernon E. Brooks, Norristown, Pa;\nNational second vice-president: Duffy McKeelel, Odessa, Texas.\nThe National Convention next year will be held in Augusta, Ga.\n\nAt a business session: Wayne Strasbaugh (Launcestoncasterr), Hall Edinburgh, Executive Secretary, and Bill Eyrke, retiring National President.\n\nJoe Prola delivers his acceptance speech to the delegates.\n\nThe newly elected national officers: Vernon Brooks, Joe Prola and Duffy McKeele..."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-15.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-15.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            111,
+            1237,
+            1369,
+            1440
+          ],
+          "text": "All past national president meet with their wives at a special breakfast. (L to r) Mrs. Mitchell, Mrs. Johnston, Preston Johnston (Lubbock, Texas), Mrs. Colbert, Jess Colbert (Huntington, W. Va.), Mrs. Eyle, William Eyeke (Muskegon, Mich.), Mrs. Kirchheim, Roy Cagle (Asheville, N. C.), Mrs. Bachman, \"Doc\" Bachman (Champaign, Ill.), Kitty, Gordon (Lancaster, Pa.), Paul Fossett (Enid, Okla.), Charles Mitchell (Detroit, Mich.), William Kirchheim (Augusta, Ga.)."
+        }
+      ],
+      "full_text": "All past national president meet with their wives at a special breakfast. (L to r) Mrs. Mitchell, Mrs. Johnston, Preston Johnston (Lubbock, Texas), Mrs. Colbert, Jess Colbert (Huntington, W. Va.), Mrs. Eyle, William Eyeke (Muskegon, Mich.), Mrs. Kirchheim, Roy Cagle (Asheville, N. C.), Mrs. Bachman, \"Doc\" Bachman (Champaign, Ill.), Kitty, Gordon (Lancaster, Pa.), Paul Fossett (Enid, Okla.), Charles Mitchell (Detroit, Mich.), William Kirchheim (Augusta, Ga.).",
+      "captions": [
+        "All past national president meet with their wives at a special breakfast. (L to r) Mrs. Mitchell, Mrs. Johnston, Preston Johnston (Lubbock, Texas), Mrs. Colbert, Jess Colbert (Huntington, W. Va.), Mrs. Eyle, William Eyeke (Muskegon, Mich.), Mrs. Kirchheim, Roy Cagle (Asheville, N. C.), Mrs. Bachman, \"Doc\" Bachman (Champaign, Ill.), Kitty, Gordon (Lancaster, Pa.), Paul Fossett (Enid, Okla.), Charles Mitchell (Detroit, Mich.), William Kirchheim (Augusta, Ga.)."
+      ],
+      "caption_text": "All past national president meet with their wives at a special breakfast. (L to r) Mrs. Mitchell, Mrs. Johnston, Preston Johnston (Lubbock, Texas), Mrs. Colbert, Jess Colbert (Huntington, W. Va.), Mrs. Eyle, William Eyeke (Muskegon, Mich.), Mrs. Kirchheim, Roy Cagle (Asheville, N. C.), Mrs. Bachman, \"Doc\" Bachman (Champaign, Ill.), Kitty, Gordon (Lancaster, Pa.), Paul Fossett (Enid, Okla.), Charles Mitchell (Detroit, Mich.), William Kirchheim (Augusta, Ga.)."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-16.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-16.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            171,
+            22,
+            1279,
+            153
+          ],
+          "text": "EIGHTH DAY - Friday, June 22, 1956. From Lubbock, Texas to El Paso, Texas, via the Carlsbad Caverns in southeastern New Mexico. 9:10 A. M. to 7:30 P. M. 377 miles - total 2,303 miles."
+        },
+        {
+          "bbox": [
+            988,
+            382,
+            1198,
+            548
+          ],
+          "text": "Welcome to NEW MEXICO Land of Enchantment"
+        },
+        {
+          "bbox": [
+            177,
+            635,
+            1282,
+            732
+          ],
+          "text": "The Convention is over. We leave Texas, and low gas prices, to enter New Mexico headed for Hobbs, the fastest growing town in the U. S. between 1930–1940 (oil)."
+        },
+        {
+          "bbox": [
+            189,
+            1185,
+            1266,
+            1283
+          ],
+          "text": "Long, desolate sections of semi-desert country as we approach Carlsbad Caverns in southeastern New Mexico."
+        },
+        {
+          "bbox": [
+            145,
+            1746,
+            1295,
+            1913
+          ],
+          "text": "The Carlsbad Caverns (a National Park), in the foothills of the Guadalupe Mountains, are the largest of all known caves. We descend to the 750-foot level via the second longest elevator in the world (longest in Empire State Bldg.) where we secure lunch. Seven miles of corridors are open to visitors. We make a circle tour of several miles. A constant 56 degrees always exists inside."
+        }
+      ],
+      "full_text": "EIGHTH DAY - Friday, June 22, 1956. From Lubbock, Texas to El Paso, Texas, via the Carlsbad Caverns in southeastern New Mexico. 9:10 A. M. to 7:30 P. M. 377 miles - total 2,303 miles.\n\nWelcome to NEW MEXICO Land of Enchantment\n\nThe Convention is over. We leave Texas, and low gas prices, to enter New Mexico headed for Hobbs, the fastest growing town in the U. S. between 1930–1940 (oil).\n\nLong, desolate sections of semi-desert country as we approach Carlsbad Caverns in southeastern New Mexico.\n\nThe Carlsbad Caverns (a National Park), in the foothills of the Guadalupe Mountains, are the largest of all known caves. We descend to the 750-foot level via the second longest elevator in the world (longest in Empire State Bldg.) where we secure lunch. Seven miles of corridors are open to visitors. We make a circle tour of several miles. A constant 56 degrees always exists inside.",
+      "captions": [
+        "EIGHTH DAY - Friday, June 22, 1956. From Lubbock, Texas to El Paso, Texas, via the Carlsbad Caverns in southeastern New Mexico. 9:10 A. M. to 7:30 P. M. 377 miles - total 2,303 miles.",
+        "Welcome to NEW MEXICO Land of Enchantment",
+        "The Convention is over. We leave Texas, and low gas prices, to enter New Mexico headed for Hobbs, the fastest growing town in the U. S. between 1930–1940 (oil).",
+        "Long, desolate sections of semi-desert country as we approach Carlsbad Caverns in southeastern New Mexico.",
+        "The Carlsbad Caverns (a National Park), in the foothills of the Guadalupe Mountains, are the largest of all known caves. We descend to the 750-foot level via the second longest elevator in the world (longest in Empire State Bldg.) where we secure lunch. Seven miles of corridors are open to visitors. We make a circle tour of several miles. A constant 56 degrees always exists inside."
+      ],
+      "caption_text": "EIGHTH DAY - Friday, June 22, 1956. From Lubbock, Texas to El Paso, Texas, via the Carlsbad Caverns in southeastern New Mexico. 9:10 A. M. to 7:30 P. M. 377 miles - total 2,303 miles.\n\nWelcome to NEW MEXICO Land of Enchantment\n\nThe Convention is over. We leave Texas, and low gas prices, to enter New Mexico headed for Hobbs, the fastest growing town in the U. S. between 1930–1940 (oil).\n\nLong, desolate sections of semi-desert country as we approach Carlsbad Caverns in southeastern New Mexico.\n\nThe Carlsbad Caverns (a National Park), in the foothills of the Guadalupe Mountains, are the largest of all known caves. We descend to the 750-foot level via the second longest elevator in the world (longest in Empire State Bldg.) where we secure lunch. Seven miles of corridors are open to visitors. We make a circle tour of several miles. A constant 56 degrees always exists inside."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-17.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-17.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            242,
+            9,
+            1270,
+            163
+          ],
+          "text": "This unlovely land was traversed by emigrants bound for California in the gold rush days. Through this section the famous Butterfield Trail found its way between 1858 and 1881. How many lost their lives will never be known, for heat and thirst must have taken a terrible toll."
+        },
+        {
+          "bbox": [
+            911,
+            1304,
+            1404,
+            1674
+          ],
+          "text": "From Carlsbad we drive what must surely be one of the least inhabited sections of the entire coun-\ntry. Between Carlsbad and El Paso, a distance of 167 miles, there is not a single town except for the tourist stop at the entrance to the Caverns. Mostly it is desert, with some salt flats, although we do cross the grim Guadalupe Mts.\n(here shown) which just put down into Texas from New Mexico to form the highest point in Texas. There is very little traffic."
+        },
+        {
+          "bbox": [
+            164,
+            1726,
+            1317,
+            1920
+          ],
+          "text": "We stop for the night at an extremely modern, Spanish type motel, complete with T-V and swimming pool, at the edge of El Paso, \"City of the Pass\", which is spread out on a large surface. A very large portion of the population is Mexican. The mountains have an odd appearance, being devoid of vegetation and brown like the surrounding country. Huge planes from the air base fly overhead."
+        }
+      ],
+      "full_text": "This unlovely land was traversed by emigrants bound for California in the gold rush days. Through this section the famous Butterfield Trail found its way between 1858 and 1881. How many lost their lives will never be known, for heat and thirst must have taken a terrible toll.\n\nFrom Carlsbad we drive what must surely be one of the least inhabited sections of the entire coun-\ntry. Between Carlsbad and El Paso, a distance of 167 miles, there is not a single town except for the tourist stop at the entrance to the Caverns. Mostly it is desert, with some salt flats, although we do cross the grim Guadalupe Mts.\n(here shown) which just put down into Texas from New Mexico to form the highest point in Texas. There is very little traffic.\n\nWe stop for the night at an extremely modern, Spanish type motel, complete with T-V and swimming pool, at the edge of El Paso, \"City of the Pass\", which is spread out on a large surface. A very large portion of the population is Mexican. The mountains have an odd appearance, being devoid of vegetation and brown like the surrounding country. Huge planes from the air base fly overhead.",
+      "captions": [
+        "This unlovely land was traversed by emigrants bound for California in the gold rush days. Through this section the famous Butterfield Trail found its way between 1858 and 1881. How many lost their lives will never be known, for heat and thirst must have taken a terrible toll.",
+        "From Carlsbad we drive what must surely be one of the least inhabited sections of the entire coun-\ntry. Between Carlsbad and El Paso, a distance of 167 miles, there is not a single town except for the tourist stop at the entrance to the Caverns. Mostly it is desert, with some salt flats, although we do cross the grim Guadalupe Mts.\n(here shown) which just put down into Texas from New Mexico to form the highest point in Texas. There is very little traffic.",
+        "We stop for the night at an extremely modern, Spanish type motel, complete with T-V and swimming pool, at the edge of El Paso, \"City of the Pass\", which is spread out on a large surface. A very large portion of the population is Mexican. The mountains have an odd appearance, being devoid of vegetation and brown like the surrounding country. Huge planes from the air base fly overhead."
+      ],
+      "caption_text": "This unlovely land was traversed by emigrants bound for California in the gold rush days. Through this section the famous Butterfield Trail found its way between 1858 and 1881. How many lost their lives will never be known, for heat and thirst must have taken a terrible toll.\n\nFrom Carlsbad we drive what must surely be one of the least inhabited sections of the entire coun-\ntry. Between Carlsbad and El Paso, a distance of 167 miles, there is not a single town except for the tourist stop at the entrance to the Caverns. Mostly it is desert, with some salt flats, although we do cross the grim Guadalupe Mts.\n(here shown) which just put down into Texas from New Mexico to form the highest point in Texas. There is very little traffic.\n\nWe stop for the night at an extremely modern, Spanish type motel, complete with T-V and swimming pool, at the edge of El Paso, \"City of the Pass\", which is spread out on a large surface. A very large portion of the population is Mexican. The mountains have an odd appearance, being devoid of vegetation and brown like the surrounding country. Huge planes from the air base fly overhead."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-18.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-18.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            166,
+            1173,
+            1326,
+            1320
+          ],
+          "text": "NINTH DAY – Saturday, June 23, 1956. Across Rio Grande River for visit to Juarez, Mexico; return to El Paso; north to Las Cruces, N. M., west through southern N. M. into Arizona as far as Benson. As Benison."
+        },
+        {
+          "bbox": [
+            176,
+            1786,
+            1307,
+            1885
+          ],
+          "text": "First thing in the morning we drive to the top of one of the mountains for a view of El Paso. The mountains in the distance are beyond the Rio Grande in Mexico."
+        }
+      ],
+      "full_text": "NINTH DAY – Saturday, June 23, 1956. Across Rio Grande River for visit to Juarez, Mexico; return to El Paso; north to Las Cruces, N. M., west through southern N. M. into Arizona as far as Benson. As Benison.\n\nFirst thing in the morning we drive to the top of one of the mountains for a view of El Paso. The mountains in the distance are beyond the Rio Grande in Mexico.",
+      "captions": [
+        "NINTH DAY – Saturday, June 23, 1956. Across Rio Grande River for visit to Juarez, Mexico; return to El Paso; north to Las Cruces, N. M., west through southern N. M. into Arizona as far as Benson. As Benison.",
+        "First thing in the morning we drive to the top of one of the mountains for a view of El Paso. The mountains in the distance are beyond the Rio Grande in Mexico."
+      ],
+      "caption_text": "NINTH DAY – Saturday, June 23, 1956. Across Rio Grande River for visit to Juarez, Mexico; return to El Paso; north to Las Cruces, N. M., west through southern N. M. into Arizona as far as Benson. As Benison.\n\nFirst thing in the morning we drive to the top of one of the mountains for a view of El Paso. The mountains in the distance are beyond the Rio Grande in Mexico."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-19.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-19.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            725,
+            34,
+            1405,
+            262
+          ],
+          "text": "After breakfast in El Paso, we park our car near the border and are immediately beset by cab drivers who offer their services for a trip into Mexico. We settle in advance for $4. The only trouble, we discover, is that the driver, obviously on a percentage basis, shows us more shops than points of interest."
+        },
+        {
+          "bbox": [
+            0,
+            809,
+            236,
+            916
+          ],
+          "text": "Nancy enters one of the shops in Juarez."
+        },
+        {
+          "bbox": [
+            0,
+            1725,
+            220,
+            1836
+          ],
+          "text": "Home of one of the wealthy citizens."
+        }
+      ],
+      "full_text": "After breakfast in El Paso, we park our car near the border and are immediately beset by cab drivers who offer their services for a trip into Mexico. We settle in advance for $4. The only trouble, we discover, is that the driver, obviously on a percentage basis, shows us more shops than points of interest.\n\nNancy enters one of the shops in Juarez.\n\nHome of one of the wealthy citizens.",
+      "captions": [
+        "After breakfast in El Paso, we park our car near the border and are immediately beset by cab drivers who offer their services for a trip into Mexico. We settle in advance for $4. The only trouble, we discover, is that the driver, obviously on a percentage basis, shows us more shops than points of interest.",
+        "Nancy enters one of the shops in Juarez.",
+        "Home of one of the wealthy citizens."
+      ],
+      "caption_text": "After breakfast in El Paso, we park our car near the border and are immediately beset by cab drivers who offer their services for a trip into Mexico. We settle in advance for $4. The only trouble, we discover, is that the driver, obviously on a percentage basis, shows us more shops than points of interest.\n\nNancy enters one of the shops in Juarez.\n\nHome of one of the wealthy citizens."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-20.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-20.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            155,
+            1055,
+            1346,
+            1253
+          ],
+          "text": "The road stretches ahead far as the eye can see. The flat valley land is generally covered with patches of mesquite and cactus. Dull, brown mountains are on every side. A single wire fences the road. Mile after mile is unbroken by any sign of building or cattle, although there is an occasional \"ranch\" sign over a side road which leads off through the brush. In spite of so much sameness, there is a peculiar fascination to this great arid, almost uninhabited land of the extreme Southwest."
+        },
+        {
+          "bbox": [
+            74,
+            1231,
+            736,
+            1757
+          ],
+          "text": "Continental Divide Alluvium &450 ft. Rainfall divides at this point To the west it drains into the Pacific Ocean, to the east Into the cast into the Atlantic."
+        },
+        {
+          "bbox": [
+            81,
+            1732,
+            722,
+            1883
+          ],
+          "text": "Across the Continental Divide in New Mexico at a place probably more flat for this division of east-west rainfall than any other in the United States."
+        },
+        {
+          "bbox": [
+            763,
+            1742,
+            1410,
+            1884
+          ],
+          "text": "Far spaced trading posts supply food and gas online, as well as a wide selection of curios for the traveler."
+        }
+      ],
+      "full_text": "The road stretches ahead far as the eye can see. The flat valley land is generally covered with patches of mesquite and cactus. Dull, brown mountains are on every side. A single wire fences the road. Mile after mile is unbroken by any sign of building or cattle, although there is an occasional \"ranch\" sign over a side road which leads off through the brush. In spite of so much sameness, there is a peculiar fascination to this great arid, almost uninhabited land of the extreme Southwest.\n\nContinental Divide Alluvium &450 ft. Rainfall divides at this point To the west it drains into the Pacific Ocean, to the east Into the cast into the Atlantic.\n\nAcross the Continental Divide in New Mexico at a place probably more flat for this division of east-west rainfall than any other in the United States.\n\nFar spaced trading posts supply food and gas online, as well as a wide selection of curios for the traveler.",
+      "captions": [
+        "The road stretches ahead far as the eye can see. The flat valley land is generally covered with patches of mesquite and cactus. Dull, brown mountains are on every side. A single wire fences the road. Mile after mile is unbroken by any sign of building or cattle, although there is an occasional \"ranch\" sign over a side road which leads off through the brush. In spite of so much sameness, there is a peculiar fascination to this great arid, almost uninhabited land of the extreme Southwest.",
+        "Continental Divide Alluvium &450 ft. Rainfall divides at this point To the west it drains into the Pacific Ocean, to the east Into the cast into the Atlantic.",
+        "Across the Continental Divide in New Mexico at a place probably more flat for this division of east-west rainfall than any other in the United States.",
+        "Far spaced trading posts supply food and gas online, as well as a wide selection of curios for the traveler."
+      ],
+      "caption_text": "The road stretches ahead far as the eye can see. The flat valley land is generally covered with patches of mesquite and cactus. Dull, brown mountains are on every side. A single wire fences the road. Mile after mile is unbroken by any sign of building or cattle, although there is an occasional \"ranch\" sign over a side road which leads off through the brush. In spite of so much sameness, there is a peculiar fascination to this great arid, almost uninhabited land of the extreme Southwest.\n\nContinental Divide Alluvium &450 ft. Rainfall divides at this point To the west it drains into the Pacific Ocean, to the east Into the cast into the Atlantic.\n\nAcross the Continental Divide in New Mexico at a place probably more flat for this division of east-west rainfall than any other in the United States.\n\nFar spaced trading posts supply food and gas online, as well as a wide selection of curios for the traveler."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-21.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-21.jpg",
+      "blocks": [],
+      "full_text": "",
+      "captions": [],
+      "caption_text": ""
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-22.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-22.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            262,
+            1453,
+            1174,
+            1578
+          ],
+          "text": "The Yucca, flower of the desert, is quite common throughout the Southwest. It has been adopted as the state flower of New Mexico."
+        }
+      ],
+      "full_text": "The Yucca, flower of the desert, is quite common throughout the Southwest. It has been adopted as the state flower of New Mexico.",
+      "captions": [
+        "The Yucca, flower of the desert, is quite common throughout the Southwest. It has been adopted as the state flower of New Mexico."
+      ],
+      "caption_text": "The Yucca, flower of the desert, is quite common throughout the Southwest. It has been adopted as the state flower of New Mexico."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-23.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-23.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            184,
+            505,
+            1279,
+            604
+          ],
+          "text": "A glance back into New Mexico as we cross the line into Arizona, our youngest state and the fifth largest."
+        },
+        {
+          "bbox": [
+            260,
+            1118,
+            1227,
+            1209
+          ],
+          "text": "A roadside rest gives the children a chance to stretch their legs."
+        },
+        {
+          "bbox": [
+            774,
+            1747,
+            1409,
+            1883
+          ],
+          "text": "A fairly early stop at Benson, Arizona in anticipation of a visit to Saguar National Monument on the morrow. Motel $11.22."
+        },
+        {
+          "bbox": [
+            112,
+            1754,
+            725,
+            1890
+          ],
+          "text": "Through Texas Canyon where rocks in some past geologic period have been tossed about like matchsticks."
+        }
+      ],
+      "full_text": "A glance back into New Mexico as we cross the line into Arizona, our youngest state and the fifth largest.\n\nA roadside rest gives the children a chance to stretch their legs.\n\nA fairly early stop at Benson, Arizona in anticipation of a visit to Saguar National Monument on the morrow. Motel $11.22.\n\nThrough Texas Canyon where rocks in some past geologic period have been tossed about like matchsticks.",
+      "captions": [
+        "A glance back into New Mexico as we cross the line into Arizona, our youngest state and the fifth largest.",
+        "A roadside rest gives the children a chance to stretch their legs.",
+        "A fairly early stop at Benson, Arizona in anticipation of a visit to Saguar National Monument on the morrow. Motel $11.22.",
+        "Through Texas Canyon where rocks in some past geologic period have been tossed about like matchsticks."
+      ],
+      "caption_text": "A glance back into New Mexico as we cross the line into Arizona, our youngest state and the fifth largest.\n\nA roadside rest gives the children a chance to stretch their legs.\n\nA fairly early stop at Benson, Arizona in anticipation of a visit to Saguar National Monument on the morrow. Motel $11.22.\n\nThrough Texas Canyon where rocks in some past geologic period have been tossed about like matchsticks."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-24.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-24.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            145,
+            0,
+            1291,
+            160
+          ],
+          "text": "TENTH DAY – Sunday, June 24, 1956. From Benson, Arizona to Saguaro National Monument, to Tucson, north to Phoenix, to Montezuma National Monument, to Sedona, Arizona in Oak Creek Canyon. 7:30 A. M. to 7:00 P. M. 343 miles – total 2,949 miles."
+        },
+        {
+          "bbox": [
+            58,
+            690,
+            702,
+            825
+          ],
+          "text": "Off the main highway, we follow along a gravel road among the mountains for Saguaro National Monument. A number of road runners (birds about the size of a crow which rarely fly) are seen."
+        },
+        {
+          "bbox": [
+            77,
+            887,
+            753,
+            1198
+          ],
+          "text": "In Saguaro National Monument the Government has preserved the greatest of all cacti, the saguaro, in forest proportions. This grotesque cactus, with its strange semaphore arms, is found only in isolated sections of Calif., Sonora, Mexico and southern Arizona. It lives to be about 200 years old and attains a height of up to 50 feet. Scientists declare it is a doomed species, since it appears not to be renewing. The blossom of the saguaro is the state flower of Arizona."
+        },
+        {
+          "bbox": [
+            1031,
+            966,
+            1354,
+            1216
+          ],
+          "text": "SAGUARO NATIONAL MONUMENT"
+        }
+      ],
+      "full_text": "TENTH DAY – Sunday, June 24, 1956. From Benson, Arizona to Saguaro National Monument, to Tucson, north to Phoenix, to Montezuma National Monument, to Sedona, Arizona in Oak Creek Canyon. 7:30 A. M. to 7:00 P. M. 343 miles – total 2,949 miles.\n\nOff the main highway, we follow along a gravel road among the mountains for Saguaro National Monument. A number of road runners (birds about the size of a crow which rarely fly) are seen.\n\nIn Saguaro National Monument the Government has preserved the greatest of all cacti, the saguaro, in forest proportions. This grotesque cactus, with its strange semaphore arms, is found only in isolated sections of Calif., Sonora, Mexico and southern Arizona. It lives to be about 200 years old and attains a height of up to 50 feet. Scientists declare it is a doomed species, since it appears not to be renewing. The blossom of the saguaro is the state flower of Arizona.\n\nSAGUARO NATIONAL MONUMENT",
+      "captions": [
+        "TENTH DAY – Sunday, June 24, 1956. From Benson, Arizona to Saguaro National Monument, to Tucson, north to Phoenix, to Montezuma National Monument, to Sedona, Arizona in Oak Creek Canyon. 7:30 A. M. to 7:00 P. M. 343 miles – total 2,949 miles.",
+        "Off the main highway, we follow along a gravel road among the mountains for Saguaro National Monument. A number of road runners (birds about the size of a crow which rarely fly) are seen.",
+        "In Saguaro National Monument the Government has preserved the greatest of all cacti, the saguaro, in forest proportions. This grotesque cactus, with its strange semaphore arms, is found only in isolated sections of Calif., Sonora, Mexico and southern Arizona. It lives to be about 200 years old and attains a height of up to 50 feet. Scientists declare it is a doomed species, since it appears not to be renewing. The blossom of the saguaro is the state flower of Arizona.",
+        "SAGUARO NATIONAL MONUMENT"
+      ],
+      "caption_text": "TENTH DAY – Sunday, June 24, 1956. From Benson, Arizona to Saguaro National Monument, to Tucson, north to Phoenix, to Montezuma National Monument, to Sedona, Arizona in Oak Creek Canyon. 7:30 A. M. to 7:00 P. M. 343 miles – total 2,949 miles.\n\nOff the main highway, we follow along a gravel road among the mountains for Saguaro National Monument. A number of road runners (birds about the size of a crow which rarely fly) are seen.\n\nIn Saguaro National Monument the Government has preserved the greatest of all cacti, the saguaro, in forest proportions. This grotesque cactus, with its strange semaphore arms, is found only in isolated sections of Calif., Sonora, Mexico and southern Arizona. It lives to be about 200 years old and attains a height of up to 50 feet. Scientists declare it is a doomed species, since it appears not to be renewing. The blossom of the saguaro is the state flower of Arizona.\n\nSAGUARO NATIONAL MONUMENT"
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-25.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-25.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            349,
+            1511,
+            1129,
+            1593
+          ],
+          "text": "Kathy stands before some of the giant saguaro cacti. Kathy standands bedeforeforee soommeemoof threee the gianent sagaguarro caactai."
+        },
+        {
+          "bbox": [
+            239,
+            1587,
+            1224,
+            1745
+          ],
+          "text": "From Saguaro National Monument it is 17 miles to Tucson, the health and winter resort which has grown up around one of the oldest Spanish towns in the United States. In Tucson we have lunch and manage to secure our mail from home, even though the day is Sunday."
+        }
+      ],
+      "full_text": "Kathy stands before some of the giant saguaro cacti. Kathy standands bedeforeforee soommeemoof threee the gianent sagaguarro caactai.\n\nFrom Saguaro National Monument it is 17 miles to Tucson, the health and winter resort which has grown up around one of the oldest Spanish towns in the United States. In Tucson we have lunch and manage to secure our mail from home, even though the day is Sunday.",
+      "captions": [
+        "Kathy stands before some of the giant saguaro cacti. Kathy standands bedeforeforee soommeemoof threee the gianent sagaguarro caactai.",
+        "From Saguaro National Monument it is 17 miles to Tucson, the health and winter resort which has grown up around one of the oldest Spanish towns in the United States. In Tucson we have lunch and manage to secure our mail from home, even though the day is Sunday."
+      ],
+      "caption_text": "Kathy stands before some of the giant saguaro cacti. Kathy standands bedeforeforee soommeemoof threee the gianent sagaguarro caactai.\n\nFrom Saguaro National Monument it is 17 miles to Tucson, the health and winter resort which has grown up around one of the oldest Spanish towns in the United States. In Tucson we have lunch and manage to secure our mail from home, even though the day is Sunday."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-26.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-26.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            85,
+            538,
+            712,
+            659
+          ],
+          "text": "Ninety miles north of Tucson we pass Super-stition Mountain where the rich Lost Dutchman Mine is supposed to be located."
+        },
+        {
+          "bbox": [
+            158,
+            1785,
+            1323,
+            1898
+          ],
+          "text": "North from Phoenix we follow the Black Canyon until we begin a climb after sixty miles into high country once again. A new road by-passes Prescott."
+        }
+      ],
+      "full_text": "Ninety miles north of Tucson we pass Super-stition Mountain where the rich Lost Dutchman Mine is supposed to be located.\n\nNorth from Phoenix we follow the Black Canyon until we begin a climb after sixty miles into high country once again. A new road by-passes Prescott.",
+      "captions": [
+        "Ninety miles north of Tucson we pass Super-stition Mountain where the rich Lost Dutchman Mine is supposed to be located.",
+        "North from Phoenix we follow the Black Canyon until we begin a climb after sixty miles into high country once again. A new road by-passes Prescott."
+      ],
+      "caption_text": "Ninety miles north of Tucson we pass Super-stition Mountain where the rich Lost Dutchman Mine is supposed to be located.\n\nNorth from Phoenix we follow the Black Canyon until we begin a climb after sixty miles into high country once again. A new road by-passes Prescott."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-27.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-27.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            146,
+            17,
+            1275,
+            126
+          ],
+          "text": "Montezuma Castle National Monument in central Arizona was established in 1906 to protect one of the best preserved cliff dwellings in the United States."
+        },
+        {
+          "bbox": [
+            159,
+            1770,
+            1284,
+            1891
+          ],
+          "text": "The dwelling is five stories high and forty feet from top to bottom. Note the children at the base of the cliff."
+        }
+      ],
+      "full_text": "Montezuma Castle National Monument in central Arizona was established in 1906 to protect one of the best preserved cliff dwellings in the United States.\n\nThe dwelling is five stories high and forty feet from top to bottom. Note the children at the base of the cliff.",
+      "captions": [
+        "Montezuma Castle National Monument in central Arizona was established in 1906 to protect one of the best preserved cliff dwellings in the United States.",
+        "The dwelling is five stories high and forty feet from top to bottom. Note the children at the base of the cliff."
+      ],
+      "caption_text": "Montezuma Castle National Monument in central Arizona was established in 1906 to protect one of the best preserved cliff dwellings in the United States.\n\nThe dwelling is five stories high and forty feet from top to bottom. Note the children at the base of the cliff."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-28.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-28.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            51,
+            36,
+            723,
+            142
+          ],
+          "text": "In the manner of cliff dwellers, Kitty and the children climb ladders up the canyon wall."
+        },
+        {
+          "bbox": [
+            142,
+            1266,
+            776,
+            1365
+          ],
+          "text": "We studutudthy the type of man who lived in these dwellings many centuries ago."
+        }
+      ],
+      "full_text": "In the manner of cliff dwellers, Kitty and the children climb ladders up the canyon wall.\n\nWe studutudthy the type of man who lived in these dwellings many centuries ago.",
+      "captions": [
+        "In the manner of cliff dwellers, Kitty and the children climb ladders up the canyon wall.",
+        "We studutudthy the type of man who lived in these dwellings many centuries ago."
+      ],
+      "caption_text": "In the manner of cliff dwellers, Kitty and the children climb ladders up the canyon wall.\n\nWe studutudthy the type of man who lived in these dwellings many centuries ago."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-29.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-29.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            139,
+            17,
+            1274,
+            173
+          ],
+          "text": "ELEVENTH DAY - Monday, June 25, 1956. Sedona, Arizona to Flagstaff; north to see South Rim of the Grand Canyon; to Williams; west to Kingman; northwest to Hoover Dam; night at Boulder City, Nevada. 7:10 A.M. to 8:50 P.M. 434 miles - total 3,383 miles."
+        },
+        {
+          "bbox": [
+            152,
+            646,
+            1255,
+            756
+          ],
+          "text": "A pause e to look back upon the road switchbacks which have lifted us out of Oak Creek Canyon to a height of 2,000 eret above the canyon floor."
+        },
+        {
+          "bbox": [
+            849,
+            792,
+            1297,
+            931
+          ],
+          "text": "Breakfast in Flagstaff while we wait 1½ hrs. for a defective line from the power steering unit to be repaired."
+        },
+        {
+          "bbox": [
+            844,
+            1114,
+            1327,
+            1263
+          ],
+          "text": "(Left) The San Francisco Peaks,\n122,670 feet, highest in Arizona,\ntower over the plateau country near Flagstaff."
+        },
+        {
+          "bbox": [
+            135,
+            1787,
+            1295,
+            1913
+          ],
+          "text": "Sunset Crater, a cone-shaped crater of volcanic cinder near Flagstaff, is gray at the base and tapers to a red tip reflecting the rays of the sun with outstanding effect."
+        }
+      ],
+      "full_text": "ELEVENTH DAY - Monday, June 25, 1956. Sedona, Arizona to Flagstaff; north to see South Rim of the Grand Canyon; to Williams; west to Kingman; northwest to Hoover Dam; night at Boulder City, Nevada. 7:10 A.M. to 8:50 P.M. 434 miles - total 3,383 miles.\n\nA pause e to look back upon the road switchbacks which have lifted us out of Oak Creek Canyon to a height of 2,000 eret above the canyon floor.\n\nBreakfast in Flagstaff while we wait 1½ hrs. for a defective line from the power steering unit to be repaired.\n\n(Left) The San Francisco Peaks,\n122,670 feet, highest in Arizona,\ntower over the plateau country near Flagstaff.\n\nSunset Crater, a cone-shaped crater of volcanic cinder near Flagstaff, is gray at the base and tapers to a red tip reflecting the rays of the sun with outstanding effect.",
+      "captions": [
+        "ELEVENTH DAY - Monday, June 25, 1956. Sedona, Arizona to Flagstaff; north to see South Rim of the Grand Canyon; to Williams; west to Kingman; northwest to Hoover Dam; night at Boulder City, Nevada. 7:10 A.M. to 8:50 P.M. 434 miles - total 3,383 miles.",
+        "A pause e to look back upon the road switchbacks which have lifted us out of Oak Creek Canyon to a height of 2,000 eret above the canyon floor.",
+        "Breakfast in Flagstaff while we wait 1½ hrs. for a defective line from the power steering unit to be repaired.",
+        "(Left) The San Francisco Peaks,\n122,670 feet, highest in Arizona,\ntower over the plateau country near Flagstaff.",
+        "Sunset Crater, a cone-shaped crater of volcanic cinder near Flagstaff, is gray at the base and tapers to a red tip reflecting the rays of the sun with outstanding effect."
+      ],
+      "caption_text": "ELEVENTH DAY - Monday, June 25, 1956. Sedona, Arizona to Flagstaff; north to see South Rim of the Grand Canyon; to Williams; west to Kingman; northwest to Hoover Dam; night at Boulder City, Nevada. 7:10 A.M. to 8:50 P.M. 434 miles - total 3,383 miles.\n\nA pause e to look back upon the road switchbacks which have lifted us out of Oak Creek Canyon to a height of 2,000 eret above the canyon floor.\n\nBreakfast in Flagstaff while we wait 1½ hrs. for a defective line from the power steering unit to be repaired.\n\n(Left) The San Francisco Peaks,\n122,670 feet, highest in Arizona,\ntower over the plateau country near Flagstaff.\n\nSunset Crater, a cone-shaped crater of volcanic cinder near Flagstaff, is gray at the base and tapers to a red tip reflecting the rays of the sun with outstanding effect."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-30.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-30.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            883,
+            1212,
+            1443,
+            1331
+          ],
+          "text": "The picture of the Grand Canyon on the next page has been enlarged from a 35 mm. negative."
+        }
+      ],
+      "full_text": "The picture of the Grand Canyon on the next page has been enlarged from a 35 mm. negative.",
+      "captions": [
+        "The picture of the Grand Canyon on the next page has been enlarged from a 35 mm. negative."
+      ],
+      "caption_text": "The picture of the Grand Canyon on the next page has been enlarged from a 35 mm. negative."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-31.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-31.jpg",
+      "blocks": [],
+      "full_text": "",
+      "captions": [],
+      "caption_text": ""
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-32.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-32.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            226,
+            1804,
+            1254,
+            1894
+          ],
+          "text": "A time to pause and reflect in the presence of indescribable grandeur."
+        }
+      ],
+      "full_text": "A time to pause and reflect in the presence of indescribable grandeur.",
+      "captions": [
+        "A time to pause and reflect in the presence of indescribable grandeur."
+      ],
+      "caption_text": "A time to pause and reflect in the presence of indescribable grandeur."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-33.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-33.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            158,
+            572,
+            815,
+            678
+          ],
+          "text": "This huge figure at a trading post represents an Indian dancer. Here we come upon Hal and Lacy Edinburgh who left Lubbock when we did."
+        },
+        {
+          "bbox": [
+            46,
+            1189,
+            665,
+            1305
+          ],
+          "text": "Supper at Kingman; then north through this barren country at 80–85 miles per hour to try to reach Hoover Dam before nightfall."
+        },
+        {
+          "bbox": [
+            125,
+            1783,
+            1260,
+            1916
+          ],
+          "text": "The children are skeptical about Hoover Dam as we approach it from the rear and park the car on top of the Dam...but when they cross the roadway suddenly to gaze straight down more than 700 feet they shudder and instinctively step back."
+        }
+      ],
+      "full_text": "This huge figure at a trading post represents an Indian dancer. Here we come upon Hal and Lacy Edinburgh who left Lubbock when we did.\n\nSupper at Kingman; then north through this barren country at 80–85 miles per hour to try to reach Hoover Dam before nightfall.\n\nThe children are skeptical about Hoover Dam as we approach it from the rear and park the car on top of the Dam...but when they cross the roadway suddenly to gaze straight down more than 700 feet they shudder and instinctively step back.",
+      "captions": [
+        "This huge figure at a trading post represents an Indian dancer. Here we come upon Hal and Lacy Edinburgh who left Lubbock when we did.",
+        "Supper at Kingman; then north through this barren country at 80–85 miles per hour to try to reach Hoover Dam before nightfall.",
+        "The children are skeptical about Hoover Dam as we approach it from the rear and park the car on top of the Dam...but when they cross the roadway suddenly to gaze straight down more than 700 feet they shudder and instinctively step back."
+      ],
+      "caption_text": "This huge figure at a trading post represents an Indian dancer. Here we come upon Hal and Lacy Edinburgh who left Lubbock when we did.\n\nSupper at Kingman; then north through this barren country at 80–85 miles per hour to try to reach Hoover Dam before nightfall.\n\nThe children are skeptical about Hoover Dam as we approach it from the rear and park the car on top of the Dam...but when they cross the roadway suddenly to gaze straight down more than 700 feet they shudder and instinctively step back."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-34.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-34.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            13,
+            1696,
+            796,
+            1871
+          ],
+          "text": "Hoover Dam, the highest ever constructed (726 feet), photographed just after nightfall with floodlights on the Dam supplying the only available light. The Dam is on the Arizona–Nevada border of the Colorado River."
+        }
+      ],
+      "full_text": "Hoover Dam, the highest ever constructed (726 feet), photographed just after nightfall with floodlights on the Dam supplying the only available light. The Dam is on the Arizona–Nevada border of the Colorado River.",
+      "captions": [
+        "Hoover Dam, the highest ever constructed (726 feet), photographed just after nightfall with floodlights on the Dam supplying the only available light. The Dam is on the Arizona–Nevada border of the Colorado River."
+      ],
+      "caption_text": "Hoover Dam, the highest ever constructed (726 feet), photographed just after nightfall with floodlights on the Dam supplying the only available light. The Dam is on the Arizona–Nevada border of the Colorado River."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-35.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-35.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            170,
+            6,
+            1321,
+            164
+          ],
+          "text": "TWELFTH DAY — Tuesday, June 26, 1956. Boulder City to Las Vegas, Nevada; southwest into California, across Mojave Desert via Baker and Barstow; into San Bernardino; to Los Angeles; visit Disneyland; night in Los Angeles. 8:30 A. M. to 11:30 P. M. 388 miles — total, 3,771 miles."
+        },
+        {
+          "bbox": [
+            770,
+            751,
+            1399,
+            871
+          ],
+          "text": "From Boulder City it is only 19 miles to Las Vegas across the desert. First thing on entering Las Vegas we have the car washed."
+        },
+        {
+          "bbox": [
+            269,
+            1602,
+            1171,
+            1807
+          ],
+          "text": "Main street of Las Vegas with the ultra-modern Hotel Fremont dominating the downtown section. For blocks the town is given over to all types of gambling; plush bars and casinos are surmounted by large neon signs of frontier design. Population has trebled since 1940. Direct plane flights connect with Los Angeles."
+        }
+      ],
+      "full_text": "TWELFTH DAY — Tuesday, June 26, 1956. Boulder City to Las Vegas, Nevada; southwest into California, across Mojave Desert via Baker and Barstow; into San Bernardino; to Los Angeles; visit Disneyland; night in Los Angeles. 8:30 A. M. to 11:30 P. M. 388 miles — total, 3,771 miles.\n\nFrom Boulder City it is only 19 miles to Las Vegas across the desert. First thing on entering Las Vegas we have the car washed.\n\nMain street of Las Vegas with the ultra-modern Hotel Fremont dominating the downtown section. For blocks the town is given over to all types of gambling; plush bars and casinos are surmounted by large neon signs of frontier design. Population has trebled since 1940. Direct plane flights connect with Los Angeles.",
+      "captions": [
+        "TWELFTH DAY — Tuesday, June 26, 1956. Boulder City to Las Vegas, Nevada; southwest into California, across Mojave Desert via Baker and Barstow; into San Bernardino; to Los Angeles; visit Disneyland; night in Los Angeles. 8:30 A. M. to 11:30 P. M. 388 miles — total, 3,771 miles.",
+        "From Boulder City it is only 19 miles to Las Vegas across the desert. First thing on entering Las Vegas we have the car washed.",
+        "Main street of Las Vegas with the ultra-modern Hotel Fremont dominating the downtown section. For blocks the town is given over to all types of gambling; plush bars and casinos are surmounted by large neon signs of frontier design. Population has trebled since 1940. Direct plane flights connect with Los Angeles."
+      ],
+      "caption_text": "TWELFTH DAY — Tuesday, June 26, 1956. Boulder City to Las Vegas, Nevada; southwest into California, across Mojave Desert via Baker and Barstow; into San Bernardino; to Los Angeles; visit Disneyland; night in Los Angeles. 8:30 A. M. to 11:30 P. M. 388 miles — total, 3,771 miles.\n\nFrom Boulder City it is only 19 miles to Las Vegas across the desert. First thing on entering Las Vegas we have the car washed.\n\nMain street of Las Vegas with the ultra-modern Hotel Fremont dominating the downtown section. For blocks the town is given over to all types of gambling; plush bars and casinos are surmounted by large neon signs of frontier design. Population has trebled since 1940. Direct plane flights connect with Los Angeles."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-36.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-36.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            146,
+            1773,
+            1298,
+            1909
+          ],
+          "text": "\"The Strip\", fabulous section of swank hotels and casinos, stretches out into the desert at the western edge of Las Vegas. Here well known entertainers are paid up to $50,000 per week to perform and the cover charge may be $25 per couple."
+        }
+      ],
+      "full_text": "\"The Strip\", fabulous section of swank hotels and casinos, stretches out into the desert at the western edge of Las Vegas. Here well known entertainers are paid up to $50,000 per week to perform and the cover charge may be $25 per couple.",
+      "captions": [
+        "\"The Strip\", fabulous section of swank hotels and casinos, stretches out into the desert at the western edge of Las Vegas. Here well known entertainers are paid up to $50,000 per week to perform and the cover charge may be $25 per couple."
+      ],
+      "caption_text": "\"The Strip\", fabulous section of swank hotels and casinos, stretches out into the desert at the western edge of Las Vegas. Here well known entertainers are paid up to $50,000 per week to perform and the cover charge may be $25 per couple."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-37.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-37.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            162,
+            13,
+            1334,
+            129
+          ],
+          "text": "We devote an hour to the Frontier Village in The Strip section where all kinds of paraphernalia Old West are on display."
+        }
+      ],
+      "full_text": "We devote an hour to the Frontier Village in The Strip section where all kinds of paraphernalia Old West are on display.",
+      "captions": [
+        "We devote an hour to the Frontier Village in The Strip section where all kinds of paraphernalia Old West are on display."
+      ],
+      "caption_text": "We devote an hour to the Frontier Village in The Strip section where all kinds of paraphernalia Old West are on display."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-38.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-38.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            856,
+            153,
+            1120,
+            295
+          ],
+          "text": "CALIFORNIA STATE LINE"
+        }
+      ],
+      "full_text": "CALIFORNIA STATE LINE",
+      "captions": [
+        "CALIFORNIA STATE LINE"
+      ],
+      "caption_text": "CALIFORNIA STATE LINE"
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-39.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-39.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            398,
+            1063,
+            1005,
+            1219
+          ],
+          "text": "After crossing the Coastal Range we enter\nthe rich citrus San Bernardino Valley and\nhave our first experience with the eye-\nburning smog which is tormenting Southern\nCalifornia."
+        },
+        {
+          "bbox": [
+            130,
+            1197,
+            1297,
+            1365
+          ],
+          "text": "The children have been talking about Disneyland, at Los Angeles, ever since leaving home. Although it is getting late, we decide to favor them and we find it after a two hours search. Disneyland is a $17million extravaganza, built on a setting of the Gay Nineties, with sections devoted to Advertureland, Frontierland, Fantasyland, and Tomorrowland. Visitors exceeded 22,000 the day we were there."
+        }
+      ],
+      "full_text": "After crossing the Coastal Range we enter\nthe rich citrus San Bernardino Valley and\nhave our first experience with the eye-\nburning smog which is tormenting Southern\nCalifornia.\n\nThe children have been talking about Disneyland, at Los Angeles, ever since leaving home. Although it is getting late, we decide to favor them and we find it after a two hours search. Disneyland is a $17million extravaganza, built on a setting of the Gay Nineties, with sections devoted to Advertureland, Frontierland, Fantasyland, and Tomorrowland. Visitors exceeded 22,000 the day we were there.",
+      "captions": [
+        "After crossing the Coastal Range we enter\nthe rich citrus San Bernardino Valley and\nhave our first experience with the eye-\nburning smog which is tormenting Southern\nCalifornia.",
+        "The children have been talking about Disneyland, at Los Angeles, ever since leaving home. Although it is getting late, we decide to favor them and we find it after a two hours search. Disneyland is a $17million extravaganza, built on a setting of the Gay Nineties, with sections devoted to Advertureland, Frontierland, Fantasyland, and Tomorrowland. Visitors exceeded 22,000 the day we were there."
+      ],
+      "caption_text": "After crossing the Coastal Range we enter\nthe rich citrus San Bernardino Valley and\nhave our first experience with the eye-\nburning smog which is tormenting Southern\nCalifornia.\n\nThe children have been talking about Disneyland, at Los Angeles, ever since leaving home. Although it is getting late, we decide to favor them and we find it after a two hours search. Disneyland is a $17million extravaganza, built on a setting of the Gay Nineties, with sections devoted to Advertureland, Frontierland, Fantasyland, and Tomorrowland. Visitors exceeded 22,000 the day we were there."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-40.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-40.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            662,
+            6,
+            1075,
+            168
+          ],
+          "text": "Fun for old and young alike at Disneyland."
+        },
+        {
+          "bbox": [
+            188,
+            1691,
+            764,
+            1900
+          ],
+          "text": "After Disneylandland, not having previously made arrangements for the night, we search until midnight for a motel."
+        }
+      ],
+      "full_text": "Fun for old and young alike at Disneyland.\n\nAfter Disneylandland, not having previously made arrangements for the night, we search until midnight for a motel.",
+      "captions": [
+        "Fun for old and young alike at Disneyland.",
+        "After Disneylandland, not having previously made arrangements for the night, we search until midnight for a motel."
+      ],
+      "caption_text": "Fun for old and young alike at Disneyland.\n\nAfter Disneylandland, not having previously made arrangements for the night, we search until midnight for a motel."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-41.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-41.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            196,
+            31,
+            1326,
+            180
+          ],
+          "text": "THIRTEENTH DAY - Wednesday, June 27, 1956. Los Angeles, visit Hollywood and Beverly Hills; to San Fernando, to Bakersfield, to Sequoia National Park in the High Sierras; night in Sequoia National Park. 8:30 A. M. to 10:00 P. M. 3/4 miles - total 4,085 miles."
+        },
+        {
+          "bbox": [
+            739,
+            242,
+            1426,
+            497
+          ],
+          "text": "We pass through the center of Los Angeles, third largest city in the United States spread out in every direction over 451 square miles, on one of the eight lane (or was it ten lane?) freeways at high speed. Traffic is exceedingly heavy. We get only a glimpse of the center of the city as we strive not to get into a wrong lane of traffic, which might have cost us a half hour of time before getting back on the freeway."
+        },
+        {
+          "bbox": [
+            772,
+            1654,
+            1424,
+            1873
+          ],
+          "text": "A trip through Beverly Hills occupies the rest of the morning. A map purchased for 50¢ gives the location of the homes of the movie stars. The children give their imaginations free reign whenever anyone is seen coming from an important home. Entrance to the home of Mary Pickford is shown directly above."
+        }
+      ],
+      "full_text": "THIRTEENTH DAY - Wednesday, June 27, 1956. Los Angeles, visit Hollywood and Beverly Hills; to San Fernando, to Bakersfield, to Sequoia National Park in the High Sierras; night in Sequoia National Park. 8:30 A. M. to 10:00 P. M. 3/4 miles - total 4,085 miles.\n\nWe pass through the center of Los Angeles, third largest city in the United States spread out in every direction over 451 square miles, on one of the eight lane (or was it ten lane?) freeways at high speed. Traffic is exceedingly heavy. We get only a glimpse of the center of the city as we strive not to get into a wrong lane of traffic, which might have cost us a half hour of time before getting back on the freeway.\n\nA trip through Beverly Hills occupies the rest of the morning. A map purchased for 50¢ gives the location of the homes of the movie stars. The children give their imaginations free reign whenever anyone is seen coming from an important home. Entrance to the home of Mary Pickford is shown directly above.",
+      "captions": [
+        "THIRTEENTH DAY - Wednesday, June 27, 1956. Los Angeles, visit Hollywood and Beverly Hills; to San Fernando, to Bakersfield, to Sequoia National Park in the High Sierras; night in Sequoia National Park. 8:30 A. M. to 10:00 P. M. 3/4 miles - total 4,085 miles.",
+        "We pass through the center of Los Angeles, third largest city in the United States spread out in every direction over 451 square miles, on one of the eight lane (or was it ten lane?) freeways at high speed. Traffic is exceedingly heavy. We get only a glimpse of the center of the city as we strive not to get into a wrong lane of traffic, which might have cost us a half hour of time before getting back on the freeway.",
+        "A trip through Beverly Hills occupies the rest of the morning. A map purchased for 50¢ gives the location of the homes of the movie stars. The children give their imaginations free reign whenever anyone is seen coming from an important home. Entrance to the home of Mary Pickford is shown directly above."
+      ],
+      "caption_text": "THIRTEENTH DAY - Wednesday, June 27, 1956. Los Angeles, visit Hollywood and Beverly Hills; to San Fernando, to Bakersfield, to Sequoia National Park in the High Sierras; night in Sequoia National Park. 8:30 A. M. to 10:00 P. M. 3/4 miles - total 4,085 miles.\n\nWe pass through the center of Los Angeles, third largest city in the United States spread out in every direction over 451 square miles, on one of the eight lane (or was it ten lane?) freeways at high speed. Traffic is exceedingly heavy. We get only a glimpse of the center of the city as we strive not to get into a wrong lane of traffic, which might have cost us a half hour of time before getting back on the freeway.\n\nA trip through Beverly Hills occupies the rest of the morning. A map purchased for 50¢ gives the location of the homes of the movie stars. The children give their imaginations free reign whenever anyone is seen coming from an important home. Entrance to the home of Mary Pickford is shown directly above."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-42.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-42.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            206,
+            750,
+            333,
+            835
+          ],
+          "text": "Berkeley Oakland"
+        },
+        {
+          "bbox": [
+            620,
+            1219,
+            784,
+            1359
+          ],
+          "text": "Bakersfield"
+        },
+        {
+          "bbox": [
+            1174,
+            1767,
+            1477,
+            1920
+          ],
+          "text": "AIR FORCE GUNNERY RANGE AREA. DO NOT LEAVE RIGHT-O-F-WAY ON STATE IS BETWEEN QILA BEND AND AJO"
+        }
+      ],
+      "full_text": "Berkeley Oakland\n\nBakersfield\n\nAIR FORCE GUNNERY RANGE AREA. DO NOT LEAVE RIGHT-O-F-WAY ON STATE IS BETWEEN QILA BEND AND AJO",
+      "captions": [
+        "Berkeley Oakland",
+        "Bakersfield",
+        "AIR FORCE GUNNERY RANGE AREA. DO NOT LEAVE RIGHT-O-F-WAY ON STATE IS BETWEEN QILA BEND AND AJO"
+      ],
+      "caption_text": "Berkeley Oakland\n\nBakersfield\n\nAIR FORCE GUNNERY RANGE AREA. DO NOT LEAVE RIGHT-O-F-WAY ON STATE IS BETWEEN QILA BEND AND AJO"
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-43.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-43.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            181,
+            691,
+            1300,
+            837
+          ],
+          "text": "It's a relief to get out of the congestion of the Los Angeles area. Again we cross the Coastal Range via Tejon Pass, where the long climb causes the car to drag from overheating, to enter the extremely hot but fertile Central Valley. Near Bakersfield hundreds of oil wells are in evidence."
+        },
+        {
+          "bbox": [
+            154,
+            1469,
+            1321,
+            1648
+          ],
+          "text": "In California's Central Valley, a region at one time mostly desert, now brought to fertility by irrigation, we find cattle, cotton, vast orchards and vineyards extending up the sides of the mountains. At right, we have stopped at a road-side stand set at the edge of an olive grove (we had forgotten olives are grown in California)."
+        }
+      ],
+      "full_text": "It's a relief to get out of the congestion of the Los Angeles area. Again we cross the Coastal Range via Tejon Pass, where the long climb causes the car to drag from overheating, to enter the extremely hot but fertile Central Valley. Near Bakersfield hundreds of oil wells are in evidence.\n\nIn California's Central Valley, a region at one time mostly desert, now brought to fertility by irrigation, we find cattle, cotton, vast orchards and vineyards extending up the sides of the mountains. At right, we have stopped at a road-side stand set at the edge of an olive grove (we had forgotten olives are grown in California).",
+      "captions": [
+        "It's a relief to get out of the congestion of the Los Angeles area. Again we cross the Coastal Range via Tejon Pass, where the long climb causes the car to drag from overheating, to enter the extremely hot but fertile Central Valley. Near Bakersfield hundreds of oil wells are in evidence.",
+        "In California's Central Valley, a region at one time mostly desert, now brought to fertility by irrigation, we find cattle, cotton, vast orchards and vineyards extending up the sides of the mountains. At right, we have stopped at a road-side stand set at the edge of an olive grove (we had forgotten olives are grown in California)."
+      ],
+      "caption_text": "It's a relief to get out of the congestion of the Los Angeles area. Again we cross the Coastal Range via Tejon Pass, where the long climb causes the car to drag from overheating, to enter the extremely hot but fertile Central Valley. Near Bakersfield hundreds of oil wells are in evidence.\n\nIn California's Central Valley, a region at one time mostly desert, now brought to fertility by irrigation, we find cattle, cotton, vast orchards and vineyards extending up the sides of the mountains. At right, we have stopped at a road-side stand set at the edge of an olive grove (we had forgotten olives are grown in California)."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-44.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-44.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            26,
+            51,
+            687,
+            587
+          ],
+          "text": "The giant redwood trees of California are of two varieties: the semiper virens along the coast of northern California; and the Sequoia gigantea on the west slope of the High Sierras. These trees are the oldest living things in the world, said to be as old as 4,000 years, and thus their growth spans the centuries of recorded human history. Only one other specimen of redwoods has elsewhere been found, a variety in central China.\nThe coast redwoods are taller reaching a height of 364 feet, but for sheer massive- ness the Sierra redwoods are superior.\nWe begin the climb of the Sierra Nevada range, the most formidable mountain barrier in the United States, with forty-one peaks exceeding 10,000 feet, with Mt. Whitney at 14,941 feet, the highest in the continental United States."
+        },
+        {
+          "bbox": [
+            54,
+            1150,
+            672,
+            1248
+          ],
+          "text": "Louise poses under a many-ton boulder beneath which the road has been tunneled."
+        },
+        {
+          "bbox": [
+            749,
+            1150,
+            1406,
+            1322
+          ],
+          "text": "Climbing steadily we gaze down upon the valley which must be several thousand feet below us. The car completely over-heats for the only time on the trip, but water is available at convenient intervals."
+        }
+      ],
+      "full_text": "The giant redwood trees of California are of two varieties: the semiper virens along the coast of northern California; and the Sequoia gigantea on the west slope of the High Sierras. These trees are the oldest living things in the world, said to be as old as 4,000 years, and thus their growth spans the centuries of recorded human history. Only one other specimen of redwoods has elsewhere been found, a variety in central China.\nThe coast redwoods are taller reaching a height of 364 feet, but for sheer massive- ness the Sierra redwoods are superior.\nWe begin the climb of the Sierra Nevada range, the most formidable mountain barrier in the United States, with forty-one peaks exceeding 10,000 feet, with Mt. Whitney at 14,941 feet, the highest in the continental United States.\n\nLouise poses under a many-ton boulder beneath which the road has been tunneled.\n\nClimbing steadily we gaze down upon the valley which must be several thousand feet below us. The car completely over-heats for the only time on the trip, but water is available at convenient intervals.",
+      "captions": [
+        "The giant redwood trees of California are of two varieties: the semiper virens along the coast of northern California; and the Sequoia gigantea on the west slope of the High Sierras. These trees are the oldest living things in the world, said to be as old as 4,000 years, and thus their growth spans the centuries of recorded human history. Only one other specimen of redwoods has elsewhere been found, a variety in central China.\nThe coast redwoods are taller reaching a height of 364 feet, but for sheer massive- ness the Sierra redwoods are superior.\nWe begin the climb of the Sierra Nevada range, the most formidable mountain barrier in the United States, with forty-one peaks exceeding 10,000 feet, with Mt. Whitney at 14,941 feet, the highest in the continental United States.",
+        "Louise poses under a many-ton boulder beneath which the road has been tunneled.",
+        "Climbing steadily we gaze down upon the valley which must be several thousand feet below us. The car completely over-heats for the only time on the trip, but water is available at convenient intervals."
+      ],
+      "caption_text": "The giant redwood trees of California are of two varieties: the semiper virens along the coast of northern California; and the Sequoia gigantea on the west slope of the High Sierras. These trees are the oldest living things in the world, said to be as old as 4,000 years, and thus their growth spans the centuries of recorded human history. Only one other specimen of redwoods has elsewhere been found, a variety in central China.\nThe coast redwoods are taller reaching a height of 364 feet, but for sheer massive- ness the Sierra redwoods are superior.\nWe begin the climb of the Sierra Nevada range, the most formidable mountain barrier in the United States, with forty-one peaks exceeding 10,000 feet, with Mt. Whitney at 14,941 feet, the highest in the continental United States.\n\nLouise poses under a many-ton boulder beneath which the road has been tunneled.\n\nClimbing steadily we gaze down upon the valley which must be several thousand feet below us. The car completely over-heats for the only time on the trip, but water is available at convenient intervals."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-45.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-45.jpg",
+      "blocks": [],
+      "full_text": "",
+      "captions": [],
+      "caption_text": ""
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-46.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-46.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            286,
+            1522,
+            1208,
+            1656
+          ],
+          "text": "The road winds through many groves of the giant redwoods. The people at the lower left help by comparison to convey some conception of their size."
+        }
+      ],
+      "full_text": "The road winds through many groves of the giant redwoods. The people at the lower left help by comparison to convey some conception of their size.",
+      "captions": [
+        "The road winds through many groves of the giant redwoods. The people at the lower left help by comparison to convey some conception of their size."
+      ],
+      "caption_text": "The road winds through many groves of the giant redwoods. The people at the lower left help by comparison to convey some conception of their size."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-47.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-47.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            1165,
+            559,
+            1447,
+            671
+          ],
+          "text": "The very young... and the very old."
+        },
+        {
+          "bbox": [
+            257,
+            654,
+            1201,
+            903
+          ],
+          "text": "Darkness catches up with us just as we reach the border of Sequoia National Park and are ready to enter Kings Canyon National Park which adjoins it. We begin the tortuous descent down the mountain, believing we may have to make a round trip of 40 to 50 miles to return the next day, to discover at a small restaurant there may be found accommodations for the night at the village of Wilsonia, right in the park, which existed before the park was taken over by the federal government. A phone call reassures us and we return to the village for the night at the attractive Osburn Lodge."
+        },
+        {
+          "bbox": [
+            151,
+            887,
+            1277,
+            1034
+          ],
+          "text": "FOURTEENTH DAY - Thursday, June 28, 1956. Sequoia National Park to adjoining Kings Canyon National Park; west to Fresno; north to Yosemite National Park; west again to Groveland, California. (just outside Yosemite). 8:30 A. M. to 10 P. M. 297 miles - total 4,382 miles."
+        },
+        {
+          "bbox": [
+            53,
+            1579,
+            715,
+            1791
+          ],
+          "text": "The Osburn Lodge at Wilsonia, a tiny village in Kings Canyon National Park, where we have spent the night ($14). We have breakfast at a restaurant constructed of logs in another part of the village. Only because the vil-lage was there when the park was established is it permitted to exist in a national park."
+        },
+        {
+          "bbox": [
+            903,
+            1762,
+            1351,
+            1845
+          ],
+          "text": "Louise among the giant trees."
+        }
+      ],
+      "full_text": "The very young... and the very old.\n\nDarkness catches up with us just as we reach the border of Sequoia National Park and are ready to enter Kings Canyon National Park which adjoins it. We begin the tortuous descent down the mountain, believing we may have to make a round trip of 40 to 50 miles to return the next day, to discover at a small restaurant there may be found accommodations for the night at the village of Wilsonia, right in the park, which existed before the park was taken over by the federal government. A phone call reassures us and we return to the village for the night at the attractive Osburn Lodge.\n\nFOURTEENTH DAY - Thursday, June 28, 1956. Sequoia National Park to adjoining Kings Canyon National Park; west to Fresno; north to Yosemite National Park; west again to Groveland, California. (just outside Yosemite). 8:30 A. M. to 10 P. M. 297 miles - total 4,382 miles.\n\nThe Osburn Lodge at Wilsonia, a tiny village in Kings Canyon National Park, where we have spent the night ($14). We have breakfast at a restaurant constructed of logs in another part of the village. Only because the vil-lage was there when the park was established is it permitted to exist in a national park.\n\nLouise among the giant trees.",
+      "captions": [
+        "The very young... and the very old.",
+        "Darkness catches up with us just as we reach the border of Sequoia National Park and are ready to enter Kings Canyon National Park which adjoins it. We begin the tortuous descent down the mountain, believing we may have to make a round trip of 40 to 50 miles to return the next day, to discover at a small restaurant there may be found accommodations for the night at the village of Wilsonia, right in the park, which existed before the park was taken over by the federal government. A phone call reassures us and we return to the village for the night at the attractive Osburn Lodge.",
+        "FOURTEENTH DAY - Thursday, June 28, 1956. Sequoia National Park to adjoining Kings Canyon National Park; west to Fresno; north to Yosemite National Park; west again to Groveland, California. (just outside Yosemite). 8:30 A. M. to 10 P. M. 297 miles - total 4,382 miles.",
+        "The Osburn Lodge at Wilsonia, a tiny village in Kings Canyon National Park, where we have spent the night ($14). We have breakfast at a restaurant constructed of logs in another part of the village. Only because the vil-lage was there when the park was established is it permitted to exist in a national park.",
+        "Louise among the giant trees."
+      ],
+      "caption_text": "The very young... and the very old.\n\nDarkness catches up with us just as we reach the border of Sequoia National Park and are ready to enter Kings Canyon National Park which adjoins it. We begin the tortuous descent down the mountain, believing we may have to make a round trip of 40 to 50 miles to return the next day, to discover at a small restaurant there may be found accommodations for the night at the village of Wilsonia, right in the park, which existed before the park was taken over by the federal government. A phone call reassures us and we return to the village for the night at the attractive Osburn Lodge.\n\nFOURTEENTH DAY - Thursday, June 28, 1956. Sequoia National Park to adjoining Kings Canyon National Park; west to Fresno; north to Yosemite National Park; west again to Groveland, California. (just outside Yosemite). 8:30 A. M. to 10 P. M. 297 miles - total 4,382 miles.\n\nThe Osburn Lodge at Wilsonia, a tiny village in Kings Canyon National Park, where we have spent the night ($14). We have breakfast at a restaurant constructed of logs in another part of the village. Only because the vil-lage was there when the park was established is it permitted to exist in a national park.\n\nLouise among the giant trees."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-48.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-48.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            187,
+            31,
+            1327,
+            187
+          ],
+          "text": "Kings Canyon National Park, adjoining Sequoia National Park, in the High Sierras, was established in 1940 to preserve as a wilderness area hundreds of square miles of rugged mountains, canyons and forests. \"The titanic setting of the mighty Kings River Canyon is without rival in North America\"."
+        },
+        {
+          "bbox": [
+            83,
+            705,
+            668,
+            777
+          ],
+          "text": "Entrance to Kings Canyon National Park."
+        },
+        {
+          "bbox": [
+            31,
+            1764,
+            490,
+            1888
+          ],
+          "text": "The General Granrnt tree, in the Grant Grove, rallies the Gen- eral Sherman in massiveness."
+        }
+      ],
+      "full_text": "Kings Canyon National Park, adjoining Sequoia National Park, in the High Sierras, was established in 1940 to preserve as a wilderness area hundreds of square miles of rugged mountains, canyons and forests. \"The titanic setting of the mighty Kings River Canyon is without rival in North America\".\n\nEntrance to Kings Canyon National Park.\n\nThe General Granrnt tree, in the Grant Grove, rallies the Gen- eral Sherman in massiveness.",
+      "captions": [
+        "Kings Canyon National Park, adjoining Sequoia National Park, in the High Sierras, was established in 1940 to preserve as a wilderness area hundreds of square miles of rugged mountains, canyons and forests. \"The titanic setting of the mighty Kings River Canyon is without rival in North America\".",
+        "Entrance to Kings Canyon National Park.",
+        "The General Granrnt tree, in the Grant Grove, rallies the Gen- eral Sherman in massiveness."
+      ],
+      "caption_text": "Kings Canyon National Park, adjoining Sequoia National Park, in the High Sierras, was established in 1940 to preserve as a wilderness area hundreds of square miles of rugged mountains, canyons and forests. \"The titanic setting of the mighty Kings River Canyon is without rival in North America\".\n\nEntrance to Kings Canyon National Park.\n\nThe General Granrnt tree, in the Grant Grove, rallies the Gen- eral Sherman in massiveness."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-49.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-49.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            614,
+            60,
+            1383,
+            187
+          ],
+          "text": "Most of the Kings Canyon National Park is inaccessible by automobile. A single 30 mile road drops down to the Canyon floor."
+        },
+        {
+          "bbox": [
+            400,
+            1828,
+            1105,
+            1918
+          ],
+          "text": ". The road twists and turns in its steep descent."
+        }
+      ],
+      "full_text": "Most of the Kings Canyon National Park is inaccessible by automobile. A single 30 mile road drops down to the Canyon floor.\n\n. The road twists and turns in its steep descent.",
+      "captions": [
+        "Most of the Kings Canyon National Park is inaccessible by automobile. A single 30 mile road drops down to the Canyon floor.",
+        ". The road twists and turns in its steep descent."
+      ],
+      "caption_text": "Most of the Kings Canyon National Park is inaccessible by automobile. A single 30 mile road drops down to the Canyon floor.\n\n. The road twists and turns in its steep descent."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-50.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-50.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            175,
+            1563,
+            1233,
+            1649
+          ],
+          "text": "The Kings River far below us, with rugged, massive walls on both sides."
+        }
+      ],
+      "full_text": "The Kings River far below us, with rugged, massive walls on both sides.",
+      "captions": [
+        "The Kings River far below us, with rugged, massive walls on both sides."
+      ],
+      "caption_text": "The Kings River far below us, with rugged, massive walls on both sides."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-51.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-51.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            313,
+            1533,
+            1228,
+            1617
+          ],
+          "text": "At many places the roadway has been blasted out of solid rock."
+        }
+      ],
+      "full_text": "At many places the roadway has been blasted out of solid rock.",
+      "captions": [
+        "At many places the roadway has been blasted out of solid rock."
+      ],
+      "caption_text": "At many places the roadway has been blasted out of solid rock."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-52.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-52.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            117,
+            734,
+            824,
+            841
+          ],
+          "text": "We pause frequently to observe the spectacular mountains on every side."
+        },
+        {
+          "bbox": [
+            171,
+            1524,
+            1377,
+            1638
+          ],
+          "text": "Finally reaching the Canyon floor, we find the road is being rebuilt after having been completely washed away during heavy floods in the spring."
+        }
+      ],
+      "full_text": "We pause frequently to observe the spectacular mountains on every side.\n\nFinally reaching the Canyon floor, we find the road is being rebuilt after having been completely washed away during heavy floods in the spring.",
+      "captions": [
+        "We pause frequently to observe the spectacular mountains on every side.",
+        "Finally reaching the Canyon floor, we find the road is being rebuilt after having been completely washed away during heavy floods in the spring."
+      ],
+      "caption_text": "We pause frequently to observe the spectacular mountains on every side.\n\nFinally reaching the Canyon floor, we find the road is being rebuilt after having been completely washed away during heavy floods in the spring."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-53.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-53.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            81,
+            586,
+            736,
+            708
+          ],
+          "text": "Gordon refreshes himself with cold mountain water after the strain of driving the Kings Canyon road."
+        },
+        {
+          "bbox": [
+            762,
+            594,
+            1401,
+            712
+          ],
+          "text": "Down from the Sierras once again, we re-enter the fertile (and hot) Central Valley. Fresno impresses us with its clean appearance.\nthe fertiliteeleeeliee ((anandand hoot)) Centrallral Vallley."
+        },
+        {
+          "bbox": [
+            444,
+            1228,
+            679,
+            1324
+          ],
+          "text": "PARK NATIONAL PARK SERVICE"
+        }
+      ],
+      "full_text": "Gordon refreshes himself with cold mountain water after the strain of driving the Kings Canyon road.\n\nDown from the Sierras once again, we re-enter the fertile (and hot) Central Valley. Fresno impresses us with its clean appearance.\nthe fertiliteeleeeliee ((anandand hoot)) Centrallral Vallley.\n\nPARK NATIONAL PARK SERVICE",
+      "captions": [
+        "Gordon refreshes himself with cold mountain water after the strain of driving the Kings Canyon road.",
+        "Down from the Sierras once again, we re-enter the fertile (and hot) Central Valley. Fresno impresses us with its clean appearance.\nthe fertiliteeleeeliee ((anandand hoot)) Centrallral Vallley.",
+        "PARK NATIONAL PARK SERVICE"
+      ],
+      "caption_text": "Gordon refreshes himself with cold mountain water after the strain of driving the Kings Canyon road.\n\nDown from the Sierras once again, we re-enter the fertile (and hot) Central Valley. Fresno impresses us with its clean appearance.\nthe fertiliteeleeeliee ((anandand hoot)) Centrallral Vallley.\n\nPARK NATIONAL PARK SERVICE"
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-54.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-54.jpg",
+      "blocks": [],
+      "full_text": "",
+      "captions": [],
+      "caption_text": ""
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-55.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-55.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            6,
+            1,
+            1173,
+            187
+          ],
+          "text": "(Left) Panoramic view of the entrance to Yosemite Valley. At the left is El Capitan rising 3,604 feet above the Valley floor, one of the great rocks of the world, as big as four Gibraltar's. In the center background is Half Dome, sheared by ancient glaciers, rising 4,852 above the Valley. On the right is Bridalveil Fall which has a drop of 620 feet."
+        },
+        {
+          "bbox": [
+            81,
+            663,
+            716,
+            787
+          ],
+          "text": "On the drive to Glacier Point the children have the first opportunity on the trip to get their hands and feet in snow."
+        },
+        {
+          "bbox": [
+            867,
+            800,
+            1319,
+            926
+          ],
+          "text": "This placid stream soon leaps wildly into space to form Bridalveil Fall."
+        },
+        {
+          "bbox": [
+            47,
+            1486,
+            690,
+            1610
+          ],
+          "text": "The hotel at Glacier Point which overlooks the valley has the usual wide assortment of curios to entice the tourist."
+        },
+        {
+          "bbox": [
+            787,
+            1490,
+            1389,
+            1626
+          ],
+          "text": "At Glacier Point this int is what it is like to look straight down 3,254 feet to the floor of Yosemite Valley."
+        },
+        {
+          "bbox": [
+            318,
+            1679,
+            1501,
+            1896
+          ],
+          "text": "(See the following two pages) It is doubtful that many other views in the entire world can compare with the one from Glacier Point which overlooks Yosemite Valley. Kitty and the children stand at the very edge of the sheer drop of more than 3,200 feet, while famed Half Dome stands out boldly in the background. On the other page we see lofty, snow capped peaks of the Sierras, while Nevada Fall (594') and Vernal Fall (317') drop their waters into Yosemite Valley. This is truly one of the earth's grandest exhibits."
+        }
+      ],
+      "full_text": "(Left) Panoramic view of the entrance to Yosemite Valley. At the left is El Capitan rising 3,604 feet above the Valley floor, one of the great rocks of the world, as big as four Gibraltar's. In the center background is Half Dome, sheared by ancient glaciers, rising 4,852 above the Valley. On the right is Bridalveil Fall which has a drop of 620 feet.\n\nOn the drive to Glacier Point the children have the first opportunity on the trip to get their hands and feet in snow.\n\nThis placid stream soon leaps wildly into space to form Bridalveil Fall.\n\nThe hotel at Glacier Point which overlooks the valley has the usual wide assortment of curios to entice the tourist.\n\nAt Glacier Point this int is what it is like to look straight down 3,254 feet to the floor of Yosemite Valley.\n\n(See the following two pages) It is doubtful that many other views in the entire world can compare with the one from Glacier Point which overlooks Yosemite Valley. Kitty and the children stand at the very edge of the sheer drop of more than 3,200 feet, while famed Half Dome stands out boldly in the background. On the other page we see lofty, snow capped peaks of the Sierras, while Nevada Fall (594') and Vernal Fall (317') drop their waters into Yosemite Valley. This is truly one of the earth's grandest exhibits.",
+      "captions": [
+        "(Left) Panoramic view of the entrance to Yosemite Valley. At the left is El Capitan rising 3,604 feet above the Valley floor, one of the great rocks of the world, as big as four Gibraltar's. In the center background is Half Dome, sheared by ancient glaciers, rising 4,852 above the Valley. On the right is Bridalveil Fall which has a drop of 620 feet.",
+        "On the drive to Glacier Point the children have the first opportunity on the trip to get their hands and feet in snow.",
+        "This placid stream soon leaps wildly into space to form Bridalveil Fall.",
+        "The hotel at Glacier Point which overlooks the valley has the usual wide assortment of curios to entice the tourist.",
+        "At Glacier Point this int is what it is like to look straight down 3,254 feet to the floor of Yosemite Valley.",
+        "(See the following two pages) It is doubtful that many other views in the entire world can compare with the one from Glacier Point which overlooks Yosemite Valley. Kitty and the children stand at the very edge of the sheer drop of more than 3,200 feet, while famed Half Dome stands out boldly in the background. On the other page we see lofty, snow capped peaks of the Sierras, while Nevada Fall (594') and Vernal Fall (317') drop their waters into Yosemite Valley. This is truly one of the earth's grandest exhibits."
+      ],
+      "caption_text": "(Left) Panoramic view of the entrance to Yosemite Valley. At the left is El Capitan rising 3,604 feet above the Valley floor, one of the great rocks of the world, as big as four Gibraltar's. In the center background is Half Dome, sheared by ancient glaciers, rising 4,852 above the Valley. On the right is Bridalveil Fall which has a drop of 620 feet.\n\nOn the drive to Glacier Point the children have the first opportunity on the trip to get their hands and feet in snow.\n\nThis placid stream soon leaps wildly into space to form Bridalveil Fall.\n\nThe hotel at Glacier Point which overlooks the valley has the usual wide assortment of curios to entice the tourist.\n\nAt Glacier Point this int is what it is like to look straight down 3,254 feet to the floor of Yosemite Valley.\n\n(See the following two pages) It is doubtful that many other views in the entire world can compare with the one from Glacier Point which overlooks Yosemite Valley. Kitty and the children stand at the very edge of the sheer drop of more than 3,200 feet, while famed Half Dome stands out boldly in the background. On the other page we see lofty, snow capped peaks of the Sierras, while Nevada Fall (594') and Vernal Fall (317') drop their waters into Yosemite Valley. This is truly one of the earth's grandest exhibits."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-56.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-56.jpg",
+      "blocks": [],
+      "full_text": "",
+      "captions": [],
+      "caption_text": ""
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-57.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-57.jpg",
+      "blocks": [],
+      "full_text": "",
+      "captions": [],
+      "caption_text": ""
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-58.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-58.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            188,
+            1575,
+            1284,
+            1772
+          ],
+          "text": "Although clothed in shadows, here is Yosemite Falls casting its white ribbon of water into the Valley. The Upper Falls leap 1,430 feet, equal to nine Niagaras, then there is a series of cascades, followed by the Lower Falls with a leap of 320 feet, equal to two more Niagaras. The total, falls and cascades, is almost half a mile."
+        }
+      ],
+      "full_text": "Although clothed in shadows, here is Yosemite Falls casting its white ribbon of water into the Valley. The Upper Falls leap 1,430 feet, equal to nine Niagaras, then there is a series of cascades, followed by the Lower Falls with a leap of 320 feet, equal to two more Niagaras. The total, falls and cascades, is almost half a mile.",
+      "captions": [
+        "Although clothed in shadows, here is Yosemite Falls casting its white ribbon of water into the Valley. The Upper Falls leap 1,430 feet, equal to nine Niagaras, then there is a series of cascades, followed by the Lower Falls with a leap of 320 feet, equal to two more Niagaras. The total, falls and cascades, is almost half a mile."
+      ],
+      "caption_text": "Although clothed in shadows, here is Yosemite Falls casting its white ribbon of water into the Valley. The Upper Falls leap 1,430 feet, equal to nine Niagaras, then there is a series of cascades, followed by the Lower Falls with a leap of 320 feet, equal to two more Niagaras. The total, falls and cascades, is almost half a mile."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-59.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-59.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            128,
+            502,
+            1275,
+            581
+          ],
+          "text": "On the Valley floor the children find a doe so unafraid she accepts their caresses."
+        },
+        {
+          "bbox": [
+            1059,
+            1051,
+            1416,
+            1193
+          ],
+          "text": "Viewed from the Valley floor, Upper Yosemite Fall (left) and Bridalveil Fall (right)."
+        },
+        {
+          "bbox": [
+            55,
+            1698,
+            688,
+            1856
+          ],
+          "text": "Certain sites have been reserved for camp-\ning...and thesees are jammed with vacation-\nists, the smoke from their fires hanging\nlow over the Merced River."
+        }
+      ],
+      "full_text": "On the Valley floor the children find a doe so unafraid she accepts their caresses.\n\nViewed from the Valley floor, Upper Yosemite Fall (left) and Bridalveil Fall (right).\n\nCertain sites have been reserved for camp-\ning...and thesees are jammed with vacation-\nists, the smoke from their fires hanging\nlow over the Merced River.",
+      "captions": [
+        "On the Valley floor the children find a doe so unafraid she accepts their caresses.",
+        "Viewed from the Valley floor, Upper Yosemite Fall (left) and Bridalveil Fall (right).",
+        "Certain sites have been reserved for camp-\ning...and thesees are jammed with vacation-\nists, the smoke from their fires hanging\nlow over the Merced River."
+      ],
+      "caption_text": "On the Valley floor the children find a doe so unafraid she accepts their caresses.\n\nViewed from the Valley floor, Upper Yosemite Fall (left) and Bridalveil Fall (right).\n\nCertain sites have been reserved for camp-\ning...and thesees are jammed with vacation-\nists, the smoke from their fires hanging\nlow over the Merced River."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-60.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-60.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            152,
+            17,
+            1299,
+            166
+          ],
+          "text": "FIFTEENTH DAY — Friday, June 29, 1956. Groveland, Calif. west to Oakland, across Bay Bridge to San Francisco, across Golden Gate Bridge, north to Santa Rosa (visit John Kohr); continue north to Willits, Calif. on Redwoods Highway."
+        },
+        {
+          "bbox": [
+            304,
+            713,
+            1445,
+            825
+          ],
+          "text": "(right) A symphony in steel - the Golden Gate Bridge - with central span of 4,200', the longest single suspension-type bridge in the world. The towers are 746' above the water, as high as a 65s story building. We cross the bridge heading north."
+        },
+        {
+          "bbox": [
+            152,
+            797,
+            1301,
+            943
+          ],
+          "text": "SIXTEENTH DAY — Saturday, June 30, 1956. Willits, Calif. north through Redwood Groves via Eureka to Crescent City, Calif; northeast into Oregon as far as Trail, within 50 miles of Crater Lake. 7:30 A. M. to 8:30 P. M. 374 miles - total 5,081 miles."
+        },
+        {
+          "bbox": [
+            831,
+            1363,
+            1351,
+            1647
+          ],
+          "text": "The Redwood Highway (R#101) which runs north from San Francisco passes through grove after grove of magnificent redwoods, some more than 300 feet high with their tops closing in to hide the sky. It is an impressive high-way of serene and majestic beauty, one of the great roads of this country."
+        }
+      ],
+      "full_text": "FIFTEENTH DAY — Friday, June 29, 1956. Groveland, Calif. west to Oakland, across Bay Bridge to San Francisco, across Golden Gate Bridge, north to Santa Rosa (visit John Kohr); continue north to Willits, Calif. on Redwoods Highway.\n\n(right) A symphony in steel - the Golden Gate Bridge - with central span of 4,200', the longest single suspension-type bridge in the world. The towers are 746' above the water, as high as a 65s story building. We cross the bridge heading north.\n\nSIXTEENTH DAY — Saturday, June 30, 1956. Willits, Calif. north through Redwood Groves via Eureka to Crescent City, Calif; northeast into Oregon as far as Trail, within 50 miles of Crater Lake. 7:30 A. M. to 8:30 P. M. 374 miles - total 5,081 miles.\n\nThe Redwood Highway (R#101) which runs north from San Francisco passes through grove after grove of magnificent redwoods, some more than 300 feet high with their tops closing in to hide the sky. It is an impressive high-way of serene and majestic beauty, one of the great roads of this country.",
+      "captions": [
+        "FIFTEENTH DAY — Friday, June 29, 1956. Groveland, Calif. west to Oakland, across Bay Bridge to San Francisco, across Golden Gate Bridge, north to Santa Rosa (visit John Kohr); continue north to Willits, Calif. on Redwoods Highway.",
+        "(right) A symphony in steel - the Golden Gate Bridge - with central span of 4,200', the longest single suspension-type bridge in the world. The towers are 746' above the water, as high as a 65s story building. We cross the bridge heading north.",
+        "SIXTEENTH DAY — Saturday, June 30, 1956. Willits, Calif. north through Redwood Groves via Eureka to Crescent City, Calif; northeast into Oregon as far as Trail, within 50 miles of Crater Lake. 7:30 A. M. to 8:30 P. M. 374 miles - total 5,081 miles.",
+        "The Redwood Highway (R#101) which runs north from San Francisco passes through grove after grove of magnificent redwoods, some more than 300 feet high with their tops closing in to hide the sky. It is an impressive high-way of serene and majestic beauty, one of the great roads of this country."
+      ],
+      "caption_text": "FIFTEENTH DAY — Friday, June 29, 1956. Groveland, Calif. west to Oakland, across Bay Bridge to San Francisco, across Golden Gate Bridge, north to Santa Rosa (visit John Kohr); continue north to Willits, Calif. on Redwoods Highway.\n\n(right) A symphony in steel - the Golden Gate Bridge - with central span of 4,200', the longest single suspension-type bridge in the world. The towers are 746' above the water, as high as a 65s story building. We cross the bridge heading north.\n\nSIXTEENTH DAY — Saturday, June 30, 1956. Willits, Calif. north through Redwood Groves via Eureka to Crescent City, Calif; northeast into Oregon as far as Trail, within 50 miles of Crater Lake. 7:30 A. M. to 8:30 P. M. 374 miles - total 5,081 miles.\n\nThe Redwood Highway (R#101) which runs north from San Francisco passes through grove after grove of magnificent redwoods, some more than 300 feet high with their tops closing in to hide the sky. It is an impressive high-way of serene and majestic beauty, one of the great roads of this country."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-61.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-61.jpg",
+      "blocks": [],
+      "full_text": "",
+      "captions": [],
+      "caption_text": ""
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-62.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-62.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            77,
+            19,
+            755,
+            154
+          ],
+          "text": "The giant redwoods are almost indestructible, excepting man and his saw. Some of these trees have been turned into unusual tourist attractions."
+        },
+        {
+          "bbox": [
+            740,
+            516,
+            1378,
+            665
+          ],
+          "text": "Here we drive throughhgh the Chandelier Treee (don't forget to pull down your car aerial) - toll 25¢, which can be applied against the purchase of curioos."
+        },
+        {
+          "bbox": [
+            734,
+            1145,
+            1372,
+            1276
+          ],
+          "text": "This - apparently \"the end of the trail\" has been carved from the trunk of a single redwood tree....all in one piece."
+        },
+        {
+          "bbox": [
+            865,
+            1547,
+            1381,
+            1744
+          ],
+          "text": "Lumbering is still big business. Long trucks carrying the trunks of once stately trees to the saw-mills rumble past us. Along the highway, at least, there has been a remarkable job of preservation."
+        }
+      ],
+      "full_text": "The giant redwoods are almost indestructible, excepting man and his saw. Some of these trees have been turned into unusual tourist attractions.\n\nHere we drive throughhgh the Chandelier Treee (don't forget to pull down your car aerial) - toll 25¢, which can be applied against the purchase of curioos.\n\nThis - apparently \"the end of the trail\" has been carved from the trunk of a single redwood tree....all in one piece.\n\nLumbering is still big business. Long trucks carrying the trunks of once stately trees to the saw-mills rumble past us. Along the highway, at least, there has been a remarkable job of preservation.",
+      "captions": [
+        "The giant redwoods are almost indestructible, excepting man and his saw. Some of these trees have been turned into unusual tourist attractions.",
+        "Here we drive throughhgh the Chandelier Treee (don't forget to pull down your car aerial) - toll 25¢, which can be applied against the purchase of curioos.",
+        "This - apparently \"the end of the trail\" has been carved from the trunk of a single redwood tree....all in one piece.",
+        "Lumbering is still big business. Long trucks carrying the trunks of once stately trees to the saw-mills rumble past us. Along the highway, at least, there has been a remarkable job of preservation."
+      ],
+      "caption_text": "The giant redwoods are almost indestructible, excepting man and his saw. Some of these trees have been turned into unusual tourist attractions.\n\nHere we drive throughhgh the Chandelier Treee (don't forget to pull down your car aerial) - toll 25¢, which can be applied against the purchase of curioos.\n\nThis - apparently \"the end of the trail\" has been carved from the trunk of a single redwood tree....all in one piece.\n\nLumbering is still big business. Long trucks carrying the trunks of once stately trees to the saw-mills rumble past us. Along the highway, at least, there has been a remarkable job of preservation."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-63.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-63.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            162,
+            524,
+            1292,
+            670
+          ],
+          "text": "North of Eureka, California we get our first real look at the Pacific Ocean (we had a glimpse of the Ocean crossing the Golden Gate Bridge). The children insist on doffing their shoes and stockings for the satisfaction of being able to say they had waded in the Pacific."
+        },
+        {
+          "bbox": [
+            145,
+            1748,
+            1304,
+            1877
+          ],
+          "text": "The Pacific seems to have a different color than the Atlantic...and the boulders and the boulders offshore apparently are characteristic of the western shore line."
+        }
+      ],
+      "full_text": "North of Eureka, California we get our first real look at the Pacific Ocean (we had a glimpse of the Ocean crossing the Golden Gate Bridge). The children insist on doffing their shoes and stockings for the satisfaction of being able to say they had waded in the Pacific.\n\nThe Pacific seems to have a different color than the Atlantic...and the boulders and the boulders offshore apparently are characteristic of the western shore line.",
+      "captions": [
+        "North of Eureka, California we get our first real look at the Pacific Ocean (we had a glimpse of the Ocean crossing the Golden Gate Bridge). The children insist on doffing their shoes and stockings for the satisfaction of being able to say they had waded in the Pacific.",
+        "The Pacific seems to have a different color than the Atlantic...and the boulders and the boulders offshore apparently are characteristic of the western shore line."
+      ],
+      "caption_text": "North of Eureka, California we get our first real look at the Pacific Ocean (we had a glimpse of the Ocean crossing the Golden Gate Bridge). The children insist on doffing their shoes and stockings for the satisfaction of being able to say they had waded in the Pacific.\n\nThe Pacific seems to have a different color than the Atlantic...and the boulders and the boulders offshore apparently are characteristic of the western shore line."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-64.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-64.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            157,
+            1349,
+            1340,
+            1457
+          ],
+          "text": "Another view of the Pacific from a headland high above the water. Rarely along the Atlantic Coast do you find such precipitous drops into the sea."
+        }
+      ],
+      "full_text": "Another view of the Pacific from a headland high above the water. Rarely along the Atlantic Coast do you find such precipitous drops into the sea.",
+      "captions": [
+        "Another view of the Pacific from a headland high above the water. Rarely along the Atlantic Coast do you find such precipitous drops into the sea."
+      ],
+      "caption_text": "Another view of the Pacific from a headland high above the water. Rarely along the Atlantic Coast do you find such precipitous drops into the sea."
+    },
+    {
+      "filename": "1956 Calif Trip (Bk1)_Page-65.jpg",
+      "path": "1956 Calif. Trip (Bk. 1)/1956 Calif Trip (Bk1)_Page-65.jpg",
+      "blocks": [
+        {
+          "bbox": [
+            397,
+            536,
+            1049,
+            690
+          ],
+          "text": "At Crescent City, in extreme northern California, we leave R#101 to turn inland across the Coast Range. destination Crater Lake The children take \"a breather\" by wading in the cold water of Smith River."
+        },
+        {
+          "bbox": [
+            781,
+            1227,
+            1425,
+            1394
+          ],
+          "text": "The 16th night at this cottage near Trail, Oregon, along the Rogue River, within fifty miles of Crater Lake. It is so cool the children fail to keep warm under two wool blankets. A pleasant spot, indeed ($9.00)."
+        },
+        {
+          "bbox": [
+            51,
+            1241,
+            691,
+            1346
+          ],
+          "text": "On a winding mountain road we enter Oregon,\nall of us for the first time."
+        },
+        {
+          "bbox": [
+            179,
+            1429,
+            1288,
+            1579
+          ],
+          "text": "It is here we learn of the worst commercial airline disaster in U. S. history when two commercial planes collide and fall into the Grand Canyon killing all aboard both planes. We were close to the spot they fell as recently as Monday this week."
+        },
+        {
+          "bbox": [
+            390,
+            1666,
+            1088,
+            1761
+          ],
+          "text": "For a continuation of the trip, see Book II."
+        }
+      ],
+      "full_text": "At Crescent City, in extreme northern California, we leave R#101 to turn inland across the Coast Range. destination Crater Lake The children take \"a breather\" by wading in the cold water of Smith River.\n\nThe 16th night at this cottage near Trail, Oregon, along the Rogue River, within fifty miles of Crater Lake. It is so cool the children fail to keep warm under two wool blankets. A pleasant spot, indeed ($9.00).\n\nOn a winding mountain road we enter Oregon,\nall of us for the first time.\n\nIt is here we learn of the worst commercial airline disaster in U. S. history when two commercial planes collide and fall into the Grand Canyon killing all aboard both planes. We were close to the spot they fell as recently as Monday this week.\n\nFor a continuation of the trip, see Book II.",
+      "captions": [
+        "At Crescent City, in extreme northern California, we leave R#101 to turn inland across the Coast Range. destination Crater Lake The children take \"a breather\" by wading in the cold water of Smith River.",
+        "The 16th night at this cottage near Trail, Oregon, along the Rogue River, within fifty miles of Crater Lake. It is so cool the children fail to keep warm under two wool blankets. A pleasant spot, indeed ($9.00).",
+        "On a winding mountain road we enter Oregon,\nall of us for the first time.",
+        "It is here we learn of the worst commercial airline disaster in U. S. history when two commercial planes collide and fall into the Grand Canyon killing all aboard both planes. We were close to the spot they fell as recently as Monday this week.",
+        "For a continuation of the trip, see Book II."
+      ],
+      "caption_text": "At Crescent City, in extreme northern California, we leave R#101 to turn inland across the Coast Range. destination Crater Lake The children take \"a breather\" by wading in the cold water of Smith River.\n\nThe 16th night at this cottage near Trail, Oregon, along the Rogue River, within fifty miles of Crater Lake. It is so cool the children fail to keep warm under two wool blankets. A pleasant spot, indeed ($9.00).\n\nOn a winding mountain road we enter Oregon,\nall of us for the first time.\n\nIt is here we learn of the worst commercial airline disaster in U. S. history when two commercial planes collide and fall into the Grand Canyon killing all aboard both planes. We were close to the spot they fell as recently as Monday this week.\n\nFor a continuation of the trip, see Book II."
+    }
+  ]
+}
