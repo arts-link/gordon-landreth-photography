@@ -20,21 +20,33 @@ def generate_album_slug(album_folder_name: str) -> str:
 
     Hugo's default URL generation:
     - Converts to lowercase
-    - Replaces " & " with double dashes
-    - Removes all apostrophe variants (straight and curly quotes)
+    - Replaces " & " with double dashes (space+ampersand+space)
+    - Removes brackets: () [] {}
+    - Removes apostrophes (all variants)
+    - Removes standalone ampersands (those not surrounded by spaces)
     - Replaces spaces with hyphens
-    - Preserves special chars like periods, plus signs, etc.
+    - Preserves: periods, plus signs, underscores, hyphens
 
     Examples:
       "1931-1939 courting & marriage" → "1931-1939-courting--marriage"
-      "1947 Nov. '47- May '48 covered bridges+" → "1947-nov.-47--may-48-covered-bridges+"
+      "1956 Calif. Trip (Bk. 2)" → "1956-calif.-trip-bk.-2"
+      "1982-1984 San Francisco[]Utah" → "1982-1984-san-franciscoutah"
+      "1973-1974 John&Ben Born" → "1973-1974-johnben-born"
+      "1976-1977 San Francisco_Spain" → "1976-1977-san-francisco_spain"
       "1968-1969 Louise's marriage" → "1968-1969-louises-marriage"
-      "1964-1966 Kathy's marriage" → "1964-1966-kathys-marriage"
     """
     slug = album_folder_name.lower()
 
-    # Replace & with -- (double dash) BEFORE replacing spaces
+    # Replace ` & ` (space+ampersand+space) with `--` BEFORE other transformations
     slug = slug.replace(' & ', '--')
+
+    # Remove brackets and parentheses (all types)
+    slug = slug.replace('(', '')
+    slug = slug.replace(')', '')
+    slug = slug.replace('[', '')
+    slug = slug.replace(']', '')
+    slug = slug.replace('{', '')
+    slug = slug.replace('}', '')
 
     # Remove ALL apostrophe variants (ASCII and Unicode)
     # U+0027: APOSTROPHE (straight apostrophe)
@@ -46,7 +58,10 @@ def generate_album_slug(album_folder_name: str) -> str:
     slug = slug.replace("\u2019", '')      # U+2019
     slug = slug.replace("\u201b", '')      # U+201B
 
-    # Replace spaces with single dashes
+    # Remove standalone ampersands (not surrounded by spaces - those were handled above)
+    slug = slug.replace('&', '')
+
+    # Replace spaces with single dashes (do this LAST)
     slug = slug.replace(' ', '-')
 
     return slug
@@ -117,6 +132,8 @@ def rebuild_search_index(content_dir: Path, output_path: Path) -> None:
         # Add page entries
         for idx, page in enumerate(pages):
             captions = page.get("captions", [])
+            caption_text = " ".join(captions)
+
             all_search_entries.append({
                 "type": "page",
                 "album": album_dir.name,
@@ -126,7 +143,8 @@ def rebuild_search_index(content_dir: Path, output_path: Path) -> None:
                 "page_path": page.get("path", ""),
                 "image_index": idx,
                 "captions": captions,
-                "searchable_text": " ".join(captions) + " " + page.get("filename", "")
+                "caption_text": caption_text,  # ONLY caption content (for matching)
+                "searchable_text": caption_text + " " + page.get("filename", "")  # All text (for fallback)
             })
 
         print(f"✓ {album_dir.name}: {len(pages)} pages")
@@ -145,6 +163,42 @@ def rebuild_search_index(content_dir: Path, output_path: Path) -> None:
     print("=" * 60)
 
 
+def test_slug_generation():
+    """Test cases to verify Hugo URL slug generation matches exactly."""
+    test_cases = [
+        ("1956 Calif. Trip (Bk. 2)", "1956-calif.-trip-bk.-2"),
+        ("1982-1984 San Francisco[]Utah", "1982-1984-san-franciscoutah"),
+        ("1973-1974 John&Ben Born", "1973-1974-johnben-born"),
+        ("1976-1977 San Francisco_Spain", "1976-1977-san-francisco_spain"),
+        ("1931-1939 courting & marriage", "1931-1939-courting--marriage"),
+        ("1968-1969 Louise's marriage", "1968-1969-louises-marriage"),
+        ("1953 A.B.C-Okla (Bk.1)", "1953-a.b.c-okla-bk.1"),
+        ("1969 - 25th anniv. Trip to Europe", "1969---25th-anniv.-trip-to-europe"),
+    ]
+
+    print("\nRunning slug generation tests...")
+    print("=" * 70)
+
+    all_passed = True
+    for folder_name, expected_slug in test_cases:
+        actual_slug = generate_album_slug(folder_name)
+        passed = actual_slug == expected_slug
+        all_passed = all_passed and passed
+
+        status = "✓" if passed else "✗"
+        print(f"{status} {folder_name}")
+        if not passed:
+            print(f"  Expected: {expected_slug}")
+            print(f"  Got:      {actual_slug}")
+
+    print("=" * 70)
+    if all_passed:
+        print("All tests passed!\n")
+    else:
+        print("Some tests failed!\n")
+        sys.exit(1)
+
+
 if __name__ == "__main__":
     import sys
 
@@ -154,5 +208,8 @@ if __name__ == "__main__":
     if not content_dir.exists():
         print(f"ERROR: Content directory not found: {content_dir}")
         sys.exit(1)
+
+    # Run tests before rebuilding
+    test_slug_generation()
 
     rebuild_search_index(content_dir, output_path)
