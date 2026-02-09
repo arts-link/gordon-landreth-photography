@@ -79,6 +79,10 @@ With only 3,416 pages, client-side search was totally viable. If I had 50,000+ p
 
 **OCR Engine: Tesseract + OpenCV**
 
+https://toon-beerten.medium.com/ocr-comparison-tesseract-versus-easyocr-vs-paddleocr-vs-mmocr-a362d9c79e66
+https://huggingface.co/spaces/Loren/Streamlit_OCR_comparator?source=post_page-----a362d9c79e66---------------------------------------
+
+
 For OCR, I used [Tesseract](https://github.com/tesseract-ocr/tesseract) via Python's `pytesseract` wrapper:
 - Free and open source
 - Runs locally (no API costs)
@@ -444,8 +448,9 @@ console.log(`Search index loaded: ${searchIndex.length} entries`);
 // Initialize Fuse.js with OCR-optimized config
 fuse = new Fuse(searchIndex, {
   keys: [
-    { name: 'album_title', weight: 3 },      // Prioritize album titles
-    { name: 'searchable_text', weight: 1 }   // Baseline weight for captions
+    { name: 'album_title', weight: 2 },        // Prioritize album titles
+    { name: 'caption_text', weight: 1.5 },     // Caption content (primary search target)
+    { name: 'searchable_text', weight: 0.5 }   // Fallback for filenames
   ],
   threshold: 0.4,          // 40% error tolerance (high for OCR)
   ignoreLocation: true,    // Search entire text, not just beginning
@@ -464,9 +469,11 @@ This allows up to 40% character-level errors. Why so high?
 - User typos: `"Gordan"` → `"Gordon"`
 - Fuzzy matching: `"trip"` matches `"trips"`, `"tripp"`
 
-**2. Album title weight: 3x**
+**2. Field weights: album_title=2, caption_text=1.5, searchable_text=0.5**
 
-Album titles (like "1947 Nov. '47 - May '48 covered bridges+") should appear first when you search "1947" or "covered bridges".
+- **album_title** gets 2x weight so album names appear first when you search "1947" or "covered bridges"
+- **caption_text** gets 1.5x weight since it's the primary search target (actual photo captions)
+- **searchable_text** gets 0.5x weight as a low-priority fallback for filenames
 
 **3. ignoreLocation: true**
 
@@ -505,7 +512,7 @@ Each search result shows:
 
 ```javascript
 function displayResults(results, query) {
-  const displayResults = results.slice(0, 50); // Limit to 50
+  const displayResults = results.slice(0, 100); // Limit to 100
 
   const html = displayResults.map(result => {
     const item = result.item;
@@ -620,334 +627,372 @@ Clean, minimal design matching the photo gallery aesthetic:
 
 ---
 
-## Part 4: Iteration & User Feedback
+## Part 4: Enhancing the Search Experience
 
-### The Moment I Realized Search Wasn't Working Right
+After getting basic search working, I started using it and quickly realized that fuzzy matching alone wasn't enough. The search worked, but the experience felt incomplete. I needed visual context, better organization, and a way to preview results without leaving the search page.
 
-After deploying the initial search, I started testing with real queries. That's when I noticed something odd:
+This part is about the features I didn't plan from the start but discovered were essential through actual use.
 
-**Query:** `"Gordon Amish"`
-**Expected:** Pages mentioning BOTH "Gordon" AND "Amish"
-**Actual:** Pages with only "Gordon" OR only "Amish"
+### The Visual Context Problem
 
-I searched for "Gordon Amish" expecting to find photos from trips to Amish country with Gordon. Instead, I got:
-- Every album with "Gordon" in the title (most of them!)
-- Pages mentioning "Amish" but not Gordon
-- Random fuzzy matches on similar words
+The initial search results looked like this:
 
-The search was working as designed (fuzzy matching), but not as intended (boolean AND logic).
+```
+Album: 1947 Nov. '47 - May '48 covered bridges+
+Page: album_Page-01.jpg
+Caption: "An Amish wagon emerges from covered bridge..."
+[View Page →]
+```
 
-### The Problem: Fuzzy Matching vs Boolean AND
+Functional? Yes. Helpful? Barely. I found myself clicking through 10-15 results to find the right photo because:
+- I couldn't remember what "Page 01" looked like
+- Album titles didn't trigger visual memory
+- Captions alone weren't enough context
 
-Fuse.js treats queries as **fuzzy strings**, not as **boolean AND expressions**.
+I needed thumbnails.
 
-When you search `"Gordon Amish"`, Fuse.js:
-1. Treats the whole phrase as one fuzzy pattern
-2. Ranks results by how well they match that pattern
-3. Returns results that match ANY part of the pattern
+### Adding Thumbnail Previews
 
-It does NOT require all words to be present.
+The solution was simple: show a 120px preview of each page in the search results.
 
-**Example results for** `"Gordon Amish"`:
-- ✅ "Gordon Landreth visits Amish farms" (perfect - both words)
-- ✅ "Gordon Landreth and Paul" (only "Gordon")
-- ✅ "Amish farmer rebuilds barn" (only "Amish")
-- ✅ "Garden path in Lancaster" (fuzzy match on "Garden" ≈ "Gordon")
-
-The fuzzy matching was doing its job (handling typos), but the lack of AND logic made multi-word searches useless.
-
-### User Feedback Examples
-
-Real searches that revealed the problem:
-
-**1. Name + Place Combinations**
-- `"Louise Florida"` → Returned Louise's albums (no Florida) + Florida trips (no Louise)
-- `"Big Bend"` → Matched "Big Spring", "River Bend", "Bend Oregon"
-
-**2. Name in Album Title Domination**
-- `"Louise"` → Louise's marriage album appeared in 100+ results because album title had 3x weight
-- Actual caption mentions of Louise were buried
-
-**3. Common Year Queries**
-- `"1947"` → 200+ results, only showing first 50
-- No way to see all matches
-
-**4. Phrase Search Needed**
-- `"Big Spring Texas"` → Matched "Big Basin", "Spring Creek", pages from Texas
-- No way to search for exact phrases
-
-### The Solution: Hybrid Search Architecture
-
-I needed to keep fuzzy matching (for OCR errors) while adding boolean AND logic and phrase search.
-
-**New architecture:**
-1. **Parse query** to detect type (phrase, multi-word, single-word)
-2. **Route to appropriate search logic**
-3. **Post-filter results** for AND requirements
-
-### Implementation: Query Parser
+**Implementation:**
 
 ```javascript
-function parseQuery(query) {
-  const trimmed = query.trim();
+// Build thumbnail URL for pages
+let thumbnailUrl = '';
+if (item.type === 'page' && item.album_url_slug && item.page_filename) {
+  // Construct URL using slug (not path) to avoid space encoding issues
+  thumbnailUrl = `/${item.album_url_slug}/${item.page_filename}`;
+}
+```
 
-  // Check for quoted phrase: "exact match"
-  const phraseMatch = trimmed.match(/^"(.+)"$/);
-  if (phraseMatch) {
-    return {
-      type: 'phrase',
-      phrase: phraseMatch[1],
-      original: trimmed
-    };
+**CSS for responsive thumbnails:**
+
+```css
+.result-thumbnail {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #e5e5e5;
+  display: block;
+}
+
+.result-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+/* Responsive sizing */
+@media (max-width: 768px) {
+  .result-thumbnail {
+    width: 100px;
+    height: 100px;
   }
+}
 
-  // Split by whitespace for multi-word queries
-  const words = trimmed.split(/\s+/).filter(w => w.length >= 2);
-
-  if (words.length === 1) {
-    return {
-      type: 'single-word',
-      term: words[0],
-      original: trimmed
-    };
+@media (max-width: 480px) {
+  .result-thumbnail {
+    width: 80px;
+    height: 80px;
   }
+}
+```
+
+**The slug-based URL bug fix:**
+
+Initially, I tried building URLs from the `page_path` field, which included the raw album name with spaces:
+
+```
+/1947 Nov. '47 - May '48 covered bridges+/album_Page-01.jpg
+```
+
+Browsers encoded this as:
+
+```
+/1947%20Nov.%20%2747%20-%20May%20%2748%20covered%20bridges%2B/album_Page-01.jpg
+```
+
+Which resulted in 404 errors. The fix was using `album_url_slug` instead:
+
+```javascript
+thumbnailUrl = `/${item.album_url_slug}/${item.page_filename}`;
+// Result: /1947-nov.-47--may-48-covered-bridges+/album_Page-01.jpg
+```
+
+**Impact:**
+
+Thumbnails transformed the search experience. I could now:
+- Recognize photos instantly by visual appearance
+- Skip irrelevant results without clicking
+- Find the right page in seconds instead of minutes
+
+But clicking a thumbnail just navigated to the album page. I wanted more.
+
+### The PhotoSwipe Integration
+
+Once I had thumbnails, the next obvious step was: what if clicking a thumbnail opened a full-screen lightbox?
+
+**Why PhotoSwipe:**
+
+The gallery already used PhotoSwipe for album pages. Reusing it for search results meant:
+- Consistent UX (same lightbox, same controls)
+- Full keyboard navigation (arrow keys, escape)
+- Swipe gestures on mobile
+- Caption display in lightbox
+- No new dependencies
+
+**Implementation challenge:**
+
+PhotoSwipe expects a data source of slides with dimensions. But search results don't include image dimensions (only the search index JSON does, and it doesn't have that data either).
+
+**Solution: Dynamic dimension loading**
+
+```javascript
+async function getImageDimensions(imageUrl) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      resolve({ width: img.naturalWidth, height: img.naturalHeight });
+    };
+    img.onerror = () => {
+      console.warn(`Failed to load dimensions for ${imageUrl}`);
+      resolve({ width: 1600, height: 1200 }); // Fallback for landscape pages
+    };
+    img.src = imageUrl;
+  });
+}
+
+async function resultToPhotoSwipeSlide(result) {
+  const item = result.item;
+  const imageSrc = `/${item.album_url_slug}/${item.page_filename}`;
+
+  // Load dimensions
+  const dimensions = await getImageDimensions(imageSrc);
 
   return {
-    type: 'multi-word',
-    terms: words,
-    original: trimmed
+    src: imageSrc,
+    width: dimensions.width,
+    height: dimensions.height,
+    alt: `${item.album_title} - Page ${pageNum}`,
+    caption: `<h3>${item.album_title}</h3><p>${item.caption_text}</p>`
   };
 }
 ```
 
-### Implementation: Boolean AND Filter
+**Click handler with PhotoSwipe:**
 
 ```javascript
-function filterByAllTerms(results, terms) {
-  return results.filter(result => {
-    const item = result.item;
-    const searchableText = (
-      (item.album_title || '') + ' ' +
-      (item.searchable_text || '')
-    ).toLowerCase();
+resultsContainer.addEventListener('click', async (e) => {
+  const thumbnail = e.target.closest('.result-thumbnail[data-result-index]');
+  if (!thumbnail) return;
 
-    // Check that ALL terms appear in the searchable text
-    return terms.every(term =>
-      searchableText.includes(term.toLowerCase())
-    );
+  e.preventDefault();
+  const resultIndex = parseInt(thumbnail.dataset.resultIndex);
+
+  // Build PhotoSwipe data source from current results
+  const dataSource = await Promise.all(
+    currentPageResults.map(result => resultToPhotoSwipeSlide(result))
+  );
+
+  // Create PhotoSwipe instance
+  const pswp = new PhotoSwipe({
+    dataSource: dataSource,
+    index: resultIndex,
+    bgOpacity: 1,
+    showHideAnimationType: 'zoom',
+    imageClickAction: 'close'
   });
+
+  pswp.init();
+}, true); // USE CAPTURE PHASE to prevent navigation
+```
+
+**Critical detail: Event capture phase**
+
+The `true` parameter in `addEventListener` is crucial. It uses the **capture phase** to intercept clicks before they bubble up and trigger navigation. Without it, the browser would navigate to the album page before PhotoSwipe could open.
+
+**Impact:**
+
+Now clicking a thumbnail:
+1. Opens full-screen lightbox
+2. Shows the full album page with captions
+3. Allows arrow key navigation through results
+4. Displays OCR captions in the lightbox
+5. Escape or click to close and return to search
+
+This turned search from "find the right page" into "browse your results like a slideshow."
+
+### Grouped Search Results
+
+As I used search more, I noticed confusion: when searching for an album name, both the album itself and individual pages from that album appeared in results. It was hard to tell what matched.
+
+**The categorization solution:**
+
+Split results into two groups:
+1. **Album Title Matches** - The album name itself matched
+2. **Caption Matches** - The OCR caption text matched
+
+**Implementation:**
+
+```javascript
+function categorizeResults(results) {
+  const albumMatches = [];
+  const captionMatches = [];
+
+  results.forEach(result => {
+    const item = result.item;
+    const matches = result.matches || [];
+
+    // Determine which field matched
+    const albumTitleMatched = matches.some(m => m.key === 'album_title');
+    const captionTextMatched = matches.some(m => m.key === 'caption_text');
+
+    // Categorize based on entry type and which field matched
+    if (item.type === 'album') {
+      albumMatches.push(result);
+    } else if (item.type === 'page' && captionTextMatched) {
+      // Only show pages if caption_text field matched (not just album title)
+      captionMatches.push(result);
+    }
+  });
+
+  return { albumMatches, captionMatches };
 }
 ```
 
-**How this works:**
-1. Fuse.js does fuzzy matching on the full query
-2. Post-filter to require ALL words present
-3. Handles both fuzzy matches AND strict requirements
-
-**Example:**
-- Query: `"Gordon Amish"`
-- Fuse.js finds: 150 fuzzy matches
-- AND filter keeps: 25 results with BOTH words
-- Result: Relevant pages only!
-
-### Implementation: Phrase Search
+**Rendering grouped results:**
 
 ```javascript
-function searchExactPhrase(phrase) {
-  if (!searchIndex) return [];
-
-  const phraseLower = phrase.toLowerCase();
-
-  return searchIndex
-    .filter(item => {
-      const searchableText = (
-        (item.album_title || '') + ' ' +
-        (item.searchable_text || '')
-      ).toLowerCase();
-
-      return searchableText.includes(phraseLower);
-    })
-    .map((item, index) => ({
-      item: item,
-      score: 0,  // Perfect match
-      refIndex: index
-    }));
+// Section 1: Album Title Matches
+if (albumMatches.length > 0) {
+  html += '<div class="results-section">';
+  html += '<h2 class="results-section-title">Album Title Matches</h2>';
+  html += albumMatches.map(result => renderResult(result, query, 'album')).join('');
+  html += '</div>';
 }
-```
 
-**Exact substring matching** bypasses Fuse.js entirely for quoted queries.
-
-### Implementation: Smart Query Routing
-
-```javascript
-function performSearch(query) {
-  if (!query || query.trim().length < 2) {
-    showInitialState();
-    return;
-  }
-
-  // Parse query to detect type
-  const parsed = parseQuery(query);
-  let results;
-
-  if (parsed.type === 'phrase') {
-    // Exact phrase search (bypass Fuse.js)
-    results = searchExactPhrase(parsed.phrase);
-    console.log(`Phrase search: "${parsed.phrase}" → ${results.length} results`);
-
-  } else if (parsed.type === 'multi-word') {
-    // Multi-word with boolean AND
-    const fuseResults = fuse.search(parsed.original);
-    results = filterByAllTerms(fuseResults, parsed.terms);
-    console.log(`Multi-word AND: ${parsed.terms.join(' + ')} → ${results.length} results`);
-
-  } else {
-    // Single-word fuzzy search (original behavior)
-    results = fuse.search(parsed.term);
-    console.log(`Fuzzy search: "${parsed.term}" → ${results.length} results`);
-  }
-
-  displayResults(results, query);
+// Section 2: Caption Matches
+if (captionMatches.length > 0) {
+  html += '<div class="results-section">';
+  html += '<h2 class="results-section-title">Caption Matches</h2>';
+  html += captionMatches.map(result => renderResult(result, query, 'caption')).join('');
+  html += '</div>';
 }
-```
-
-### Additional Improvements
-
-**1. Tighter Fuzzy Threshold**
-
-Reduced from 0.4 → 0.3 to reduce false positives:
-
-```javascript
-fuse = new Fuse(searchIndex, {
-  threshold: 0.3,  // Was 0.4 (reduced by 25%)
-  // ... other options
-});
 ```
 
 **Impact:**
-- Still handles OCR errors (`"Gordan"` → `"Gordon"`)
-- Reduces false positives (`"Garden"` no longer matches `"Gordon"`)
 
-**2. Increased Result Limit**
+Now search results show:
 
-Changed from 50 → 200 results:
+```
+Album Title Matches
+  1947 Nov. '47 - May '48 covered bridges+
+
+Caption Matches
+  1947 Nov. '47 - May '48 covered bridges+: Page 5
+    "An Amish wagon emerges from covered bridge..."
+
+  1947 Nov. '47 - May '48 covered bridges+: Page 12
+    "Covered bridge over Mill Creek..."
+```
+
+Much clearer! You can see at a glance:
+- Which albums match your search
+- Which specific pages have caption matches
+- No duplicate confusion
+
+### Configuration Tuning
+
+Through testing, I refined the search configuration:
+
+**Field weights (final values):**
 
 ```javascript
-const displayResults = results.slice(0, 200); // Was 50
+fuse = new Fuse(searchIndex, {
+  keys: [
+    { name: 'album_title', weight: 2 },        // Prioritize album titles
+    { name: 'caption_text', weight: 1.5 },     // Caption content (primary search target)
+    { name: 'searchable_text', weight: 0.5 }   // Fallback for filenames
+  ],
+  threshold: 0.4,  // Permissive for OCR errors
+  ignoreLocation: true,
+  minMatchCharLength: 2
+});
+```
 
-if (results.length > 200) {
+**Why these weights:**
+- `album_title: 2` - Albums should appear first when searching by name
+- `caption_text: 1.5` - Captions are the primary search content
+- `searchable_text: 0.5` - Filenames are low-value fallback
+
+**Result limit: 100**
+
+Increased from an initial 50 to accommodate common queries:
+
+```javascript
+const limitedResults = results.slice(0, 100);
+
+if (results.length > 100) {
   searchResults.innerHTML += `
     <div class="search-limit-notice">
-      Showing first 200 of ${results.length} results. Try refining your search.
+      Showing first 100 of ${results.length} results. Try refining your search.
     </div>
   `;
 }
 ```
 
-**Why:** Common queries like "1947" had 200+ results. Users needed to see more.
+**Why:** Searches like "1947" can return 200+ results. Showing 100 gives better coverage without overwhelming the browser.
 
-**3. Better Page Title Display**
+### Why Simple Won
 
-Changed from showing filenames to "Page #" format:
+Looking back at my notes, I had planned to implement:
+- Boolean AND filtering for multi-word queries
+- Quoted phrase search
+- Query parsing and routing logic
 
-```javascript
-// Before: "1931-1939 courting&marriage_Page 01.jpg"
-// After:  "Page 1"
+I never built any of that. Why?
 
-const pageTitle = item.image_index !== undefined
-  ? `Page ${item.image_index + 1}`  // image_index is 0-based
-  : item.page_filename;
-```
+**Fuzzy matching was sufficient.**
 
-**4. Phrase-Aware Highlighting**
+With a threshold of 0.4 (40% error tolerance), Fuse.js handles:
+- OCR errors: `"yillanova"` finds "Villanova"
+- Typos: `"Gordan"` finds "Gordon"
+- Partial matches: `"trip"` finds "trips"
+- Flexible matching: Handles dates, places, names
 
-Updated highlighting to handle quoted phrases:
+**Visual enhancements mattered more than search precision.**
 
-```javascript
-function highlightSearchTerms(text, query) {
-  // Check if query is a quoted phrase
-  const phraseMatch = query.trim().match(/^"(.+)"$/);
+Thumbnails and PhotoSwipe integration had bigger UX impact than perfect search logic. Users can scan 10 visual results faster than they can refine a complex query.
 
-  if (phraseMatch) {
-    // Highlight entire phrase
-    const phrase = phraseMatch[1];
-    const pattern = new RegExp(`(${escapeRegex(phrase)})`, 'gi');
-    return wrapMatches(text, pattern);
-  }
+**Conservative filtering philosophy paid off.**
 
-  // Otherwise highlight individual words
-  const terms = query.trim().split(/\s+/).map(escapeRegex);
-  const pattern = new RegExp(`(${terms.join('|')})`, 'gi');
-  return wrapMatches(text, pattern);
-}
-```
-
-### Results: Before & After
-
-**Test Case 1: Multi-Word Search**
-
-**Query:** `Gordon Amish`
-
-**Before:**
-- 120 results
-- Many irrelevant (only "Gordon" or only "Amish")
-- Hard to find actual Gordon-in-Amish-country photos
-
-**After:**
-- 18 results
-- All have BOTH words
-- Relevant photos surface immediately
-
-**Test Case 2: Phrase Search**
-
-**Query:** `"Big Bend"`
-
-**Before:**
-- No phrase support
-- Matched "Big Spring", "River Bend", etc.
-- 50+ irrelevant results
-
-**After:**
-- Exact phrase matching
-- 6 results, all containing "Big Bend"
-- Precise and fast
-
-**Test Case 3: Common Year Query**
-
-**Query:** `1947`
-
-**Before:**
-- 200+ results
-- Only showing first 50
-- Message: "Showing 50 of 215 results"
-
-**After:**
-- 200+ results
-- Showing 200 (quadruple the limit)
-- Better coverage of matches
+By keeping questionable captions (map noise, artifacts), the search index is comprehensive. Fuzzy matching + visual previews let users find what they need even with some noise in results.
 
 ### Lessons Learned
 
-**1. Test with Real Queries Early**
+**1. Visual Context Beats Perfect Results**
 
-I should have tested multi-word searches before deploying. Fuzzy matching looks great in theory, but real usage reveals issues.
+I spent days tuning OCR filters and search relevance. Adding thumbnails had 10x the impact in 2 hours.
 
-**2. "Good Enough" Is an Iterative Target**
+**2. Don't Optimize Prematurely**
 
-My initial search was "good enough" for single words. User feedback showed I needed boolean AND. Tomorrow might show I need something else.
+I thought I'd need Boolean AND, phrase search, and field-specific queries. Turns out fuzzy matching + good UX was enough.
 
-**3. Fuzzy + Strict Can Coexist**
+**3. Reuse Existing Components**
 
-The hybrid approach works beautifully:
-- Fuzzy matching handles OCR errors
-- AND filtering handles multi-word precision
-- Phrase search handles exact matches
+PhotoSwipe was already in the project for galleries. Reusing it for search cost almost nothing and gave a polished experience.
 
-You don't have to choose between them.
+**4. Test with Real Use, Not Hypothetical Queries**
 
-**4. Client-Side Search Scales Further Than Expected**
+I tested search with single words like "Gordon" and "Florida." Real use showed I needed thumbnails and grouping, not better query parsing.
 
-Even after adding more logic (parsing, filtering, highlighting), search is instant with 3,400+ entries. Client-side search is underrated for static sites.
+**5. Client-Side Search Keeps Surprising Me**
+
+Even with dynamic image loading, PhotoSwipe initialization, and 100-result rendering, search feels instant. Modern browsers are fast.
 
 ---
 
@@ -1308,17 +1353,43 @@ The search is already working well with Tesseract captions. Vision model caption
 
 ---
 
-## Part 6: Additional Features (Future Work)
+## Part 6: Future Enhancements
 
-*This section will be written as features are implemented.*
+The search system is functional and in active use, but there are features I'm considering for the future:
 
-### Potential Features:
-- Advanced search filters (date range, album-specific)
-- Search analytics (what are people searching for?)
-- Result grouping by album
-- Field-specific search (`album:Louise` or `year:1947`)
-- Manual caption correction overlay
-- Timeline view using extracted dates
+### Potential Enhancements:
+
+**Search Analytics**
+- Track what people actually search for (Plausible event tracking)
+- Identify common queries that return no results
+- Guide future OCR improvements based on search patterns
+
+**Advanced Filters**
+- Date range filtering (e.g., "1940-1950")
+- Album-specific search (e.g., `album:Louise`)
+- Field-specific queries (e.g., `year:1947`)
+
+**Manual Caption Corrections**
+- Overlay system for correcting OCR errors
+- User-submitted corrections (for family members)
+- Version history of caption edits
+
+**Timeline View**
+- Extract dates from captions automatically
+- Build chronological timeline of photos
+- Interactive year/decade navigation
+
+**Quality Improvements**
+- Re-run all albums with vision model (MiniCPM-V 2.6) for better caption quality
+- Compare search effectiveness: Tesseract vs vision model captions
+- Document specific improvement cases
+
+**Enhanced PhotoSwipe Integration**
+- Add image zoom controls
+- Download button for individual pages
+- Share functionality (copy link to specific page)
+
+For now, the system is "good enough" and actively used. These enhancements will come as actual needs emerge from real usage patterns.
 
 ---
 
@@ -1346,17 +1417,21 @@ Fuse.js's fuzzy matching handles OCR errors beautifully. Queries like "Vilanova"
 
 **1. How Well Fuzzy Matching Handles OCR Errors**
 
-I expected to need manual correction or autocomplete. But Fuse.js's threshold tuning was sufficient.
+I expected to need manual correction or autocomplete. But Fuse.js's threshold tuning was sufficient. I never needed complex Boolean AND logic or query parsing.
 
 **2. Client-Side Search Performance**
 
-3,400+ entries search instantly. I was worried about browser performance, but modern JS engines laugh at this dataset size.
+3,400+ entries search instantly. I was worried about browser performance, but modern JS engines laugh at this dataset size. Even with PhotoSwipe integration and dynamic image loading, everything feels instant.
 
-**3. Boolean AND Was Not Optional**
+**3. Visual Context Mattered More Than Search Precision**
 
-I thought fuzzy matching alone would be enough. User feedback proved that multi-word searches need strict AND logic.
+I spent days optimizing OCR filtering and search relevance. Adding thumbnail previews had 10x the UX impact in a fraction of the time. Users don't want perfect search—they want to recognize results quickly.
 
-**4. The Value of Per-Album JSONs**
+**4. PhotoSwipe Integration Was Simpler Than Expected**
+
+Reusing the existing lightbox component from gallery pages took just a few hours. The hardest part was preventing default navigation (solved with event capture phase).
+
+**5. The Value of Per-Album JSONs**
 
 I initially saw these as just build artifacts. But they've been valuable for:
 - Debugging OCR issues
@@ -1365,17 +1440,17 @@ I initially saw these as just build artifacts. But they've been valuable for:
 
 ### What I'd Do Differently
 
-**1. Start with Boolean AND Logic**
+**1. Add Thumbnails from Day One**
 
-I should have implemented AND filtering from day one. It's a fundamental search expectation.
+Visual previews should have been in the initial design. They transformed the search experience more than any algorithmic improvement.
 
-**2. Test with Real Queries Sooner**
+**2. Test with Real Use Cases Earlier**
 
-I tested search with single words ("Gordon", "Florida"). Multi-word queries revealed major issues.
+I tested search with hypothetical single-word queries. Actual use revealed I needed grouping, thumbnails, and lightbox integration—not better query parsing.
 
-**3. Document Design Decisions Earlier**
+**3. Trust Simplicity**
 
-I wrote most of the planning docs after implementation. Writing them first would have caught issues earlier.
+I planned complex Boolean AND logic, phrase search, and query routing. None of it was needed. Fuzzy matching + good UX won.
 
 **4. Set Up Analytics from Day One**
 
@@ -1385,11 +1460,15 @@ I don't know what people are actually searching for. Adding Plausible event trac
 
 **Specific searches that work beautifully:**
 
-- `"1947 covered bridges"` → Finds exact album
-- `"Gordon Amish"` → Surfaces Amish country photos with Gordon
-- `"Big Bend"` → Finds all Big Bend National Park photos
-- `"Louise wedding"` → Goes straight to wedding album
-- `"yillanova"` (typo) → Finds "Villanova" photos correctly
+- `"1947 covered bridges"` → Finds exact album with visual previews
+- `"Amish"` → Shows all Amish-related pages with thumbnails for quick scanning
+- `"Big Bend"` → Finds all Big Bend National Park photos; click thumbnail to browse in lightbox
+- `"Louise wedding"` → Album title match + individual page matches with captions
+- `"yillanova"` (typo) → Fuzzy matching finds "Villanova" photos correctly
+
+**The PhotoSwipe experience:**
+
+Click any search result thumbnail → full-screen lightbox opens → arrow keys navigate through all matching pages → captions visible → escape to close. It feels like browsing a curated slideshow of search results.
 
 ### The "Optimize for Discovery" Philosophy
 
@@ -1424,16 +1503,20 @@ The system is designed for incremental improvement, not wholesale replacement.
 
 Building search for 3,400+ scanned photo album pages taught me that "good enough" is often better than "perfect." Here's what I learned:
 
-1. **OCR doesn't need to be perfect** - Fuzzy search handles errors
+1. **OCR doesn't need to be perfect** - Fuzzy search handles errors gracefully
 2. **Conservative filtering beats aggressive filtering** - Keep questionable text rather than lose real captions
-3. **Client-side search scales surprisingly well** - 3,400 entries search instantly in the browser
-4. **Multi-word boolean AND is essential** - Fuzzy matching alone isn't enough
-5. **Real user feedback reveals issues** - Test with real queries, not just single words
-6. **Separate OCR from indexing** - Fast rebuilds enable rapid iteration
+3. **Client-side search scales surprisingly well** - 3,400 entries search instantly, even with PhotoSwipe integration
+4. **Visual context beats search precision** - Thumbnail previews had 10x the UX impact of algorithmic improvements
+5. **Simple solutions often win** - Fuzzy matching + good UX beat complex Boolean AND logic I never built
+6. **Reuse existing components** - PhotoSwipe was already there; reusing it was trivial
+7. **Separate OCR from indexing** - Fast rebuilds enable rapid iteration
+8. **Test with real use, not hypothetical queries** - Actual usage revealed I needed thumbnails and grouping, not better parsing
 
-The system isn't finished. I'm exploring vision models for better handwriting OCR, considering advanced filters, and thinking about analytics. But it's shipped, it's working, and family members are finding photos they forgot existed.
+The system shipped with features I didn't plan (PhotoSwipe lightbox, thumbnail previews, grouped results) and without features I thought were essential (Boolean AND, phrase search, query parsing). Real use revealed what actually mattered.
 
-That's the goal: make family history discoverable.
+Family members are now finding photos they forgot existed. Search isn't just functional—it's delightful. Click a thumbnail, browse results in a full-screen lightbox, navigate with arrow keys, see captions alongside photos.
+
+That's the goal: make family history discoverable and enjoyable.
 
 ---
 
@@ -1451,11 +1534,16 @@ That's the goal: make family history discoverable.
 - Library: Fuse.js 7.0.0
 - Index size: ~400KB JSON (~100KB gzipped)
 - Search speed: <50ms for 3,400+ entries
-- Threshold: 0.3 (30% error tolerance)
+- Threshold: 0.4 (40% error tolerance)
+- Field weights: album_title=2, caption_text=1.5, searchable_text=0.5
+- Result limit: 100 (increased from initial 50)
+- Features: PhotoSwipe lightbox integration, thumbnail previews, grouped results
 
 **Repository Links:**
-- `ocr_scripts/ocr_pages.py` - OCR implementation
-- `assets/js/search.js` - Client-side search
+- `ocr_scripts/ocr_pages.py` - OCR implementation (536 lines)
+- `assets/js/search.js` - Client-side search with PhotoSwipe (536 lines)
+- `assets/css/custom.css` - Search UI styling (412 lines)
+- `layouts/_default/search.html` - Search page template (59 lines)
 - `ocr_scripts/rebuild_search_index.py` - Fast index rebuild
 - Planning docs in `ocr_scripts/` directory
 
