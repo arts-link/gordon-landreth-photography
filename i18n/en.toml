@@ -17,3 +17,6 @@ other = "{{ .photoCount }} in {{ .count }} albums"
 
 [home]
 other = "Home"
+
+[search]
+other = "Search"
