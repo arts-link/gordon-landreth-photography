@@ -1,0 +1,154 @@
+{{/*
+  1200x630 social card — "catalogue plate" layout: a single photo bleeds to
+  the card's own right edge with no mat, and the title sits in a facing
+  "verso" column behind a hairline rule, like a plate tipped into a
+  photography monograph. Chosen over a side-by-side strip or a full-bleed
+  crop because the source scans are portrait rectangles — a wide fill loses
+  most of the print, and multiple images at OG-card scale read as clutter.
+
+  Three variants:
+  - Home: the same "first" album's cover as the homepage grid uses (whatever
+    that ends up being — no album here is actually marked `featured`).
+  - Album pages: the album's own cover image (same GetMatch *feature*
+    fallback the theme itself uses for the homepage card/thumbnail).
+  - Pages with no photos (About, Search, 404): a plain black, formal card —
+    no image at all, on request, rather than forcing a photo where the
+    layout has none to offer.
+*/}}
+{{- $img := "" }}
+{{- $heading := .Title }}
+{{- $eyebrow := "Gordon Landreth Photography" }}
+{{- $caption := "" }}
+
+{{- $page := . }}
+{{- if .IsHome }}
+  {{/* Matches the homepage grid's actual behavior, not just "not private":
+       home.html renders album-card.html for every non-private page, but
+       that partial silently produces nothing for a page with no images
+       (About, Search) via get-gallery.html's own `{{ with $gallery }}`
+       guard — so "how many albums" means "how many have photos", same
+       filter needed here for both the count and which page is "first". */}}
+  {{- $eyebrow = "" }}
+  {{- $heading = site.Params.description }}
+  {{- $albums := slice }}
+  {{- range where site.RegularPages "Params.private" "ne" true }}
+    {{- if gt (len (.Resources.ByType "image")) 0 }}
+      {{- $albums = $albums | append . }}
+    {{- end }}
+  {{- end }}
+  {{- $caption = printf "%d albums · 1931–1991" (len $albums) }}
+  {{- with $albums }}{{ $page = index . 0 }}{{ end }}
+{{- end }}
+{{- $images := $page.Resources.ByType "image" }}
+{{- if gt (len $images) 0 }}
+  {{- $img = ($images.GetMatch ($page.Params.featured_image | default "*feature*")) | default (index $images 0) }}
+  {{- if not .IsHome }}
+    {{- $caption = T "photoCount" (len $images | lang.FormatNumber 0) }}
+  {{- end }}
+{{- end }}
+
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: ui-sans-serif, system-ui, sans-serif; }
+  .card {
+    position: relative;
+    width: 1200px;
+    height: 630px;
+    font-family: "EB Garamond", ui-serif, Georgia, serif;
+  }
+  .card-photo {
+    display: grid;
+    grid-template-columns: 44% 56%;
+    background: var(--surface-1-dark);
+  }
+  .plate { position: relative; overflow: hidden; }
+  .plate img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .verso {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 84px 0 92px;
+    border-left: 1px solid rgba(250,250,250,0.14);
+    gap: 22px;
+  }
+  .eyebrow {
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(250,250,250,0.5);
+  }
+  .verso h1 {
+    margin: 0;
+    font-weight: 500;
+    color: var(--text-1-dark);
+    font-size: 52px;
+    line-height: 1.14;
+  }
+  .rule { width: 34px; height: 1px; background: #3a3a3a; }
+  .caption {
+    font-style: italic;
+    font-size: 22px;
+    color: rgba(250,250,250,0.55);
+  }
+  .card-formal {
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .card-formal .frame {
+    border: 1px solid rgba(250,250,250,0.22);
+    padding: 56px 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+  .card-formal .artist {
+    font-size: 58px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-1-dark);
+    font-weight: 500;
+  }
+  .card-formal .role {
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-style: italic;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-2-dark);
+  }
+  .card-formal .rule { width: 48px; height: 1px; background: #3a3a3a; margin: 4px 0; }
+  .card-formal .page {
+    font-size: 32px;
+    color: rgba(250,250,250,0.88);
+    font-style: italic;
+  }
+</style>
+
+{{- with $img }}
+  <div class="card card-photo">
+    <div class="plate">
+      {{- $plate := .Filter (slice images.AutoOrient (images.Process "fit 900x1260")) }}
+      <img src="{{ $plate.RelPermalink }}" alt="">
+    </div>
+    <div class="verso">
+      {{- with $eyebrow }}<p class="eyebrow">{{ . }}</p>{{ end }}
+      <h1>{{ $heading }}</h1>
+      <div class="rule"></div>
+      {{- with $caption }}<p class="caption">{{ . }}</p>{{ end }}
+    </div>
+  </div>
+{{- else }}
+  <div class="card card-formal">
+    <div class="frame">
+      <div class="artist">Gordon Landreth</div>
+      <div class="role">Photographer</div>
+      <div class="rule"></div>
+      <div class="page">{{ $heading }}</div>
+    </div>
+  </div>
+{{- end }}

@@ -1,0 +1,54 @@
+{{/*
+  Structured data. Every page carries Organization (Arts-Link, who built the
+  site) + Person (Gordon Landreth, the photographer) + WebSite so a bot that
+  ignores noindex — and plenty do — at least reads accurate data rather than
+  nothing. Album pages additionally describe themselves as an ImageGallery
+  created by that same Person.
+
+  This is deliberately separate from the per-image itemscope/itemtype
+  microdata already inline in the stock gallery.html partial (which tags
+  each photo's own creator as site.Params.Author, i.e. Ben Strawbridge, the
+  archivist — correct for "who scanned and published this", just answering a
+  different question than "who took the photograph", which is what this
+  block is for).
+*/}}
+{{- $org := dict
+  "@type" "Organization"
+  "@id" (printf "%s#organization" site.BaseURL)
+  "name" "Arts-Link"
+  "url" "https://www.arts-link.com/"
+}}
+{{- $person := dict
+  "@type" "Person"
+  "@id" (printf "%s#photographer" site.BaseURL)
+  "name" "Gordon Landreth"
+  "jobTitle" "Photographer"
+}}
+{{- $website := dict
+  "@type" "WebSite"
+  "@id" (printf "%s#website" site.BaseURL)
+  "name" site.Params.title
+  "description" site.Params.description
+  "url" site.BaseURL
+  "creator" (dict "@id" (printf "%s#organization" site.BaseURL))
+  "about" (dict "@id" (printf "%s#photographer" site.BaseURL))
+}}
+{{- $graph := slice $org $person $website }}
+
+{{- $images := .Resources.ByType "image" }}
+{{- if and (not .IsHome) (gt (len $images) 0) }}
+  {{- $gallery := dict
+    "@type" "ImageGallery"
+    "@id" (printf "%s#gallery" .Permalink)
+    "name" .Title
+    "url" .Permalink
+    "creator" (dict "@id" (printf "%s#photographer" site.BaseURL))
+    "isPartOf" (dict "@id" (printf "%s#website" site.BaseURL))
+    "numberOfItems" (len $images)
+  }}
+  {{- $graph = $graph | append $gallery }}
+{{- end }}
+
+<script type="application/ld+json">
+{{ dict "@context" "https://schema.org" "@graph" $graph | jsonify (dict "indent" "  ") | safeJS }}
+</script>

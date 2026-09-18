@@ -6,9 +6,12 @@
   "scripts": {
     "cf:build": "sh scripts/cf-build.sh",
     "cf:dev": "npm run cf:build && wrangler dev",
-    "cf:deploy": "npm run cf:build && wrangler deploy"
+    "cf:deploy": "npm run cf:build && wrangler deploy",
+    "og": "node scripts/og-images.mjs",
+    "og:check": "node scripts/og-images.mjs --check"
   },
   "devDependencies": {
+    "playwright": "^1.62.1",
     "wrangler": "^4.133.0"
   }
 }

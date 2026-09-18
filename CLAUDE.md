@@ -136,12 +136,18 @@ hugo mod get -u github.com/nicokaiser/hugo-theme-gallery/v4  # Update theme
 hugo mod tidy                      # Clean up unused modules
 ```
 
-### Cloudflare Workers (new, not yet live)
+### Cloudflare Workers (live)
 ```bash
-npm install       # pulls in wrangler
+npm install       # pulls in wrangler, playwright
 npm run cf:build   # hugo --minify --gc via scripts/cf-build.sh
 npm run cf:dev     # build, then serve on the real Workers runtime
 npm run cf:deploy  # build, then wrangler deploy
+```
+
+### Social Cards & Structured Data
+```bash
+hugo --minify && npm run og   # regenerate stale/missing OG cards — requires a build first
+npm run og:check              # exit 1 if any card is missing or stale (no browser needed)
 ```
 
 ## Architecture
@@ -162,16 +168,29 @@ Hugo's theme override system allows customization without modifying the theme:
   - Reads image EXIF data (dates, descriptions, orientation)
   - Generates responsive image sets (thumbnails: 600x600, full: 1600x1600)
   - Extracts dominant colors for placeholders
-  - Injects Schema.org structured data
-- `/layouts/partials/apply-watermark.html` - Image watermarking pipeline (overlays benstraw.png)
-- `/layouts/partials/head-custom.html` - Plausible analytics injection
+  - Injects per-image Schema.org `ImageObject` microdata (creator tagged as
+    `site.Params.Author`, i.e. Ben Strawbridge, who scanned/published — not the photographer)
+- `/layouts/partials/apply-watermark.html` - A watermark-overlay implementation
+  (`images.Overlay` against `params.gallerydeluxe.watermark`) that **is never called** — no
+  template references it. Live photos are unwatermarked despite this file and its config both
+  existing; treat that as the actual current behavior, not this file's presence, if it matters
+  for a change you're making.
+- `/layouts/partials/head.html` - Full override of the theme's own head.html, to drop its
+  conflicting `Params.private` robots conditional — see Copyright & Privacy below
+- `/layouts/partials/opengraph.html` - Override: points `og:image` at the generated card
+  instead of the theme's raw-photo default — see Social Cards & Structured Data above
+- `/layouts/partials/json-ld.html` - Organization/Person/WebSite/ImageGallery structured data
+- `/layouts/partials/og-card.html` + `/layouts/_default/baseof.ogcard.html` - The OG card itself
+- `/layouts/partials/head-custom.html` - The one true robots meta tag, Plausible analytics
+  injection, search-index preload hint
 
 ### Image Processing Pipeline
 Hugo processes images at build time:
 - Auto-orientation based on EXIF
 - Responsive image generation (multiple sizes)
-- Watermark overlay (configured via `params.gallerydeluxe.watermark`)
 - Quality: 75% JPEG, CatmullRom resampling
+- `params.gallerydeluxe.watermark` is configured but not applied — see
+  `apply-watermark.html` above
 - EXIF filtering: preserves dates/descriptions, strips GPS for privacy
 
 ### OCR Architecture (Client-Side Search)
@@ -211,39 +230,82 @@ The OCR system digitizes typed captions from scanned album pages for searchable 
 
 ### Deployment Infrastructure
 
-**In transition, same pattern as arts-link.com's own migration.** AWS is still live and is
-the rollback; Cloudflare is built and waiting to be connected and cut over. Do not tear down
-the S3/CloudFront side until the Cloudflare side has been serving `www` reliably for a while.
+**Cloudflare is live.** `gordon-landreth-photography.arts-link.com` serves from the Worker via
+a Custom Domain. AWS is kept as the rollback for now — do not tear down the S3/CloudFront side
+until the Cloudflare side has been serving reliably for a good while longer.
 
-- **AWS S3 Bucket (live):** gordon-landreth-photography.arts-link.com (us-east-2)
-- **CloudFront Distribution ID:** EPSVMGZTAOYO2
-- **Cache Control:** 630-day max-age for static assets
-- **Deploy Script:** `./deploy.sh` handles AWS credential profile switching and invalidation
-- **Cloudflare (target):** `wrangler.jsonc` → `scripts/cf-build.sh`. An assets-only Worker —
-  no `main`, nothing executes per request, `public/` is served straight from the edge. Same
-  shape as arts-link.com's Worker.
+- **Cloudflare Worker (live):** `wrangler.jsonc` → `scripts/cf-build.sh`. An assets-only
+  Worker — no `main`, nothing executes per request, `public/` is served straight from the
+  edge. Same shape as arts-link.com's Worker.
 - **`workers_dev` is deliberately `false` here**, unlike arts-link.com. That site is public
   marketing content, so a crawlable `*.workers.dev` preview costs nothing. This site is a
   family photo archive that's noindex,nofollow but *not* access-controlled — a public preview
   subdomain would just be a second, easily-guessable copy of the same private images. Use
   `wrangler dev` locally, or the dashboard's per-version preview links, instead.
+- **`cf-build.sh` self-installs `hugo_extended`.** Cloudflare Workers Builds' own tool-detection
+  installs the *standard* Hugo binary, not extended — confirmed against a real build log, which
+  ran the full ~10-12 minute image-processing pass and only failed at the very end, compiling
+  `main.scss` (the theme's CSS pipeline needs the libsass transpiler, extended-only). The build
+  script now checks for `+extended` on whatever `hugo` it's handed and fetches the real binary
+  itself if it's missing, rather than trusting the detector or guessing at an env var to fix it.
 - **No preview/production baseURL branching in `cf-build.sh`**, unlike arts-link.com's build
-  script. `hugo.toml` sets `private = true` unconditionally, so every page is noindex,nofollow
-  regardless of which branch built it — there's nothing for a preview build to get wrong that
-  production doesn't already do.
-- **`arts-link.com`'s DNS is already on Cloudflare.** This site's DNS record (`gordon-landreth-
-  photography.arts-link.com`) still needs to be created there and pointed at this Worker before
-  cutover — it is not automatic just because the parent zone moved.
+  script — see Copyright & Privacy below for why `.Params.private` can't just be cascaded true
+  site-wide, and how privacy is actually enforced regardless of which branch built the page.
+- **AWS S3 Bucket (rollback):** gordon-landreth-photography.arts-link.com (us-east-2)
+- **CloudFront Distribution ID:** EPSVMGZTAOYO2
+- **Cache Control:** 630-day max-age for static assets
+- **Deploy Script:** `./deploy.sh` handles AWS credential profile switching and invalidation
 - **`arts-link.com`'s CLAUDE.md has the full Workers Builds gotchas** (the "three checks on a
   PR, not two" GitHub App connection issue, `Settings → Builds` disconnected-banner trap, etc.)
-  — read it before wiring up this repo's Workers Builds connection, the failure modes are the
-  same.
+  — the failure modes are the same here.
+
+### Social Cards & Structured Data
+
+- **Every home/album page gets its own 1200×630 OG card.** The `ogcard` output format
+  (`config/_default/hugo.toml`) renders a second HTML output at `<page>/og.html`
+  (`layouts/_default/baseof.ogcard.html` + `layouts/partials/og-card.html`), screenshotted by
+  `scripts/og-images.mjs` (`npm run og`) into `static/og/`, same technique as arts-link.com's
+  own card pipeline. Images are **committed** — nothing renders at deploy time. CI should run
+  `npm run og:check` and fail if a card is missing or stale (not yet wired into a workflow here).
+- **Three variants**, not one full-bleed crop: the source scans are portrait rectangles, so a
+  wide fill would lose most of each print. A single photo bleeds to the card's own right edge
+  with the title set in a facing "verso" column (a plate tipped into a monograph, not a pasted
+  thumbnail) for home and any album page with photos; pages with none (About, Search, a future
+  404) get a plain black, formal card instead — no image forced where the layout has none.
+- **`layouts/partials/opengraph.html` overrides the theme's own** for one reason: point
+  `og:image` at the generated card (falling back to `static/og-default.jpg` for a page added
+  since the last `npm run og`) instead of the raw, multi-megabyte scan the stock partial links.
+- **`layouts/partials/json-ld.html`** adds an Organization (Arts-Link, who built the site) +
+  Person (Gordon Landreth, the photographer) + WebSite graph to every page, plus an
+  ImageGallery node on album pages — on the theory that `noindex` asks bots not to index a
+  page, not that they'll honor it, so whatever does read the page should read something
+  accurate. This is separate from the per-image `itemscope`/`itemtype` microdata already inline
+  in the stock `gallery.html` partial, which tags each photo's creator as `site.Params.Author`
+  (Ben Strawbridge, who scanned and published it) — a different, also-correct answer to a
+  different question than "who took the photograph."
 
 ## Important Constraints
 
 ### Copyright & Privacy
 - **All images are family property** - Not public domain, do not suggest making them public
-- Site configured as private (`robots: noindex, nofollow`)
+- **The site is noindex,nofollow but not access-controlled** - no login, nothing blocking a
+  direct URL. "Private" here means "please don't index or crawl this," not "gated" — the two
+  read the same in casual conversation but call for different fixes.
+- **`hugo.toml`'s top-level `private = true` does nothing** - Hugo only reads `[params.*]` into
+  `.Params`, not bare top-level keys. Don't "fix" this with a `[[cascade]]` that pushes
+  `params.private = true` onto every page — `home.html` reads that exact same
+  `Params.private` key to decide which albums appear in the grid, so cascading it true
+  site-wide would silently empty the homepage while fixing robots. The actual, only
+  noindex,nofollow tag lives in `head-custom.html`; `layouts/partials/head.html` (a full
+  override of the theme's own) exists solely to drop the stock partial's own conflicting
+  `Params.private` robots conditional, which used to ship a second, contradictory tag on
+  every page.
+- **`robots.txt` stays a permissive `User-agent: *` with no `Disallow`, on purpose.** Blocking
+  crawlers at the robots.txt level would also block social-unfurl bots (iMessage, Slack,
+  Twitter/X), which generally ignore `noindex` when fetching Open Graph data — this site wants
+  to stay linkable/shareable even though it doesn't want to be indexed. See Social Cards &
+  Structured Data above for the corollary: since `noindex` only asks politely and plenty of
+  bots don't honor it, every page also carries real, accurate JSON-LD rather than nothing.
 - Plausible analytics only (privacy-focused, no Google Analytics)
 - GPS EXIF data intentionally stripped from images
 

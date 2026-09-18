@@ -1,0 +1,42 @@
+{{/*
+  Shell for the `ogcard` output format — the 1200x630 social share card that
+  home + every page renders alongside its HTML, at <page>/og.html.
+
+  No {{ block "main" }} here, deliberately: Hugo still selects the page's
+  normal layout (_default/home.html, _default/page.html, …) for this output
+  format, and those only ever `define "main"`. Leaving that block out drops
+  their output entirely, so this — a full standalone document, not wrapped
+  in the site's own header/nav/footer — is all that renders.
+*/}}
+<!DOCTYPE html>
+<html lang="{{ site.LanguageCode | default "en" }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex,nofollow">
+  <title>OG card — {{ .Title }}</title>
+
+  {{/* The site's real stylesheet, so the card inherits the actual dark
+       palette (--surface-1-dark / --text-1-dark) rather than reinventing
+       colors that could drift from the live site. */}}
+  {{- $css := resources.Get "/css/main.scss" | toCSS | minify }}
+  <style>{{ $css.Content | safeCSS }}</style>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
+
+  <style>
+    /* Fixed canvas, always dark — cards don't follow the theme toggle. */
+    html, body {
+      width: 1200px;
+      height: 630px;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      color-scheme: dark;
+    }
+    body { background: var(--surface-1-dark); }
+  </style>
+</head>
+<body>
+  {{ partial "og-card.html" . }}
+</body>
+</html>

@@ -1,0 +1,31 @@
+{{/*
+  Overrides the theme's own opengraph.html for one reason: og:image should
+  point at the generated 1200x630 card (layouts/partials/og-card.html,
+  screenshotted by scripts/og-images.mjs into static/og/), not the raw photo
+  the stock partial links directly — full-resolution scans make poor, slow,
+  randomly-cropped unfurl images. Everything else here is unchanged from the
+  theme's version.
+*/}}
+<meta property="og:title" content="{{ if .IsHome }}{{ with .Site.Params.title }}{{ . }}{{ end }}{{ else }}{{ .Title }}{{ end }}" />
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+
+{{- $key := default "home" (strings.Trim .RelPermalink "/") }}
+{{- $image := absURL "og-default.jpg" }}
+{{- if index (default dict site.Data.og.manifest) $key }}
+  {{- $image = absURL (printf "og/%s.jpg" $key) }}
+{{- end }}
+<meta property="og:image" content="{{ $image }}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+{{- if .IsPage }}
+  {{- $iso8601 := "2006-01-02T15:04:05-07:00" -}}
+  <meta property="article:section" content="{{ .Section }}" />
+  {{ with .PublishDate }}<meta property="article:published_time" {{ .Format $iso8601 | printf "content=%q" | safeHTMLAttr }} />{{ end }}
+  {{ with .Lastmod }}<meta property="article:modified_time" {{ .Format $iso8601 | printf "content=%q" | safeHTMLAttr }} />{{ end }}
+{{- end -}}
+
+{{- with .Params.locale }}<meta property="og:locale" content="{{ . }}" />{{ end }}
+{{- with .Site.Params.title }}<meta property="og:site_name" content="{{ . }}" />{{ end }}

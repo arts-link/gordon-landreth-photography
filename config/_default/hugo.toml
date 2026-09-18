@@ -7,7 +7,13 @@ languageCode = "en"
 timeZone = "America/Los_Angeles"
 timeout = "120s"
 title = ""
-private = true
+
+# A bare top-level `private` key does nothing in Hugo — it never reaches a
+# page's .Params, only [params.*] does. See layouts/partials/head.html for
+# why this isn't fixed with a [[cascade]]: `.Params.private` is also read by
+# home.html to decide which albums appear in the grid, so cascading it true
+# site-wide would fix the robots tag and empty the homepage in the same
+# stroke. The actual fix lives entirely in the overridden head.html partial.
 
 [params]
   defaultTheme = "dark"
@@ -29,9 +35,18 @@ private = true
     image = "images/benstraw.png" # relative to /assets
     posx  = "right"                    # one of "left", "center", "right"
     posy  = "bottom"                  # one of "top", "center", "bottom"
+# Social share card. Every page renders a second HTML output at og.html — a
+# 1200x630 card styled with the site's own CSS. scripts/og-images.mjs
+# screenshots those into static/og/. See `npm run og`.
+[outputFormats.ogcard]
+  mediaType = "text/html"
+  baseName = "og"
+  isHTML = true
+  notAlternative = true
+
 [outputs]
-  home = ["HTML", "RSS"]
-  page = ["HTML"]
+  home = ["HTML", "RSS", "ogcard"]
+  page = ["HTML", "ogcard"]
   section = ["HTML"]
 
 [imaging]

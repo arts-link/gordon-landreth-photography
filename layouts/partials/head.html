@@ -1,0 +1,37 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ with .Title }}{{ . }} -{{ end }} {{ .Site.Title }}</title>
+  <link rel="canonical" href="{{ .Permalink }}" />
+  <link rel="icon" type="image/svg+xml" href="{{ "images/favicon.svg" | relURL }}" />
+  <link rel="icon" type="image/png" href="{{ "images/favicon.png" | relURL }}" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "images/apple-touch-icon.png" | relURL }}" />
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}" />
+  {{ if .Params.keywords }}
+    <meta name="keywords" content="{{ delimit .Params.keywords `, ` }}" />
+  {{ end }}
+  {{/* No robots meta here — the stock theme's own {{ if .Params.private }}
+       check is unusable site-wide (see hugo.toml and home.html: the same
+       key also decides which albums list on the homepage), so the one true
+       noindex,nofollow tag lives in head-custom.html instead. Emitting one
+       here too previously shipped two contradictory robots tags on every
+       page. */}}
+  {{ range .AlternativeOutputFormats -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end -}}
+  {{ partial "opengraph.html" . }}
+  {{ partial "json-ld.html" . }}
+  {{ $css := resources.Get "/css/main.scss" | toCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" />
+  {{ $params := dict
+    "closeTitle" (i18n "closeTitle")
+    "zoomTitle" (i18n "zoomTitle")
+    "arrowPrevTitle" (i18n "arrowPrevTitle")
+    "arrowNextTitle" (i18n "arrowNextTitle")
+    "errorMsg" (i18n "errorMsg")
+    "downloadTitle" (i18n "downloadTitle")
+  }}
+  {{ $js := resources.Get "js/main.js" | js.Build (dict "minify" true "params" $params) | resources.Fingerprint }}
+  <script src="{{ $js.RelPermalink }}" defer></script>
+  {{- partial "head-custom.html" . -}}
+</head>

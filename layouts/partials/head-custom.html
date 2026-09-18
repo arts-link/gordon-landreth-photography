@@ -6,7 +6,11 @@
 {{ if eq .Kind "404" }} <script>document.addEventListener('DOMContentLoaded', function () { plausible('404', { props: { path: document.location.pathname } }); });</script><script>document.addEventListener('DOMContentLoaded', function () { plausible('404', { props: { path: document.location.pathname } }); });</script> {{ end }}
 
 
-<!-- yeah, i don't want to edit the module or override it's head so i'm just going to add this here -->
+<!-- The only robots tag on the page. layouts/partials/head.html (a full
+     override of the theme's own head.html) deliberately drops the stock
+     Params.private conditional that used to emit a second, contradictory
+     one — see the comment there for why Params.private couldn't just be
+     fixed instead. -->
 <meta name="robots" content="noindex, nofollow" />
 
 {{ if eq .Layout "search" }}
