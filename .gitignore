@@ -28,3 +28,6 @@ __pycache__/
 # Hugo modules
 _vendor/
 .claude/
+
+# Cloudflare Workers
+.wrangler/

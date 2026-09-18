@@ -99,7 +99,7 @@ This is a Hugo static site generator project hosting a family photo gallery feat
 - Hugo v0.121.2+ (static site generator)
 - hugo-theme-gallery v4.2.5 (via Go modules)
 - Python 3 + OpenCV + Tesseract (OCR utilities)
-- AWS S3 + CloudFront (hosting)
+- AWS S3 + CloudFront (hosting, being migrated to Cloudflare Workers — see Deployment below)
 
 **Base URL:** https://gordon-landreth-photography.arts-link.com
 
@@ -134,6 +134,14 @@ python3 ocr_scripts/ocr_pages.py <input_folder> <output_json> [--captions-out <c
 hugo mod get -u                    # Update all modules
 hugo mod get -u github.com/nicokaiser/hugo-theme-gallery/v4  # Update theme
 hugo mod tidy                      # Clean up unused modules
+```
+
+### Cloudflare Workers (new, not yet live)
+```bash
+npm install       # pulls in wrangler
+npm run cf:build   # hugo --minify --gc via scripts/cf-build.sh
+npm run cf:dev     # build, then serve on the real Workers runtime
+npm run cf:deploy  # build, then wrangler deploy
 ```
 
 ## Architecture
@@ -202,10 +210,34 @@ The OCR system digitizes typed captions from scanned album pages for searchable 
 - `/i18n/en.toml` - UI string translations
 
 ### Deployment Infrastructure
-- **AWS S3 Bucket:** gordon-landreth-photography.arts-link.com (us-east-2)
+
+**In transition, same pattern as arts-link.com's own migration.** AWS is still live and is
+the rollback; Cloudflare is built and waiting to be connected and cut over. Do not tear down
+the S3/CloudFront side until the Cloudflare side has been serving `www` reliably for a while.
+
+- **AWS S3 Bucket (live):** gordon-landreth-photography.arts-link.com (us-east-2)
 - **CloudFront Distribution ID:** EPSVMGZTAOYO2
 - **Cache Control:** 630-day max-age for static assets
 - **Deploy Script:** `./deploy.sh` handles AWS credential profile switching and invalidation
+- **Cloudflare (target):** `wrangler.jsonc` → `scripts/cf-build.sh`. An assets-only Worker —
+  no `main`, nothing executes per request, `public/` is served straight from the edge. Same
+  shape as arts-link.com's Worker.
+- **`workers_dev` is deliberately `false` here**, unlike arts-link.com. That site is public
+  marketing content, so a crawlable `*.workers.dev` preview costs nothing. This site is a
+  family photo archive that's noindex,nofollow but *not* access-controlled — a public preview
+  subdomain would just be a second, easily-guessable copy of the same private images. Use
+  `wrangler dev` locally, or the dashboard's per-version preview links, instead.
+- **No preview/production baseURL branching in `cf-build.sh`**, unlike arts-link.com's build
+  script. `hugo.toml` sets `private = true` unconditionally, so every page is noindex,nofollow
+  regardless of which branch built it — there's nothing for a preview build to get wrong that
+  production doesn't already do.
+- **`arts-link.com`'s DNS is already on Cloudflare.** This site's DNS record (`gordon-landreth-
+  photography.arts-link.com`) still needs to be created there and pointed at this Worker before
+  cutover — it is not automatic just because the parent zone moved.
+- **`arts-link.com`'s CLAUDE.md has the full Workers Builds gotchas** (the "three checks on a
+  PR, not two" GitHub App connection issue, `Settings → Builds` disconnected-banner trap, etc.)
+  — read it before wiring up this repo's Workers Builds connection, the failure modes are the
+  same.
 
 ## Important Constraints
 

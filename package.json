@@ -1,0 +1,14 @@
+{
+  "name": "gordon-landreth-photography",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Gordon Landreth's family photo albums, built with Hugo.",
+  "scripts": {
+    "cf:build": "sh scripts/cf-build.sh",
+    "cf:dev": "npm run cf:build && wrangler dev",
+    "cf:deploy": "npm run cf:build && wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.133.0"
+  }
+}

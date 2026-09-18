@@ -1,0 +1,36 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "gordon-landreth-photography",
+  "compatibility_date": "2026-09-18",
+
+  // Assets-only Worker, same reasoning as arts-link.com's wrangler.jsonc:
+  // every page is prerendered by Hugo and nothing needs to run per request,
+  // so there's no "main" script.
+  "assets": {
+    "directory": "./public",
+
+    // Hugo emits /1952-a.b/index.html, so folder indexes must serve at
+    // /1952-a.b/, not just at the bare file.
+    "html_handling": "auto-trailing-slash",
+
+    // public/404.html exists (confirmed by a local build) and gets served
+    // for unmatched paths with a real 404 status, rather than Cloudflare's
+    // bare default response.
+    "not_found_handling": "404-page"
+  },
+
+  // Off, unlike arts-link.com. That site is public marketing content, so a
+  // crawlable *.workers.dev preview costs nothing extra. This one is a
+  // family photo archive that's already noindex,nofollow on every page
+  // (see hugo.toml's `private = true`) but is NOT access-controlled — no
+  // login, nothing blocking a direct URL. A public preview subdomain would
+  // be a second, easily-guessable public copy of the same images, which
+  // cuts against the "please don't share these" ask in this repo's README.
+  // Use `wrangler dev` locally, or `wrangler versions upload` with the
+  // dashboard's private preview links, instead of a public workers.dev URL.
+  "workers_dev": false,
+
+  "observability": {
+    "enabled": true
+  }
+}
