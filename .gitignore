@@ -31,3 +31,4 @@ _vendor/
 
 # Cloudflare Workers
 .wrangler/
+.hugo-bin/

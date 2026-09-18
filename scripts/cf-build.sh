@@ -15,4 +15,32 @@
 # nothing to branch on here.
 set -eu
 
+# Cloudflare's own tool-detection ("Detected the following tools from
+# environment: hugo@X.Y.Z, …") installs the STANDARD Hugo binary, not the
+# extended one. Confirmed against a real Workers Builds log: the version
+# banner printed no "+extended", and the build ran all the way through
+# image processing (12+ minutes) before failing at the very end on
+# `resources.Get "/css/main.scss" | toCSS`, because the theme's CSS
+# pipeline uses the libsass transpiler, which only exists in the extended
+# binary (github.com/nicokaiser/hugo-theme-gallery's layouts/partials/head.html).
+#
+# Rather than depend on whatever Cloudflare's detector installs — or guess
+# at an undocumented env var to request "extended" from it — fetch the real
+# extended binary ourselves if the one on PATH isn't it. This is a no-op
+# anywhere a proper `hugo_extended` is already installed (e.g. a dev
+# machine with it from Homebrew), and only kicks in on a build runner that
+# gave us the wrong flavor.
+HUGO_VERSION="${HUGO_VERSION:-0.138.0}"
+
+if ! command -v hugo >/dev/null 2>&1 || ! hugo version 2>/dev/null | grep -q '+extended'; then
+  echo "cf-build: hugo on PATH is missing (or not extended) — fetching hugo_extended ${HUGO_VERSION}"
+  curl -fsSL -o /tmp/hugo.tar.gz \
+    "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+  mkdir -p "$PWD/.hugo-bin"
+  tar -xzf /tmp/hugo.tar.gz -C "$PWD/.hugo-bin" hugo
+  chmod +x "$PWD/.hugo-bin/hugo"
+  export PATH="$PWD/.hugo-bin:$PATH"
+  hugo version
+fi
+
 exec hugo --minify --gc "$@"
