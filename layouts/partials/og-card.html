@@ -47,6 +47,16 @@
   {{- end }}
 {{- end }}
 
+{{/* Link unfurls render this at ~300px (iMessage) to ~500px (X) wide — a
+     4x downsample — so a size and weight that reads fine at full 1200px is
+     illegible in the wild. EB Garamond's strokes are thinner than a sans at
+     the same weight, so this needs to run bigger and bolder than a sans
+     headline would to survive the same downsample; the verso column is
+     ~500px of usable width after padding, so longer titles still need to
+     step down to avoid wrapping past two lines. */}}
+{{- $len := len $heading }}
+{{- $headingSize := cond (le $len 20) "92px" (cond (le $len 40) "76px" "62px") }}
+
 <style>
   * { box-sizing: border-box; }
   body { font-family: ui-sans-serif, system-ui, sans-serif; }
@@ -73,23 +83,25 @@
   }
   .eyebrow {
     font-family: ui-sans-serif, system-ui, sans-serif;
-    font-size: 18px;
-    letter-spacing: 0.16em;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(250,250,250,0.5);
+    color: rgba(250,250,250,0.6);
   }
   .verso h1 {
     margin: 0;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-1-dark);
-    font-size: 52px;
-    line-height: 1.14;
+    font-size: {{ $headingSize }};
+    line-height: 1.1;
   }
   .rule { width: 34px; height: 1px; background: #3a3a3a; }
   .caption {
+    font-family: ui-sans-serif, system-ui, sans-serif;
     font-style: italic;
-    font-size: 22px;
-    color: rgba(250,250,250,0.55);
+    font-size: 26px;
+    color: rgba(250,250,250,0.6);
   }
   .card-formal {
     background: #000;
@@ -107,24 +119,26 @@
     gap: 18px;
   }
   .card-formal .artist {
-    font-size: 58px;
-    letter-spacing: 0.06em;
+    font-size: 84px;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--text-1-dark);
-    font-weight: 500;
+    font-weight: 600;
   }
   .card-formal .role {
     font-family: ui-sans-serif, system-ui, sans-serif;
     font-style: italic;
-    font-size: 20px;
+    font-size: 26px;
+    font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--text-2-dark);
   }
   .card-formal .rule { width: 48px; height: 1px; background: #3a3a3a; margin: 4px 0; }
   .card-formal .page {
-    font-size: 32px;
-    color: rgba(250,250,250,0.88);
+    font-size: 44px;
+    font-weight: 500;
+    color: rgba(250,250,250,0.92);
     font-style: italic;
   }
 </style>
