@@ -93,13 +93,13 @@ For full workflow details, run `bd prime` to get the latest context.
 
 ## Project Overview
 
-This is a Hugo static site generator project hosting a family photo gallery featuring 48+ albums from photographer Gordon Landreth, spanning 1931-1990s. The site is deployed to AWS CloudFront and includes an OCR system for digitizing photo captions.
+This is a Hugo static site generator project hosting a family photo gallery featuring 48+ albums from photographer Gordon Landreth, spanning 1931-1990s. The site is served from a Cloudflare Worker and includes an OCR system for digitizing photo captions.
 
 **Technology Stack:**
 - Hugo v0.121.2+ (static site generator)
 - hugo-theme-gallery v4.2.5 (via Go modules)
 - Python 3 + OpenCV + Tesseract (OCR utilities)
-- AWS S3 + CloudFront (hosting, being migrated to Cloudflare Workers — see Deployment below)
+- Cloudflare Workers (static-assets hosting — see Deployment below)
 
 **Base URL:** https://gordon-landreth-photography.arts-link.com
 
@@ -110,13 +110,6 @@ This is a Hugo static site generator project hosting a family photo gallery feat
 hugo                    # Build site to /public/
 hugo --minify --gc      # Production build with minification
 hugo server             # Local dev server with live reload at http://localhost:1313
-hugo deploy             # Deploy to S3 with CloudFront invalidation
-./deploy.sh             # Full deployment (handles AWS credential switching)
-```
-
-### CloudFront Cache Management
-```bash
-aws cloudfront create-invalidation --distribution-id EPSVMGZTAOYO2 --paths "/*"
 ```
 
 ### OCR Caption Processing
@@ -181,8 +174,7 @@ Hugo's theme override system allows customization without modifying the theme:
   instead of the theme's raw-photo default — see Social Cards & Structured Data above
 - `/layouts/partials/json-ld.html` - Organization/Person/WebSite/ImageGallery structured data
 - `/layouts/partials/og-card.html` + `/layouts/_default/baseof.ogcard.html` - The OG card itself
-- `/layouts/partials/head-custom.html` - The one true robots meta tag, Plausible analytics
-  injection, search-index preload hint
+- `/layouts/partials/head-custom.html` - The one true robots meta tag, search-index preload hint
 
 ### Image Processing Pipeline
 Hugo processes images at build time:
@@ -223,16 +215,14 @@ The OCR system digitizes typed captions from scanned album pages for searchable 
 
 ### Configuration Files
 - `/config/_default/hugo.toml` - Main site config (base URL, theme, image processing)
-- `/config/production/hugo.toml` - Production overrides (Plausible analytics domain)
-- `/config/_default/deployment.toml` - S3 bucket + CloudFront distribution settings
 - `go.mod` / `go.sum` - Hugo module dependencies
 - `/i18n/en.toml` - UI string translations
 
 ### Deployment Infrastructure
 
 **Cloudflare is live.** `gordon-landreth-photography.arts-link.com` serves from the Worker via
-a Custom Domain. AWS is kept as the rollback for now — do not tear down the S3/CloudFront side
-until the Cloudflare side has been serving reliably for a good while longer.
+a Custom Domain. The old AWS S3 + CloudFront hosting (and its `hugo deploy` / `deploy.sh`
+path) has been retired and removed from this repo.
 
 - **Cloudflare Worker (live):** `wrangler.jsonc` → `scripts/cf-build.sh`. An assets-only
   Worker — no `main`, nothing executes per request, `public/` is served straight from the
@@ -251,10 +241,6 @@ until the Cloudflare side has been serving reliably for a good while longer.
 - **No preview/production baseURL branching in `cf-build.sh`**, unlike arts-link.com's build
   script — see Copyright & Privacy below for why `.Params.private` can't just be cascaded true
   site-wide, and how privacy is actually enforced regardless of which branch built the page.
-- **AWS S3 Bucket (rollback):** gordon-landreth-photography.arts-link.com (us-east-2)
-- **CloudFront Distribution ID:** EPSVMGZTAOYO2
-- **Cache Control:** 630-day max-age for static assets
-- **Deploy Script:** `./deploy.sh` handles AWS credential profile switching and invalidation
 - **`arts-link.com`'s CLAUDE.md has the full Workers Builds gotchas** (the "three checks on a
   PR, not two" GitHub App connection issue, `Settings → Builds` disconnected-banner trap, etc.)
   — the failure modes are the same here.
@@ -306,7 +292,7 @@ until the Cloudflare side has been serving reliably for a good while longer.
   to stay linkable/shareable even though it doesn't want to be indexed. See Social Cards &
   Structured Data above for the corollary: since `noindex` only asks politely and plenty of
   bots don't honor it, every page also carries real, accurate JSON-LD rather than nothing.
-- Plausible analytics only (privacy-focused, no Google Analytics)
+- No analytics (Plausible was used under AWS, via a CloudFront proxy; dropped with the move)
 - GPS EXIF data intentionally stripped from images
 
 ### OCR System Philosophy
@@ -330,7 +316,6 @@ When working with the OCR system, always respect these principles:
 - **No database/CMS** - Fully static architecture
 - **Git-based content workflow** - Commits track album additions, beads auto-syncs with git
 - **Build-time optimization** - All image processing happens during `hugo` build
-- **AWS CLI required** - Must have `aws configure` set up for deployment
 - **Session completion:** Always run SESSION CLOSE PROTOCOL before ending work (see Beads section)
 
 ## Testing

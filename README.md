@@ -9,12 +9,11 @@ Please respect the ownership of these photos. All images on this website are the
 
 ## Deploy
 
-To deploy this project to cloudfront, you must be logged into AWS on the arts-link.com account through the cli command `aws configure`
-
-To deploy you need the site built into the public directory already, so make sure you run `hugo`, than just do a normal deploy and run the cloudfront invalidation to clear the edge cache.
+The site is served by a Cloudflare Worker (static assets only, configured in `wrangler.jsonc`). Pushes to `main` build and deploy through Cloudflare Workers Builds. To build or deploy by hand:
 
 ```
-hugo
-hugo deploy
-aws cloudfront create-invalidation --distribution-id EPSVMGZTAOYO2 --paths "/*"
+npm install
+npm run cf:build    # hugo --minify --gc
+npm run cf:dev      # build, then serve locally on the Workers runtime
+npm run cf:deploy   # build, then wrangler deploy
 ```
